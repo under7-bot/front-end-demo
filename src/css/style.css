@@ -80,6 +80,32 @@ h3 {
   color: #d8e0ea;
 }
 
+.language-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 22px;
+}
+
+.language-button {
+  min-height: 38px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 6px;
+  background: transparent;
+  color: #ffffff;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  padding: 7px 12px;
+}
+
+.language-button:hover,
+.language-button.is-active {
+  border-color: #8de0d5;
+  background: #8de0d5;
+  color: #172033;
+}
+
 .home-section {
   padding: 32px 0 8px;
 }
@@ -130,6 +156,10 @@ h3 {
 .navigation-card.is-disabled {
   box-shadow: none;
   color: var(--muted);
+}
+
+.navigation-card.is-disabled:hover {
+  border-color: var(--line);
 }
 
 .card-kicker {

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,90 +9,96 @@
   <body>
     <header class="site-header">
       <div class="page-wrap">
-        <p class="eyebrow">Personal AI learning system</p>
-        <h1>AI Memory Palace Learning Trace System</h1>
-        <p class="subtitle">
-          A static homepage for mapping learning paths, knowledge points, question notes, and chat traces.
+        <p id="header-eyebrow" class="eyebrow">个人 AI 学习系统</p>
+        <h1 id="project-title">AI Memory Palace Learning Trace System</h1>
+        <p id="project-subtitle" class="subtitle">
+          用中文、日语和英语组织学习路径、知识点、问题笔记和聊天轨迹。
         </p>
+
+        <div class="language-selector" aria-label="Language selector">
+          <button class="language-button is-active" type="button" data-language="zh">中文</button>
+          <button class="language-button" type="button" data-language="ja">日本語</button>
+          <button class="language-button" type="button" data-language="en">English</button>
+        </div>
       </div>
     </header>
 
     <main class="page-wrap">
       <section class="home-section" aria-labelledby="navigation-title">
         <div class="section-heading">
-          <p class="eyebrow">Library entrances</p>
-          <h2 id="navigation-title">Navigation</h2>
+          <p id="navigation-eyebrow" class="eyebrow">学习入口</p>
+          <h2 id="navigation-title">导航</h2>
         </div>
 
         <div class="navigation-grid">
           <a class="navigation-card" href="#learning-path-preview">
-            <span class="card-kicker">Path map</span>
-            <strong>Learning Paths</strong>
-            <span>Preview ordered learning routes.</span>
+            <span id="nav-path-kicker" class="card-kicker">路径地图</span>
+            <strong id="nav-path-title">Learning Paths</strong>
+            <span id="nav-path-desc">预览有顺序的学习路线。</span>
           </a>
 
           <a class="navigation-card" href="#knowledge-preview">
-            <span class="card-kicker">Context map</span>
-            <strong>Main Knowledge Points</strong>
-            <span>Preview concepts with prerequisite and next links.</span>
+            <span id="nav-knowledge-kicker" class="card-kicker">知识上下文</span>
+            <strong id="nav-knowledge-title">Main Knowledge Points</strong>
+            <span id="nav-knowledge-desc">预览带有前置、后续和关联关系的知识点。</span>
           </a>
 
           <a class="navigation-card" href="#question-preview">
-            <span class="card-kicker">Review notes</span>
-            <strong>Question Notes</strong>
-            <span>Preview questions connected to knowledge points.</span>
+            <span id="nav-question-kicker" class="card-kicker">复习问题</span>
+            <strong id="nav-question-title">Question Notes</strong>
+            <span id="nav-question-desc">预览连接到知识点的问题笔记。</span>
           </a>
 
           <a class="navigation-card" href="#chat-traces">
-            <span class="card-kicker">Conversation memory</span>
-            <strong>Chat Traces</strong>
-            <span>Placeholder entrance for future chat trace browsing.</span>
+            <span id="nav-chat-kicker" class="card-kicker">对话记忆</span>
+            <strong id="nav-chat-title">Chat Traces</strong>
+            <span id="nav-chat-desc">聊天轨迹浏览入口，后续步骤实现。</span>
           </a>
 
           <div class="navigation-card is-disabled" aria-disabled="true">
-            <span class="card-kicker">Coming later</span>
-            <strong>Import Chat</strong>
-            <span>Not implemented in Step 1.</span>
+            <span id="nav-import-kicker" class="card-kicker">稍后实现</span>
+            <strong id="nav-import-title">Import Chat</strong>
+            <span id="nav-import-desc">Step 1 不实现聊天导入。</span>
           </div>
 
           <div class="navigation-card is-disabled" aria-disabled="true">
-            <span class="card-kicker">Coming later</span>
-            <strong>Search</strong>
-            <span>Not implemented in Step 1.</span>
+            <span id="nav-search-kicker" class="card-kicker">稍后实现</span>
+            <strong id="nav-search-title">Search</strong>
+            <span id="nav-search-desc">Step 1 不实现搜索。</span>
           </div>
         </div>
       </section>
 
       <section id="learning-path-preview" class="home-section" aria-labelledby="learning-path-title">
         <div class="section-heading">
-          <p class="eyebrow">Loaded from data/learning_paths.json</p>
-          <h2 id="learning-path-title">Learning Path Preview</h2>
+          <p id="learning-path-eyebrow" class="eyebrow">来自 data/learning_paths.json</p>
+          <h2 id="learning-path-title">学习路径预览</h2>
         </div>
-        <div id="learning-path-list" class="preview-grid" data-empty="Loading learning path preview..."></div>
+        <div id="learning-path-list" class="preview-grid" data-empty="正在加载学习路径预览..."></div>
       </section>
 
       <section id="knowledge-preview" class="home-section" aria-labelledby="knowledge-title">
         <div class="section-heading">
-          <p class="eyebrow">Loaded from data/knowledge.json</p>
-          <h2 id="knowledge-title">Main Knowledge Point Preview</h2>
+          <p id="knowledge-eyebrow" class="eyebrow">来自 data/knowledge.json</p>
+          <h2 id="knowledge-title">主知识点预览</h2>
         </div>
-        <div id="knowledge-list" class="preview-grid" data-empty="Loading knowledge point preview..."></div>
+        <div id="knowledge-list" class="preview-grid" data-empty="正在加载知识点预览..."></div>
       </section>
 
       <section id="question-preview" class="home-section" aria-labelledby="question-title">
         <div class="section-heading">
-          <p class="eyebrow">Loaded from data/questions.json</p>
-          <h2 id="question-title">Question Note Preview</h2>
+          <p id="question-eyebrow" class="eyebrow">来自 data/questions.json</p>
+          <h2 id="question-title">问题笔记预览</h2>
         </div>
-        <div id="question-list" class="preview-grid" data-empty="Loading question note preview..."></div>
+        <div id="question-list" class="preview-grid" data-empty="正在加载问题笔记预览..."></div>
       </section>
 
       <section id="chat-traces" class="home-section muted-section" aria-labelledby="chat-trace-title">
         <div class="section-heading">
-          <p class="eyebrow">Placeholder</p>
-          <h2 id="chat-trace-title">Chat Traces</h2>
+          <p id="chat-eyebrow" class="eyebrow">占位入口</p>
+          <h2 id="chat-trace-title">聊天轨迹</h2>
         </div>
-        <p class="plain-note">Chat trace browsing will be added in a later step.</p>
+        <p id="chat-placeholder" class="plain-note">聊天轨迹浏览会在后续步骤中实现。</p>
       </section>
     </main>
 
