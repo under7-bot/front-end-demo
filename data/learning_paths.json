@@ -1,10 +1,45 @@
 [
   {
+    "id": "path_python_function_basics",
+    "title": {
+      "zh": "Python 函数基础",
+      "ja": "Python 関数の基礎",
+      "en": "Python Function Basics"
+    },
+    "description": {
+      "zh": "学习函数、返回值，以及如何把问题和聊天轨迹连接到知识点。",
+      "ja": "関数、戻り値、質問とチャットトレースを知識点へ接続する方法を学ぶパスです。",
+      "en": "A path for learning functions, return values, and how questions and chat traces connect to knowledge points."
+    },
+    "goal": {
+      "zh": "理解 Python 函数的输入输出，并能用问题笔记记录薄弱点。",
+      "ja": "Python 関数の入出力を理解し、質問ノートで弱点を記録できるようにする。",
+      "en": "Understand Python function input and output, and record weak points with question notes."
+    },
+    "nodes": [
+      "python-function",
+      "python-return-value",
+      "kp_learning_trace"
+    ]
+  },
+  {
     "id": "path_personal_ai_learning_system",
-    "title": "Personal AI Learning System Foundations",
-    "description": "A starter path for understanding how memory palace structure, learning traces, questions, and chat records connect.",
-    "goal": "Create a contextual learning map that can grow from static JSON into a richer personal review system.",
-    "knowledgePointIds": [
+    "title": {
+      "zh": "个人 AI 学习系统基础",
+      "ja": "個人 AI 学習システムの基礎",
+      "en": "Personal AI Learning System Foundations"
+    },
+    "description": {
+      "zh": "理解记忆宫殿、学习轨迹、问题笔记和聊天记录如何相互连接。",
+      "ja": "記憶の宮殿、学習トレース、質問ノート、チャット記録がどうつながるかを理解します。",
+      "en": "A starter path for understanding how memory palace structure, learning traces, question notes, and chat records connect."
+    },
+    "goal": {
+      "zh": "建立一个可扩展的三语学习地图。",
+      "ja": "拡張可能な三言語学習マップを作る。",
+      "en": "Create an extensible trilingual learning map."
+    },
+    "nodes": [
       "kp_memory_palace_basics",
       "kp_learning_trace",
       "kp_question_note_linking",

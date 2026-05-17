@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Question Detail | AI Memory Palace Learning Trace</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="page-wrap">
+        <p class="eyebrow">Question note detail</p>
+        <h1 id="question-title">Loading question note...</h1>
+        <p id="question-original" class="subtitle">Loading original question...</p>
+      </div>
+    </header>
+
+    <main class="page-wrap detail-layout">
+      <a class="back-link" href="index.html">Back to homepage</a>
+
+      <section class="detail-panel" aria-labelledby="question-overview-title">
+        <div class="section-heading">
+          <p class="eyebrow">Separated question note</p>
+          <h2 id="question-overview-title">Question Information</h2>
+        </div>
+
+        <div class="detail-grid">
+          <div class="detail-field">
+            <p class="meta-label">Type</p>
+            <p id="question-type" class="detail-value">Loading...</p>
+          </div>
+
+          <div class="detail-field">
+            <p class="meta-label">Status</p>
+            <p id="question-status" class="detail-value">Loading...</p>
+          </div>
+
+          <div class="detail-field">
+            <p class="meta-label">Source Chat ID</p>
+            <p id="question-source-chat-id" class="detail-value">Loading...</p>
+          </div>
+        </div>
+
+        <div class="meta-group">
+          <p class="meta-label">Original Question</p>
+          <p id="question-original-body" class="plain-note">Loading...</p>
+        </div>
+
+        <div class="meta-group">
+          <p class="meta-label">Answer Summary</p>
+          <p id="question-answer-summary" class="plain-note">Loading...</p>
+        </div>
+      </section>
+
+      <section class="relationship-grid" aria-label="Question relationships">
+        <div class="detail-panel">
+          <p class="eyebrow">Knowledge links</p>
+          <h2>Related Main Knowledge Points</h2>
+          <div id="related-knowledge-list" class="relationship-list"></div>
+        </div>
+
+        <div class="detail-panel">
+          <p class="eyebrow">Chat trace link</p>
+          <h2>Source Chat Trace</h2>
+          <div id="source-chat-trace" class="relationship-list"></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="js/question-detail.js"></script>
+  </body>
+</html>

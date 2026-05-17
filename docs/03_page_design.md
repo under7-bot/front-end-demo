@@ -1,79 +1,107 @@
 # Page Design
 
-## Initial Page Goal
+## Design Goal
 
-The first page should make the three libraries visible while making the knowledge context the main focus.
+The app should support trilingual IT learning in Chinese, Japanese, and English while preserving the three-library structure:
 
-## Layout
+1. Main knowledge points
+2. Question notes
+3. Chat traces
 
-### Header
+This revision updates the data and documentation only. It does not implement language switching UI yet.
 
-Shows:
+## Language Behavior
 
-- Project name
-- Short description
+Future pages should read display text from language objects:
 
-### Library Tabs
+- `zh`
+- `ja`
+- `en`
 
-Static navigation buttons for:
+The UI should eventually choose a current display language and fall back gracefully if one translation is missing.
 
-- Knowledge
-- Questions
-- Chat Traces
-- Learning Paths
+Suggested fallback order:
 
-The initial skeleton may show all sections on one page.
+1. Current selected language
+2. English
+3. Chinese
+4. Japanese
+5. Stable ID
 
-### Knowledge Context Area
+## Homepage
 
-Each knowledge point card should show:
+The homepage should eventually show:
 
-- Title
-- Level
-- Summary
-- Tags
-- Prerequisites
-- Next points
-- Related points
-- Learning paths
+- Project title
+- Library navigation
+- Learning path preview
+- Main knowledge point preview
+- Question note preview
 
-This area should make relationships visible even before a graph view exists.
+Preview cards should use trilingual fields from JSON instead of single-language strings.
 
-### Question Notes Area
+## Knowledge Detail Page
 
-Each question note card should show:
+Each knowledge detail page should show:
 
-- Title
-- Status
-- Question
-- Linked knowledge point IDs
+- `title[language]`
+- `subject[language]`
+- `category[language]`
+- `summary[language]`
+- `keywords[language]`
+- `level`
+- Learning path position from `learningPathIds` and learning path `nodes`
+- Prerequisite knowledge points from `prerequisiteIds`
+- Next knowledge points from `nextIds`
+- Related knowledge points from `relatedIds`
+- Related question notes from `questionIds`
 
-### Chat Trace Area
+Relationship links must continue to use IDs, not translated titles.
 
-Each chat trace card should show:
+## Question Detail Page
 
-- Title
-- Summary
-- Linked knowledge point IDs
-- Linked question IDs
+Each question detail page should show:
 
-### Learning Path Area
+- `title[language]`
+- `originalQuestion.language`
+- `originalQuestion.content`
+- `answerSummary[language]`
+- Related knowledge from `relatedKnowledgeIds`
+- Source chat trace from `sourceChatId`
+- `type`
+- `status`
 
-Each learning path card should show:
+Question notes remain their own library and should not be merged into knowledge points.
 
-- Title
-- Goal
-- Ordered knowledge point IDs
+## Chat Trace Detail Page
+
+Each chat trace page should show:
+
+- Chat title
+- Date
+- Messages
+- Linked knowledge IDs
+- Question notes generated from this chat
+
+Messages should display role and language clearly:
+
+- `messageId`
+- `role`
+- `content`
+- `language`
+
+The original message language must be preserved.
 
 ## Future Page Ideas
 
 Future versions may add:
 
+- Language switcher
+- Translation completeness checker
 - Knowledge graph view
 - Timeline view
 - Review dashboard
 - Question weakness map
-- Chat trace detail pages
 - Manual JSON editor
 
-These are intentionally not implemented in the initial skeleton.
+These are intentionally not implemented in this data-structure revision.

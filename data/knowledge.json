@@ -1,10 +1,126 @@
 [
   {
-    "id": "kp_memory_palace_basics",
-    "title": "Memory Palace Basics",
-    "summary": "A spatial method for placing ideas in memorable locations so they can be recalled by walking through a mental route.",
+    "id": "python-function",
+    "title": {
+      "zh": "Python 函数",
+      "ja": "Python の関数",
+      "en": "Python Function"
+    },
+    "subject": {
+      "zh": "Python 编程",
+      "ja": "Python プログラミング",
+      "en": "Python Programming"
+    },
+    "category": {
+      "zh": "编程基础",
+      "ja": "プログラミング基礎",
+      "en": "Programming Fundamentals"
+    },
+    "summary": {
+      "zh": "函数是可复用的代码块，可以接收输入、执行任务，并把结果返回给调用者。",
+      "ja": "関数は再利用可能なコードのまとまりで、入力を受け取り、処理を行い、結果を呼び出し元へ返せます。",
+      "en": "A function is a reusable block of code that can accept input, perform a task, and return a result to the caller."
+    },
+    "keywords": {
+      "zh": ["函数", "参数", "返回值", "调用"],
+      "ja": ["関数", "引数", "戻り値", "呼び出し"],
+      "en": ["function", "parameter", "return value", "call"]
+    },
     "level": 1,
-    "tags": ["memory", "spatial-learning", "foundation"],
+    "prerequisiteIds": [],
+    "nextIds": ["python-return-value"],
+    "relatedIds": ["kp_question_note_linking"],
+    "learningPathIds": ["path_python_function_basics"],
+    "questionIds": ["q-return-output", "q_python_function_return"],
+    "chatTraceIds": ["chat-python-001"],
+    "memoryPalace": {
+      "location": {
+        "zh": "工作台",
+        "ja": "作業台",
+        "en": "Workbench"
+      },
+      "imageCue": {
+        "zh": "一台接收输入并吐出结果卡片的机器",
+        "ja": "入力を受け取り、結果カードを出す機械",
+        "en": "A machine that accepts inputs and prints a result card"
+      }
+    }
+  },
+  {
+    "id": "python-return-value",
+    "title": {
+      "zh": "Python 返回值",
+      "ja": "Python の戻り値",
+      "en": "Python Return Value"
+    },
+    "subject": {
+      "zh": "Python 编程",
+      "ja": "Python プログラミング",
+      "en": "Python Programming"
+    },
+    "category": {
+      "zh": "函数输出",
+      "ja": "関数の出力",
+      "en": "Function Output"
+    },
+    "summary": {
+      "zh": "返回值是函数交回给调用者的数据，后续代码可以继续保存、比较或传递它。",
+      "ja": "戻り値は関数が呼び出し元へ返すデータで、後続のコードで保存、比較、受け渡しができます。",
+      "en": "A return value is data passed back from a function to its caller, so later code can store, compare, or pass it along."
+    },
+    "keywords": {
+      "zh": ["返回值", "return", "输出", "调用者"],
+      "ja": ["戻り値", "return", "出力", "呼び出し元"],
+      "en": ["return value", "return", "output", "caller"]
+    },
+    "level": 1,
+    "prerequisiteIds": ["python-function"],
+    "nextIds": ["kp_learning_trace"],
+    "relatedIds": ["python-function"],
+    "learningPathIds": ["path_python_function_basics"],
+    "questionIds": ["q-return-output"],
+    "chatTraceIds": ["chat-python-001"],
+    "memoryPalace": {
+      "location": {
+        "zh": "出口柜台",
+        "ja": "出口カウンター",
+        "en": "Exit counter"
+      },
+      "imageCue": {
+        "zh": "函数机器把结果票据交给调用者",
+        "ja": "関数の機械が結果チケットを呼び出し元へ渡す",
+        "en": "A function machine handing a result ticket to the caller"
+      }
+    }
+  },
+  {
+    "id": "kp_memory_palace_basics",
+    "title": {
+      "zh": "记忆宫殿基础",
+      "ja": "記憶の宮殿の基礎",
+      "en": "Memory Palace Basics"
+    },
+    "subject": {
+      "zh": "学习方法",
+      "ja": "学習方法",
+      "en": "Learning Method"
+    },
+    "category": {
+      "zh": "记忆策略",
+      "ja": "記憶戦略",
+      "en": "Memory Strategy"
+    },
+    "summary": {
+      "zh": "把概念放进熟悉的空间位置，通过在脑中行走来回忆知识。",
+      "ja": "概念をなじみのある空間に配置し、頭の中で歩きながら知識を思い出す方法です。",
+      "en": "A method for placing concepts in familiar locations and recalling them by walking through a mental route."
+    },
+    "keywords": {
+      "zh": ["记忆宫殿", "空间记忆", "学习"],
+      "ja": ["記憶の宮殿", "空間記憶", "学習"],
+      "en": ["memory palace", "spatial memory", "learning"]
+    },
+    "level": 1,
     "prerequisiteIds": [],
     "nextIds": ["kp_learning_trace"],
     "relatedIds": ["kp_spaced_review"],
@@ -12,53 +128,140 @@
     "questionIds": ["q_memory_palace_vs_notes"],
     "chatTraceIds": ["chat_initial_system_design"],
     "memoryPalace": {
-      "location": "Entrance hall",
-      "imageCue": "A bright doorway leading to labeled rooms",
-      "sensoryCue": "Footsteps echoing through a quiet hall"
+      "location": {
+        "zh": "入口大厅",
+        "ja": "入口ホール",
+        "en": "Entrance hall"
+      },
+      "imageCue": {
+        "zh": "通向不同知识房间的明亮门口",
+        "ja": "知識の部屋へ続く明るい入口",
+        "en": "A bright doorway leading to rooms of knowledge"
+      }
     }
   },
   {
     "id": "kp_learning_trace",
-    "title": "Learning Trace",
-    "summary": "A record of how understanding changed over time through questions, answers, mistakes, and AI conversations.",
+    "title": {
+      "zh": "学习轨迹",
+      "ja": "学習トレース",
+      "en": "Learning Trace"
+    },
+    "subject": {
+      "zh": "元认知",
+      "ja": "メタ認知",
+      "en": "Metacognition"
+    },
+    "category": {
+      "zh": "学习记录",
+      "ja": "学習記録",
+      "en": "Learning Record"
+    },
+    "summary": {
+      "zh": "记录理解如何随着问题、错误、答案和 AI 对话而变化。",
+      "ja": "質問、間違い、回答、AI との対話によって理解がどう変化したかを記録します。",
+      "en": "A record of how understanding changes through questions, mistakes, answers, and AI conversations."
+    },
+    "keywords": {
+      "zh": ["学习轨迹", "反思", "理解变化"],
+      "ja": ["学習トレース", "振り返り", "理解の変化"],
+      "en": ["learning trace", "reflection", "understanding change"]
+    },
     "level": 2,
-    "tags": ["metacognition", "history", "reflection"],
-    "prerequisiteIds": ["kp_memory_palace_basics"],
+    "prerequisiteIds": ["kp_memory_palace_basics", "python-return-value"],
     "nextIds": ["kp_question_note_linking", "kp_chat_trace_linking"],
     "relatedIds": ["kp_spaced_review"],
-    "learningPathIds": ["path_personal_ai_learning_system"],
+    "learningPathIds": ["path_personal_ai_learning_system", "path_python_function_basics"],
     "questionIds": ["q_learning_trace_value"],
     "chatTraceIds": ["chat_initial_system_design"],
     "memoryPalace": {
-      "location": "Hallway timeline",
-      "imageCue": "A glowing thread connecting notes along the wall",
-      "sensoryCue": "A soft ticking sound from marked milestones"
+      "location": {
+        "zh": "时间走廊",
+        "ja": "時間の廊下",
+        "en": "Hallway timeline"
+      },
+      "imageCue": {
+        "zh": "发光线索连接墙上的学习记录",
+        "ja": "壁の学習記録を光る糸がつないでいる",
+        "en": "A glowing thread connecting learning records on the wall"
+      }
     }
   },
   {
     "id": "kp_question_note_linking",
-    "title": "Question Note Linking",
-    "summary": "Connecting questions to knowledge points so confusion and review targets are visible.",
+    "title": {
+      "zh": "问题笔记链接",
+      "ja": "質問ノートのリンク",
+      "en": "Question Note Linking"
+    },
+    "subject": {
+      "zh": "知识管理",
+      "ja": "知識管理",
+      "en": "Knowledge Management"
+    },
+    "category": {
+      "zh": "复习结构",
+      "ja": "復習構造",
+      "en": "Review Structure"
+    },
+    "summary": {
+      "zh": "把问题笔记连接到知识点，让困惑、错误和复习目标更清楚。",
+      "ja": "質問ノートを知識点に接続し、混乱、間違い、復習対象を見えやすくします。",
+      "en": "Connecting question notes to knowledge points makes confusion, mistakes, and review targets visible."
+    },
+    "keywords": {
+      "zh": ["问题笔记", "知识链接", "弱点"],
+      "ja": ["質問ノート", "知識リンク", "弱点"],
+      "en": ["question note", "knowledge link", "weak point"]
+    },
     "level": 2,
-    "tags": ["questions", "review", "weakness-map"],
     "prerequisiteIds": ["kp_learning_trace"],
     "nextIds": ["kp_spaced_review"],
-    "relatedIds": ["kp_chat_trace_linking"],
+    "relatedIds": ["kp_chat_trace_linking", "python-function"],
     "learningPathIds": ["path_personal_ai_learning_system"],
     "questionIds": ["q_learning_trace_value"],
     "chatTraceIds": [],
     "memoryPalace": {
-      "location": "Study desk",
-      "imageCue": "Question cards pinned with colored strings",
-      "sensoryCue": "Paper edges brushing against a wooden desk"
+      "location": {
+        "zh": "书桌",
+        "ja": "学習机",
+        "en": "Study desk"
+      },
+      "imageCue": {
+        "zh": "问题卡片用彩线连接到概念卡片",
+        "ja": "質問カードが色糸で概念カードにつながっている",
+        "en": "Question cards connected to concept cards with colored strings"
+      }
     }
   },
   {
     "id": "kp_chat_trace_linking",
-    "title": "Chat Trace Linking",
-    "summary": "Connecting useful AI conversation traces to knowledge points and question notes.",
+    "title": {
+      "zh": "聊天轨迹链接",
+      "ja": "チャットトレースのリンク",
+      "en": "Chat Trace Linking"
+    },
+    "subject": {
+      "zh": "AI 学习",
+      "ja": "AI 学習",
+      "en": "AI Learning"
+    },
+    "category": {
+      "zh": "学习来源",
+      "ja": "学習ソース",
+      "en": "Learning Source"
+    },
+    "summary": {
+      "zh": "把有价值的 AI 对话连接到知识点和问题笔记。",
+      "ja": "有用な AI 対話を知識点や質問ノートに接続します。",
+      "en": "Connecting useful AI conversations to knowledge points and question notes."
+    },
+    "keywords": {
+      "zh": ["AI 对话", "聊天记录", "来源"],
+      "ja": ["AI 対話", "チャット記録", "ソース"],
+      "en": ["AI chat", "chat trace", "source"]
+    },
     "level": 2,
-    "tags": ["ai-chat", "trace", "source"],
     "prerequisiteIds": ["kp_learning_trace"],
     "nextIds": ["kp_spaced_review"],
     "relatedIds": ["kp_question_note_linking"],
@@ -66,17 +269,46 @@
     "questionIds": [],
     "chatTraceIds": ["chat_initial_system_design"],
     "memoryPalace": {
-      "location": "Conversation room",
-      "imageCue": "Speech bubbles stored in transparent drawers",
-      "sensoryCue": "Low voices fading into organized labels"
+      "location": {
+        "zh": "对话室",
+        "ja": "会話室",
+        "en": "Conversation room"
+      },
+      "imageCue": {
+        "zh": "对话气泡被收进透明抽屉",
+        "ja": "吹き出しが透明な引き出しに整理されている",
+        "en": "Speech bubbles stored in transparent drawers"
+      }
     }
   },
   {
     "id": "kp_spaced_review",
-    "title": "Spaced Review",
-    "summary": "A review practice that revisits knowledge after increasing intervals to strengthen long-term recall.",
+    "title": {
+      "zh": "间隔复习",
+      "ja": "間隔反復",
+      "en": "Spaced Review"
+    },
+    "subject": {
+      "zh": "学习方法",
+      "ja": "学習方法",
+      "en": "Learning Method"
+    },
+    "category": {
+      "zh": "长期记忆",
+      "ja": "長期記憶",
+      "en": "Long-Term Retention"
+    },
+    "summary": {
+      "zh": "按照逐渐拉长的时间间隔复习知识，增强长期记忆。",
+      "ja": "徐々に長くなる間隔で知識を復習し、長期記憶を強めます。",
+      "en": "Reviewing knowledge at increasing intervals to strengthen long-term recall."
+    },
+    "keywords": {
+      "zh": ["间隔复习", "长期记忆", "复习"],
+      "ja": ["間隔反復", "長期記憶", "復習"],
+      "en": ["spaced review", "long-term memory", "review"]
+    },
     "level": 3,
-    "tags": ["review", "retention", "practice"],
     "prerequisiteIds": ["kp_question_note_linking", "kp_chat_trace_linking"],
     "nextIds": [],
     "relatedIds": ["kp_memory_palace_basics", "kp_learning_trace"],
@@ -84,9 +316,16 @@
     "questionIds": [],
     "chatTraceIds": [],
     "memoryPalace": {
-      "location": "Clock room",
-      "imageCue": "Several clocks ringing at different intervals",
-      "sensoryCue": "Gentle chimes marking each review"
+      "location": {
+        "zh": "时钟房间",
+        "ja": "時計の部屋",
+        "en": "Clock room"
+      },
+      "imageCue": {
+        "zh": "多个时钟在不同时间响起",
+        "ja": "複数の時計が異なる間隔で鳴る",
+        "en": "Several clocks ringing at different intervals"
+      }
     }
   }
 ]

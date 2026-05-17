@@ -3,56 +3,96 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AI Memory Palace Learning Trace</title>
+    <title>AI Memory Palace Learning Trace System</title>
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <header class="app-header">
-      <div>
-        <p class="eyebrow">Personal learning system</p>
-        <h1>AI Memory Palace Learning Trace</h1>
-        <p class="subtitle">A static skeleton for linking knowledge context, question notes, and chat traces.</p>
+    <header class="site-header">
+      <div class="page-wrap">
+        <p class="eyebrow">Personal AI learning system</p>
+        <h1>AI Memory Palace Learning Trace System</h1>
+        <p class="subtitle">
+          A static homepage for mapping learning paths, knowledge points, question notes, and chat traces.
+        </p>
       </div>
     </header>
 
-    <main class="app-shell">
-      <nav class="library-nav" aria-label="Library sections">
-        <a href="#knowledge">Knowledge</a>
-        <a href="#questions">Questions</a>
-        <a href="#chat-traces">Chat Traces</a>
-        <a href="#learning-paths">Learning Paths</a>
-      </nav>
-
-      <section id="knowledge" class="library-section">
+    <main class="page-wrap">
+      <section class="home-section" aria-labelledby="navigation-title">
         <div class="section-heading">
-          <p class="eyebrow">Main library</p>
-          <h2>Knowledge Context</h2>
+          <p class="eyebrow">Library entrances</p>
+          <h2 id="navigation-title">Navigation</h2>
         </div>
-        <div id="knowledge-list" class="card-grid" data-empty="Loading knowledge points..."></div>
+
+        <div class="navigation-grid">
+          <a class="navigation-card" href="#learning-path-preview">
+            <span class="card-kicker">Path map</span>
+            <strong>Learning Paths</strong>
+            <span>Preview ordered learning routes.</span>
+          </a>
+
+          <a class="navigation-card" href="#knowledge-preview">
+            <span class="card-kicker">Context map</span>
+            <strong>Main Knowledge Points</strong>
+            <span>Preview concepts with prerequisite and next links.</span>
+          </a>
+
+          <a class="navigation-card" href="#question-preview">
+            <span class="card-kicker">Review notes</span>
+            <strong>Question Notes</strong>
+            <span>Preview questions connected to knowledge points.</span>
+          </a>
+
+          <a class="navigation-card" href="#chat-traces">
+            <span class="card-kicker">Conversation memory</span>
+            <strong>Chat Traces</strong>
+            <span>Placeholder entrance for future chat trace browsing.</span>
+          </a>
+
+          <div class="navigation-card is-disabled" aria-disabled="true">
+            <span class="card-kicker">Coming later</span>
+            <strong>Import Chat</strong>
+            <span>Not implemented in Step 1.</span>
+          </div>
+
+          <div class="navigation-card is-disabled" aria-disabled="true">
+            <span class="card-kicker">Coming later</span>
+            <strong>Search</strong>
+            <span>Not implemented in Step 1.</span>
+          </div>
+        </div>
       </section>
 
-      <section id="questions" class="library-section">
+      <section id="learning-path-preview" class="home-section" aria-labelledby="learning-path-title">
         <div class="section-heading">
-          <p class="eyebrow">Question note library</p>
-          <h2>Question Notes</h2>
+          <p class="eyebrow">Loaded from data/learning_paths.json</p>
+          <h2 id="learning-path-title">Learning Path Preview</h2>
         </div>
-        <div id="question-list" class="card-grid" data-empty="Loading question notes..."></div>
+        <div id="learning-path-list" class="preview-grid" data-empty="Loading learning path preview..."></div>
       </section>
 
-      <section id="chat-traces" class="library-section">
+      <section id="knowledge-preview" class="home-section" aria-labelledby="knowledge-title">
         <div class="section-heading">
-          <p class="eyebrow">Chat trace library</p>
-          <h2>Chat Traces</h2>
+          <p class="eyebrow">Loaded from data/knowledge.json</p>
+          <h2 id="knowledge-title">Main Knowledge Point Preview</h2>
         </div>
-        <div id="chat-trace-list" class="card-grid" data-empty="Loading chat traces..."></div>
+        <div id="knowledge-list" class="preview-grid" data-empty="Loading knowledge point preview..."></div>
       </section>
 
-      <section id="learning-paths" class="library-section">
+      <section id="question-preview" class="home-section" aria-labelledby="question-title">
         <div class="section-heading">
-          <p class="eyebrow">Path library</p>
-          <h2>Learning Paths</h2>
+          <p class="eyebrow">Loaded from data/questions.json</p>
+          <h2 id="question-title">Question Note Preview</h2>
         </div>
-        <div id="learning-path-list" class="card-grid" data-empty="Loading learning paths..."></div>
+        <div id="question-list" class="preview-grid" data-empty="Loading question note preview..."></div>
+      </section>
+
+      <section id="chat-traces" class="home-section muted-section" aria-labelledby="chat-trace-title">
+        <div class="section-heading">
+          <p class="eyebrow">Placeholder</p>
+          <h2 id="chat-trace-title">Chat Traces</h2>
+        </div>
+        <p class="plain-note">Chat trace browsing will be added in a later step.</p>
       </section>
     </main>
 

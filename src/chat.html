@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chat Detail | AI Memory Palace Learning Trace</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="page-wrap">
+        <p class="eyebrow">Chat trace detail</p>
+        <h1 id="chat-title">Loading chat trace...</h1>
+        <p id="chat-date" class="subtitle">Loading date...</p>
+      </div>
+    </header>
+
+    <main class="page-wrap detail-layout">
+      <a class="back-link" href="index.html">Back to homepage</a>
+
+      <section class="detail-panel" aria-labelledby="messages-title">
+        <div class="section-heading">
+          <p class="eyebrow">Conversation</p>
+          <h2 id="messages-title">Messages</h2>
+        </div>
+        <div id="message-list" class="message-list"></div>
+      </section>
+
+      <section class="relationship-grid" aria-label="Chat trace relationships">
+        <div class="detail-panel">
+          <p class="eyebrow">Knowledge links</p>
+          <h2>linkedKnowledgeIds</h2>
+          <div id="linked-knowledge-list" class="relationship-list"></div>
+        </div>
+
+        <div class="detail-panel">
+          <p class="eyebrow">Generated notes</p>
+          <h2>Question Notes Generated From This Chat</h2>
+          <div id="generated-question-list" class="relationship-list"></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="js/chat-detail.js"></script>
+  </body>
+</html>

@@ -1,23 +1,93 @@
 [
   {
+    "id": "q-return-output",
+    "title": {
+      "zh": "返回值和打印输出",
+      "ja": "戻り値と表示出力",
+      "en": "Return Value vs Printed Output"
+    },
+    "originalQuestion": {
+      "language": "zh",
+      "content": "为什么 Python 函数打印了结果，但后面不能继续使用这个结果？"
+    },
+    "answerSummary": {
+      "zh": "print 只是把内容显示到屏幕上；return 会把值交回调用者，让后续代码继续保存、比较或传递它。",
+      "ja": "print は画面に表示するだけです。return は値を呼び出し元へ返すので、後続のコードで保存、比較、受け渡しができます。",
+      "en": "print only displays content on the screen. return gives a value back to the caller so later code can store, compare, or pass it along."
+    },
+    "relatedKnowledgeIds": ["python-function", "python-return-value"],
+    "sourceChatId": "chat-python-001",
+    "type": "概念辨析",
+    "status": "待复习",
+    "createdAt": "2026-05-17",
+    "updatedAt": "2026-05-17"
+  },
+  {
+    "id": "q_python_function_return",
+    "title": {
+      "zh": "Python 函数返回值",
+      "ja": "Python 関数の戻り値",
+      "en": "Python Function Return Value"
+    },
+    "originalQuestion": {
+      "language": "en",
+      "content": "What is the difference between printing inside a Python function and returning a value from it?"
+    },
+    "answerSummary": {
+      "zh": "打印用于显示，返回值用于把结果交给调用者继续使用。",
+      "ja": "表示は画面に見せるためで、戻り値は結果を呼び出し元で再利用するためです。",
+      "en": "Printing is for display, while returning gives the result back to the caller for reuse."
+    },
+    "relatedKnowledgeIds": ["python-function", "python-return-value"],
+    "sourceChatId": "chat-python-001",
+    "type": "概念辨析",
+    "status": "待复习",
+    "createdAt": "2026-05-17",
+    "updatedAt": "2026-05-17"
+  },
+  {
     "id": "q_memory_palace_vs_notes",
-    "title": "Memory palace vs normal notes",
-    "question": "When should a concept be placed in a memory palace instead of only written as a normal note?",
-    "answerDraft": "Use the memory palace when recall, sequence, or contextual association matters. Keep ordinary notes for details that do not need spatial recall.",
-    "status": "open",
-    "knowledgePointIds": ["kp_memory_palace_basics"],
-    "source": "manual",
+    "title": {
+      "zh": "记忆宫殿和普通笔记",
+      "ja": "記憶の宮殿と通常ノート",
+      "en": "Memory Palace vs Normal Notes"
+    },
+    "originalQuestion": {
+      "language": "en",
+      "content": "When should a concept be placed in a memory palace instead of only written as a normal note?"
+    },
+    "answerSummary": {
+      "zh": "当概念需要强记忆、顺序回忆或空间联想时，适合放入记忆宫殿；普通细节可以保留在普通笔记中。",
+      "ja": "強い想起、順序、空間的な関連づけが重要な概念は記憶の宮殿に置き、細部は通常ノートに残します。",
+      "en": "Use a memory palace when recall, sequence, or spatial association matters; keep ordinary details in normal notes."
+    },
+    "relatedKnowledgeIds": ["kp_memory_palace_basics"],
+    "sourceChatId": "chat_initial_system_design",
+    "type": "学习策略",
+    "status": "待复习",
     "createdAt": "2026-05-17",
     "updatedAt": "2026-05-17"
   },
   {
     "id": "q_learning_trace_value",
-    "title": "Value of a learning trace",
-    "question": "What does a learning trace add beyond a final polished summary?",
-    "answerDraft": "It preserves the path of confusion, correction, and insight, which helps diagnose weak points and repeat useful learning moves.",
-    "status": "draft",
-    "knowledgePointIds": ["kp_learning_trace", "kp_question_note_linking"],
-    "source": "manual",
+    "title": {
+      "zh": "学习轨迹的价值",
+      "ja": "学習トレースの価値",
+      "en": "Value of a Learning Trace"
+    },
+    "originalQuestion": {
+      "language": "en",
+      "content": "What does a learning trace add beyond a final polished summary?"
+    },
+    "answerSummary": {
+      "zh": "学习轨迹保留困惑、修正和洞察的过程，有助于发现薄弱点并复用有效学习动作。",
+      "ja": "学習トレースは混乱、修正、気づきの過程を残し、弱点の発見と有効な学習行動の再利用に役立ちます。",
+      "en": "A learning trace preserves confusion, correction, and insight, making weak points and useful learning moves easier to find."
+    },
+    "relatedKnowledgeIds": ["kp_learning_trace", "kp_question_note_linking"],
+    "sourceChatId": "chat_initial_system_design",
+    "type": "反思问题",
+    "status": "草稿",
     "createdAt": "2026-05-17",
     "updatedAt": "2026-05-17"
   }
