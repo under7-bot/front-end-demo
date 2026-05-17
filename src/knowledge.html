@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,74 +9,80 @@
   <body>
     <header class="site-header">
       <div class="page-wrap">
-        <p class="eyebrow">Knowledge detail</p>
-        <h1 id="knowledge-title">Loading knowledge point...</h1>
-        <p id="knowledge-summary" class="subtitle">Loading summary...</p>
+        <p id="detail-eyebrow" class="eyebrow">知识点详情</p>
+        <h1 id="knowledge-title">正在加载知识点...</h1>
+        <p id="knowledge-summary" class="subtitle">正在加载摘要...</p>
+
+        <div class="language-selector" aria-label="Language selector">
+          <button class="language-button is-active" type="button" data-language="zh">中文</button>
+          <button class="language-button" type="button" data-language="ja">日本語</button>
+          <button class="language-button" type="button" data-language="en">English</button>
+        </div>
       </div>
     </header>
 
     <main class="page-wrap detail-layout">
-      <a class="back-link" href="index.html">Back to homepage</a>
+      <a id="back-link" class="back-link" href="index.html">返回首页</a>
 
       <section class="detail-panel" aria-labelledby="overview-title">
         <div class="section-heading">
-          <p class="eyebrow">Overview</p>
-          <h2 id="overview-title">Knowledge Information</h2>
+          <p id="overview-eyebrow" class="eyebrow">概览</p>
+          <h2 id="overview-title">知识信息</h2>
         </div>
 
         <div class="detail-grid">
           <div class="detail-field">
-            <p class="meta-label">Subject</p>
-            <p id="knowledge-subject" class="detail-value">Loading...</p>
+            <p id="subject-label" class="meta-label">主题</p>
+            <p id="knowledge-subject" class="detail-value">正在加载...</p>
           </div>
 
           <div class="detail-field">
-            <p class="meta-label">Category</p>
-            <p id="knowledge-category" class="detail-value">Loading...</p>
+            <p id="category-label" class="meta-label">分类</p>
+            <p id="knowledge-category" class="detail-value">正在加载...</p>
           </div>
 
           <div class="detail-field">
-            <p class="meta-label">Level</p>
-            <p id="knowledge-level" class="detail-value">Loading...</p>
+            <p id="level-label" class="meta-label">等级</p>
+            <p id="knowledge-level" class="detail-value">正在加载...</p>
           </div>
         </div>
 
         <div class="meta-group">
-          <p class="meta-label">Keywords</p>
+          <p id="keywords-label" class="meta-label">关键词</p>
           <div id="knowledge-keywords"></div>
         </div>
       </section>
 
       <section class="detail-panel" aria-labelledby="path-title">
         <div class="section-heading">
-          <p class="eyebrow">Learning path</p>
-          <h2 id="path-title">Learning Path Position</h2>
+          <p id="path-eyebrow" class="eyebrow">学习路径</p>
+          <h2 id="path-title">学习路径位置</h2>
         </div>
         <div id="learning-path-position" class="relationship-list"></div>
       </section>
 
       <section class="relationship-grid" aria-label="Knowledge relationships">
         <div class="detail-panel">
-          <p class="eyebrow">Before this</p>
-          <h2>Prerequisite Knowledge Points</h2>
+          <p id="prerequisite-eyebrow" class="eyebrow">之前需要</p>
+          <h2 id="prerequisite-title">前置知识点</h2>
           <div id="prerequisite-list" class="relationship-list"></div>
         </div>
 
         <div class="detail-panel">
-          <p class="eyebrow">After this</p>
-          <h2>Next Knowledge Points</h2>
+          <p id="next-eyebrow" class="eyebrow">之后学习</p>
+          <h2 id="next-title">后续知识点</h2>
           <div id="next-list" class="relationship-list"></div>
         </div>
 
         <div class="detail-panel">
-          <p class="eyebrow">Nearby ideas</p>
-          <h2>Related Knowledge Points</h2>
+          <p id="related-eyebrow" class="eyebrow">附近概念</p>
+          <h2 id="related-title">相关知识点</h2>
           <div id="related-list" class="relationship-list"></div>
         </div>
 
         <div class="detail-panel">
-          <p class="eyebrow">Review links</p>
-          <h2>Related Question Notes</h2>
+          <p id="question-eyebrow" class="eyebrow">复习链接</p>
+          <h2 id="question-title">相关问题笔记</h2>
           <div id="question-list" class="relationship-list"></div>
         </div>
       </section>
