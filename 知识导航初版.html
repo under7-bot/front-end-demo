@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的学习导航网页</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: Arial, "Microsoft YaHei", sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      padding: 0;
+      color: #222;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: #1f2937;
+      color: white;
+      padding: 24px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      line-height: 1.25;
+    }
+
+    header p {
+      margin: 12px 0 0;
+      line-height: 1.6;
+    }
+
+    .language-switcher {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+
+    .language-button {
+      border: 1px solid rgba(255,255,255,0.45);
+      background: transparent;
+      color: white;
+      border-radius: 999px;
+      padding: 8px 14px;
+      cursor: pointer;
+      font-size: 14px;
+      min-width: 76px;
+      min-height: 40px;
+    }
+
+    .language-button:hover,
+    .language-button.active {
+      background: white;
+      color: #1f2937;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 30px auto;
+    }
+
+    .section-title {
+      margin-top: 40px;
+      border-left: 6px solid #2563eb;
+      padding-left: 12px;
+      font-size: 24px;
+      line-height: 1.35;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      transition: 0.2s;
+      min-height: 100%;
+      overflow-wrap: anywhere;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #1d4ed8;
+      line-height: 1.35;
+    }
+
+    .card p {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #e0ecff;
+      color: #1d4ed8;
+      padding: 4px 8px;
+      margin: 4px 4px 0 0;
+      border-radius: 6px;
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    @media (max-width: 640px) {
+      header {
+        padding: 24px 16px;
+      }
+
+      header h1 {
+        font-size: 23px;
+        line-height: 1.3;
+      }
+
+      header p {
+        font-size: 14px;
+      }
+
+      .language-switcher {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+        width: 100%;
+      }
+
+      .language-button {
+        width: 100%;
+        min-width: 0;
+        padding: 10px 8px;
+        font-size: 13px;
+      }
+
+      .container {
+        width: calc(100% - 32px);
+        margin: 24px auto;
+      }
+
+      .section-title {
+        font-size: 20px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .card {
+        padding: 18px;
+      }
+
+      .card:hover {
+        transform: none;
+      }
+    }
+
+    @media (max-width: 380px) {
+      header h1 {
+        font-size: 21px;
+      }
+
+      .container {
+        width: calc(100% - 24px);
+      }
+
+      .language-switcher {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title {
+        font-size: 19px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1 data-i18n="siteTitle">我的 AI 记忆宫殿学习导航</h1>
+  <p data-i18n="siteSubtitle">IT学习 × FE考试 × 日语 × 作品集项目</p>
+  <div class="language-switcher" aria-label="Language switcher">
+    <button class="language-button active" type="button" data-lang="zh">中文</button>
+    <button class="language-button" type="button" data-lang="ja">日本語</button>
+    <button class="language-button" type="button" data-lang="en">English</button>
+  </div>
+</header>
+
+<div class="container">
+
+  <h2 class="section-title" data-i18n="sectionDevelopment">情報システム開発科</h2>
+  <div class="grid">
+
+    <a href="python.html">
+      <div class="card">
+        <h3 data-i18n="pythonTitle">Python 基础</h3>
+        <p data-i18n="pythonDesc">变量、条件分支、循环、函数、文件处理、项目实战。</p>
+        <span class="tag" data-i18n="tagPython">Python</span>
+        <span class="tag" data-i18n="tagBeginner">入门</span>
+        <span class="tag" data-i18n="tagProject">项目</span>
+      </div>
+    </a>
+
+    <a href="java.html">
+      <div class="card">
+        <h3 data-i18n="javaTitle">Java 基础</h3>
+        <p data-i18n="javaDesc">类、对象、for循环、条件判断、方法、面向对象思维。</p>
+        <span class="tag" data-i18n="tagJava">Java</span>
+        <span class="tag" data-i18n="tagSchoolCourse">学校课程</span>
+      </div>
+    </a>
+
+    <a href="sql.html">
+      <div class="card">
+        <h3 data-i18n="sqlTitle">SQL / 数据库</h3>
+        <p data-i18n="sqlDesc">SELECT、WHERE、JOIN、GROUP BY、数据库设计。</p>
+        <span class="tag" data-i18n="tagSql">SQL</span>
+        <span class="tag" data-i18n="tagDb">DB</span>
+      </div>
+    </a>
+
+  </div>
+
+
+  <h2 class="section-title" data-i18n="sectionFe">基本情報技術者試験 FE</h2>
+  <div class="grid">
+
+    <a href="hardware.html">
+      <div class="card">
+        <h3 data-i18n="hardwareTitle">ハードウェア基礎理論</h3>
+        <p data-i18n="hardwareDesc">二进制、CPU、内存、地址指定方式、RISC/CISC。</p>
+        <span class="tag" data-i18n="tagFe">FE</span>
+        <span class="tag" data-i18n="tagHardware">硬件</span>
+        <span class="tag" data-i18n="tagCalculation">计算题</span>
+      </div>
+    </a>
+
+    <a href="management.html">
+      <div class="card">
+        <h3 data-i18n="managementTitle">ITマネジメント</h3>
+        <p data-i18n="managementDesc">WBS、EVM、ガントチャート、デルファイ法、风险管理。</p>
+        <span class="tag" data-i18n="tagFe">FE</span>
+        <span class="tag" data-i18n="tagManagement">管理</span>
+      </div>
+    </a>
+
+    <a href="security.html">
+      <div class="card">
+        <h3 data-i18n="securityTitle">情報セキュリティ</h3>
+        <p data-i18n="securityDesc">认证、攻击方式、暗号、ソーシャルエンジニアリング。</p>
+        <span class="tag" data-i18n="tagSecurity">安全</span>
+        <span class="tag" data-i18n="tagFrequent">高频</span>
+      </div>
+    </a>
+
+  </div>
+
+
+  <h2 class="section-title" data-i18n="sectionMemory">记忆宫殿</h2>
+  <div class="grid">
+
+    <a href="memory-cpu.html">
+      <div class="card">
+        <h3 data-i18n="memoryCpuTitle">CPU 记忆宫殿</h3>
+        <p data-i18n="memoryCpuDesc">用具体场景记住 CPU、主记忆、缓存、控制装置、演算装置。</p>
+        <span class="tag" data-i18n="tagMemoryPalace">记忆宫殿</span>
+        <span class="tag" data-i18n="tagCpu">CPU</span>
+      </div>
+    </a>
+
+    <a href="memory-binary.html">
+      <div class="card">
+        <h3 data-i18n="memoryBinaryTitle">二进制记忆宫殿</h3>
+        <p data-i18n="memoryBinaryDesc">用图像化方式记住 2进制、8进制、16进制和单位换算。</p>
+        <span class="tag" data-i18n="tagBinary">二进制</span>
+        <span class="tag" data-i18n="tagCalculationShort">计算</span>
+      </div>
+    </a>
+
+  </div>
+
+
+  <h2 class="section-title" data-i18n="sectionPortfolio">作品集项目</h2>
+  <div class="grid">
+
+    <a href="portfolio-food-app.html">
+      <div class="card">
+        <h3 data-i18n="foodAppTitle">饮食推荐 App</h3>
+        <p data-i18n="foodAppDesc">中日韩食谱推荐、健康数据、食费管理、餐厅推荐。</p>
+        <span class="tag" data-i18n="tagPortfolio">作品集</span>
+        <span class="tag" data-i18n="tagJava">Java</span>
+        <span class="tag" data-i18n="tagDb">DB</span>
+      </div>
+    </a>
+
+  </div>
+
+</div>
+
+<script>
+  const translations = {
+    zh: {
+      pageTitle: "我的学习导航网页",
+      siteTitle: "我的 AI 记忆宫殿学习导航",
+      siteSubtitle: "IT学习 × FE考试 × 日语 × 作品集项目",
+      sectionDevelopment: "情報システム開発科",
+      pythonTitle: "Python 基础",
+      pythonDesc: "变量、条件分支、循环、函数、文件处理、项目实战。",
+      javaTitle: "Java 基础",
+      javaDesc: "类、对象、for循环、条件判断、方法、面向对象思维。",
+      sqlTitle: "SQL / 数据库",
+      sqlDesc: "SELECT、WHERE、JOIN、GROUP BY、数据库设计。",
+      sectionFe: "基本情報技術者試験 FE",
+      hardwareTitle: "ハードウェア基礎理論",
+      hardwareDesc: "二进制、CPU、内存、地址指定方式、RISC/CISC。",
+      managementTitle: "ITマネジメント",
+      managementDesc: "WBS、EVM、ガントチャート、デルファイ法、风险管理。",
+      securityTitle: "情報セキュリティ",
+      securityDesc: "认证、攻击方式、暗号、ソーシャルエンジニアリング。",
+      sectionMemory: "记忆宫殿",
+      memoryCpuTitle: "CPU 记忆宫殿",
+      memoryCpuDesc: "用具体场景记住 CPU、主记忆、缓存、控制装置、演算装置。",
+      memoryBinaryTitle: "二进制记忆宫殿",
+      memoryBinaryDesc: "用图像化方式记住 2进制、8进制、16进制和单位换算。",
+      sectionPortfolio: "作品集项目",
+      foodAppTitle: "饮食推荐 App",
+      foodAppDesc: "中日韩食谱推荐、健康数据、食费管理、餐厅推荐。",
+      tagPython: "Python",
+      tagBeginner: "入门",
+      tagProject: "项目",
+      tagJava: "Java",
+      tagSchoolCourse: "学校课程",
+      tagSql: "SQL",
+      tagDb: "DB",
+      tagFe: "FE",
+      tagHardware: "硬件",
+      tagCalculation: "计算题",
+      tagManagement: "管理",
+      tagSecurity: "安全",
+      tagFrequent: "高频",
+      tagMemoryPalace: "记忆宫殿",
+      tagCpu: "CPU",
+      tagBinary: "二进制",
+      tagCalculationShort: "计算",
+      tagPortfolio: "作品集"
+    },
+    ja: {
+      pageTitle: "私の学習ナビゲーション",
+      siteTitle: "私の AI 記憶宮殿 学習ナビ",
+      siteSubtitle: "IT学習 × FE試験 × 日本語 × ポートフォリオ",
+      sectionDevelopment: "情報システム開発科",
+      pythonTitle: "Python 基礎",
+      pythonDesc: "変数、条件分岐、ループ、関数、ファイル処理、プロジェクト実践。",
+      javaTitle: "Java 基礎",
+      javaDesc: "クラス、オブジェクト、for文、条件判断、メソッド、オブジェクト指向。",
+      sqlTitle: "SQL / データベース",
+      sqlDesc: "SELECT、WHERE、JOIN、GROUP BY、データベース設計。",
+      sectionFe: "基本情報技術者試験 FE",
+      hardwareTitle: "ハードウェア基礎理論",
+      hardwareDesc: "2進数、CPU、メモリ、アドレス指定方式、RISC/CISC。",
+      managementTitle: "ITマネジメント",
+      managementDesc: "WBS、EVM、ガントチャート、デルファイ法、リスク管理。",
+      securityTitle: "情報セキュリティ",
+      securityDesc: "認証、攻撃手法、暗号、ソーシャルエンジニアリング。",
+      sectionMemory: "記憶宮殿",
+      memoryCpuTitle: "CPU 記憶宮殿",
+      memoryCpuDesc: "具体的な場面で CPU、主記憶、キャッシュ、制御装置、演算装置を覚える。",
+      memoryBinaryTitle: "2進数 記憶宮殿",
+      memoryBinaryDesc: "イメージ化して 2進数、8進数、16進数、単位変換を覚える。",
+      sectionPortfolio: "ポートフォリオ",
+      foodAppTitle: "食事推薦 App",
+      foodAppDesc: "中日韓レシピ推薦、健康データ、食費管理、レストラン推薦。",
+      tagPython: "Python",
+      tagBeginner: "入門",
+      tagProject: "プロジェクト",
+      tagJava: "Java",
+      tagSchoolCourse: "学校授業",
+      tagSql: "SQL",
+      tagDb: "DB",
+      tagFe: "FE",
+      tagHardware: "ハードウェア",
+      tagCalculation: "計算問題",
+      tagManagement: "管理",
+      tagSecurity: "セキュリティ",
+      tagFrequent: "頻出",
+      tagMemoryPalace: "記憶宮殿",
+      tagCpu: "CPU",
+      tagBinary: "2進数",
+      tagCalculationShort: "計算",
+      tagPortfolio: "作品集"
+    },
+    en: {
+      pageTitle: "My Study Navigation Page",
+      siteTitle: "My AI Memory Palace Study Navigator",
+      siteSubtitle: "IT Study × FE Exam × Japanese × Portfolio Projects",
+      sectionDevelopment: "Information Systems Development",
+      pythonTitle: "Python Basics",
+      pythonDesc: "Variables, conditionals, loops, functions, file handling, and project practice.",
+      javaTitle: "Java Basics",
+      javaDesc: "Classes, objects, for loops, conditionals, methods, and object-oriented thinking.",
+      sqlTitle: "SQL / Database",
+      sqlDesc: "SELECT, WHERE, JOIN, GROUP BY, and database design.",
+      sectionFe: "Fundamental Information Technology Engineer Exam",
+      hardwareTitle: "Hardware Fundamentals",
+      hardwareDesc: "Binary numbers, CPU, memory, addressing modes, and RISC/CISC.",
+      managementTitle: "IT Management",
+      managementDesc: "WBS, EVM, Gantt charts, Delphi method, and risk management.",
+      securityTitle: "Information Security",
+      securityDesc: "Authentication, attack methods, cryptography, and social engineering.",
+      sectionMemory: "Memory Palace",
+      memoryCpuTitle: "CPU Memory Palace",
+      memoryCpuDesc: "Use concrete scenes to remember CPU, main memory, cache, control unit, and arithmetic unit.",
+      memoryBinaryTitle: "Binary Memory Palace",
+      memoryBinaryDesc: "Use visual memory to learn binary, octal, hexadecimal, and unit conversions.",
+      sectionPortfolio: "Portfolio Projects",
+      foodAppTitle: "Food Recommendation App",
+      foodAppDesc: "Chinese, Japanese, and Korean recipe recommendations, health data, food expense management, and restaurant suggestions.",
+      tagPython: "Python",
+      tagBeginner: "Beginner",
+      tagProject: "Project",
+      tagJava: "Java",
+      tagSchoolCourse: "School Course",
+      tagSql: "SQL",
+      tagDb: "DB",
+      tagFe: "FE",
+      tagHardware: "Hardware",
+      tagCalculation: "Calculation",
+      tagManagement: "Management",
+      tagSecurity: "Security",
+      tagFrequent: "Frequent",
+      tagMemoryPalace: "Memory Palace",
+      tagCpu: "CPU",
+      tagBinary: "Binary",
+      tagCalculationShort: "Calculation",
+      tagPortfolio: "Portfolio"
+    }
+  };
+
+  const htmlLang = {
+    zh: "zh-CN",
+    ja: "ja",
+    en: "en"
+  };
+
+  function setLanguage(lang) {
+    const dictionary = translations[lang] || translations.zh;
+
+    document.documentElement.lang = htmlLang[lang] || "zh-CN";
+    document.title = dictionary.pageTitle;
+
+    document.querySelectorAll("[data-i18n]").forEach((element) => {
+      const key = element.dataset.i18n;
+      if (dictionary[key]) {
+        element.textContent = dictionary[key];
+      }
+    });
+
+    document.querySelectorAll(".language-button").forEach((button) => {
+      button.classList.toggle("active", button.dataset.lang === lang);
+    });
+
+    localStorage.setItem("studyNavigatorLanguage", lang);
+  }
+
+  document.querySelectorAll(".language-button").forEach((button) => {
+    button.addEventListener("click", () => {
+      setLanguage(button.dataset.lang);
+    });
+  });
+
+  setLanguage(localStorage.getItem("studyNavigatorLanguage") || "zh");
+</script>
+
+</body>
+</html>
