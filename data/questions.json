@@ -1,0 +1,24 @@
+[
+  {
+    "id": "q_memory_palace_vs_notes",
+    "title": "Memory palace vs normal notes",
+    "question": "When should a concept be placed in a memory palace instead of only written as a normal note?",
+    "answerDraft": "Use the memory palace when recall, sequence, or contextual association matters. Keep ordinary notes for details that do not need spatial recall.",
+    "status": "open",
+    "knowledgePointIds": ["kp_memory_palace_basics"],
+    "source": "manual",
+    "createdAt": "2026-05-17",
+    "updatedAt": "2026-05-17"
+  },
+  {
+    "id": "q_learning_trace_value",
+    "title": "Value of a learning trace",
+    "question": "What does a learning trace add beyond a final polished summary?",
+    "answerDraft": "It preserves the path of confusion, correction, and insight, which helps diagnose weak points and repeat useful learning moves.",
+    "status": "draft",
+    "knowledgePointIds": ["kp_learning_trace", "kp_question_note_linking"],
+    "source": "manual",
+    "createdAt": "2026-05-17",
+    "updatedAt": "2026-05-17"
+  }
+]

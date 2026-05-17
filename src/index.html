@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI Memory Palace Learning Trace</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">Personal learning system</p>
+        <h1>AI Memory Palace Learning Trace</h1>
+        <p class="subtitle">A static skeleton for linking knowledge context, question notes, and chat traces.</p>
+      </div>
+    </header>
+
+    <main class="app-shell">
+      <nav class="library-nav" aria-label="Library sections">
+        <a href="#knowledge">Knowledge</a>
+        <a href="#questions">Questions</a>
+        <a href="#chat-traces">Chat Traces</a>
+        <a href="#learning-paths">Learning Paths</a>
+      </nav>
+
+      <section id="knowledge" class="library-section">
+        <div class="section-heading">
+          <p class="eyebrow">Main library</p>
+          <h2>Knowledge Context</h2>
+        </div>
+        <div id="knowledge-list" class="card-grid" data-empty="Loading knowledge points..."></div>
+      </section>
+
+      <section id="questions" class="library-section">
+        <div class="section-heading">
+          <p class="eyebrow">Question note library</p>
+          <h2>Question Notes</h2>
+        </div>
+        <div id="question-list" class="card-grid" data-empty="Loading question notes..."></div>
+      </section>
+
+      <section id="chat-traces" class="library-section">
+        <div class="section-heading">
+          <p class="eyebrow">Chat trace library</p>
+          <h2>Chat Traces</h2>
+        </div>
+        <div id="chat-trace-list" class="card-grid" data-empty="Loading chat traces..."></div>
+      </section>
+
+      <section id="learning-paths" class="library-section">
+        <div class="section-heading">
+          <p class="eyebrow">Path library</p>
+          <h2>Learning Paths</h2>
+        </div>
+        <div id="learning-path-list" class="card-grid" data-empty="Loading learning paths..."></div>
+      </section>
+    </main>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>

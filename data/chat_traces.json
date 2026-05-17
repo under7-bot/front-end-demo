@@ -1,0 +1,16 @@
+[
+  {
+    "id": "chat_initial_system_design",
+    "title": "Initial system design conversation",
+    "summary": "A planning conversation that defined three linked libraries: knowledge points, question notes, and chat traces.",
+    "model": "manual-placeholder",
+    "source": "manual",
+    "knowledgePointIds": [
+      "kp_memory_palace_basics",
+      "kp_learning_trace",
+      "kp_chat_trace_linking"
+    ],
+    "questionIds": ["q_memory_palace_vs_notes"],
+    "createdAt": "2026-05-17"
+  }
+]

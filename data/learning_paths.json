@@ -1,0 +1,15 @@
+[
+  {
+    "id": "path_personal_ai_learning_system",
+    "title": "Personal AI Learning System Foundations",
+    "description": "A starter path for understanding how memory palace structure, learning traces, questions, and chat records connect.",
+    "goal": "Create a contextual learning map that can grow from static JSON into a richer personal review system.",
+    "knowledgePointIds": [
+      "kp_memory_palace_basics",
+      "kp_learning_trace",
+      "kp_question_note_linking",
+      "kp_chat_trace_linking",
+      "kp_spaced_review"
+    ]
+  }
+]

@@ -1,0 +1,92 @@
+[
+  {
+    "id": "kp_memory_palace_basics",
+    "title": "Memory Palace Basics",
+    "summary": "A spatial method for placing ideas in memorable locations so they can be recalled by walking through a mental route.",
+    "level": 1,
+    "tags": ["memory", "spatial-learning", "foundation"],
+    "prerequisiteIds": [],
+    "nextIds": ["kp_learning_trace"],
+    "relatedIds": ["kp_spaced_review"],
+    "learningPathIds": ["path_personal_ai_learning_system"],
+    "questionIds": ["q_memory_palace_vs_notes"],
+    "chatTraceIds": ["chat_initial_system_design"],
+    "memoryPalace": {
+      "location": "Entrance hall",
+      "imageCue": "A bright doorway leading to labeled rooms",
+      "sensoryCue": "Footsteps echoing through a quiet hall"
+    }
+  },
+  {
+    "id": "kp_learning_trace",
+    "title": "Learning Trace",
+    "summary": "A record of how understanding changed over time through questions, answers, mistakes, and AI conversations.",
+    "level": 2,
+    "tags": ["metacognition", "history", "reflection"],
+    "prerequisiteIds": ["kp_memory_palace_basics"],
+    "nextIds": ["kp_question_note_linking", "kp_chat_trace_linking"],
+    "relatedIds": ["kp_spaced_review"],
+    "learningPathIds": ["path_personal_ai_learning_system"],
+    "questionIds": ["q_learning_trace_value"],
+    "chatTraceIds": ["chat_initial_system_design"],
+    "memoryPalace": {
+      "location": "Hallway timeline",
+      "imageCue": "A glowing thread connecting notes along the wall",
+      "sensoryCue": "A soft ticking sound from marked milestones"
+    }
+  },
+  {
+    "id": "kp_question_note_linking",
+    "title": "Question Note Linking",
+    "summary": "Connecting questions to knowledge points so confusion and review targets are visible.",
+    "level": 2,
+    "tags": ["questions", "review", "weakness-map"],
+    "prerequisiteIds": ["kp_learning_trace"],
+    "nextIds": ["kp_spaced_review"],
+    "relatedIds": ["kp_chat_trace_linking"],
+    "learningPathIds": ["path_personal_ai_learning_system"],
+    "questionIds": ["q_learning_trace_value"],
+    "chatTraceIds": [],
+    "memoryPalace": {
+      "location": "Study desk",
+      "imageCue": "Question cards pinned with colored strings",
+      "sensoryCue": "Paper edges brushing against a wooden desk"
+    }
+  },
+  {
+    "id": "kp_chat_trace_linking",
+    "title": "Chat Trace Linking",
+    "summary": "Connecting useful AI conversation traces to knowledge points and question notes.",
+    "level": 2,
+    "tags": ["ai-chat", "trace", "source"],
+    "prerequisiteIds": ["kp_learning_trace"],
+    "nextIds": ["kp_spaced_review"],
+    "relatedIds": ["kp_question_note_linking"],
+    "learningPathIds": ["path_personal_ai_learning_system"],
+    "questionIds": [],
+    "chatTraceIds": ["chat_initial_system_design"],
+    "memoryPalace": {
+      "location": "Conversation room",
+      "imageCue": "Speech bubbles stored in transparent drawers",
+      "sensoryCue": "Low voices fading into organized labels"
+    }
+  },
+  {
+    "id": "kp_spaced_review",
+    "title": "Spaced Review",
+    "summary": "A review practice that revisits knowledge after increasing intervals to strengthen long-term recall.",
+    "level": 3,
+    "tags": ["review", "retention", "practice"],
+    "prerequisiteIds": ["kp_question_note_linking", "kp_chat_trace_linking"],
+    "nextIds": [],
+    "relatedIds": ["kp_memory_palace_basics", "kp_learning_trace"],
+    "learningPathIds": ["path_personal_ai_learning_system"],
+    "questionIds": [],
+    "chatTraceIds": [],
+    "memoryPalace": {
+      "location": "Clock room",
+      "imageCue": "Several clocks ringing at different intervals",
+      "sensoryCue": "Gentle chimes marking each review"
+    }
+  }
+]
