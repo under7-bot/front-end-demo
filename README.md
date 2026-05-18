@@ -1,69 +1,39 @@
-# ai-memory-palace-learning-trace
+# front-end-demo
 
-A personal AI memory palace learning trace system built with HTML, CSS, JavaScript, and JSON only.
+Google Classroom 学科资料详情页总览与 AI 记忆宫殿型学习导航。
 
-This repository is an initial project skeleton. It separates learning material into three linked libraries:
+这个项目是一个纯静态前端学习站点，包含：
 
-- Main knowledge point library
-- Question note library
-- Chat trace library
+- Google Classroom 学科资料总览
+- 各科目知识路线
+- 思维导图式板块导航
+- 板块深度导览
+- 中日英关键词对照
+- Python / hardware 等基础详情页
 
-The main knowledge point library is designed to show context around each knowledge point, including prerequisites, next steps, related ideas, learning paths, and difficulty level.
+## 入口
 
-## Tech Constraints
+打开根目录的 `index.html` 会自动跳转到：
+
+```text
+classroom-study-pages/classroom-index.html
+```
+
+## 技术约束
 
 - HTML
 - CSS
 - JavaScript
-- JSON
-- No React
-- No backend
-- No database
-- No frameworks
+- 无后端
+- 无数据库
+- 可通过 GitHub Pages 发布
 
-## Project Structure
+## 手机预览
 
-```text
-ai-memory-palace-learning-trace/
-  README.md
-  docs/
-    00_project_overview.md
-    01_requirements.md
-    02_data_structure.md
-    03_page_design.md
-    04_development_sop.md
-  src/
-    index.html
-    css/
-      style.css
-    js/
-      app.js
-  data/
-    knowledge.json
-    questions.json
-    chat_traces.json
-    learning_paths.json
+在本机运行：
+
+```powershell
+node share-server.js
 ```
 
-## Current Scope
-
-This skeleton includes:
-
-- Static page layout
-- Placeholder rendering for the three libraries
-- Sample JSON data
-- Data relationships between knowledge points, questions, chat traces, and learning paths
-
-This skeleton does not include:
-
-- Chat import
-- Search
-- Persistence beyond static JSON files
-- Authentication
-- Backend APIs
-
-## Run Locally
-
-Open `src/index.html` in a browser.
-
-Some browsers restrict local `fetch()` calls from `file://`. If JSON loading is blocked, run any simple static file server from the project root and open `/src/index.html`.
+然后用手机访问同一 Wi-Fi 下的电脑 IP。
