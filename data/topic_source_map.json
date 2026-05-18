@@ -1,0 +1,819 @@
+{
+  "version": 3,
+  "generated_at": "2026-05-18T12:47:39.480Z",
+  "source": "data/source_chunks.json",
+  "topics": [
+    {
+      "topic_id": "programming-basics-variable-001",
+      "knowledge_id": "kp-variable",
+      "subject_id": "programming-basics",
+      "topic_title": "变量",
+      "material_type": "concept",
+      "topic_type": "core_concept",
+      "source_type": "mock",
+      "source_ids": [],
+      "source_file": "data/study_system.json",
+      "source_page_or_section": "knowledgePoints[id=kp-variable]",
+      "source_chunk": "变量是给数据起名字，让程序后面可以读取和修改它。",
+      "source_excerpt": "变量是给数据起名字，让程序后面可以读取和修改它。",
+      "keywords": [
+        "变量",
+        "变量是给数据起名字",
+        "让程序后面可以读取和修改它",
+        "变量由变量名和值组成",
+        "写入时把值保存到名字下面",
+        "读取时用变量名取得当前值"
+      ],
+      "prerequisites": [],
+      "next_topics": [
+        "kp-condition"
+      ],
+      "related_exercises": [],
+      "ai_supplement": true,
+      "confidence": 0.4,
+      "source_quality": {
+        "is_real_file": false,
+        "is_admin_material": false,
+        "contains_definition": false,
+        "contains_example": false,
+        "contains_exercise": false,
+        "keyword_match_score": 0,
+        "is_primary_learning_source": false
+      },
+      "needs_review": true,
+      "review_reasons": [
+        "mock_fallback",
+        "not_real_source",
+        "not_primary_learning_source"
+      ]
+    },
+    {
+      "topic_id": "programming-basics-condition-001",
+      "knowledge_id": "kp-condition",
+      "subject_id": "226jy01-algorithm",
+      "topic_title": "条件判断",
+      "material_type": "course_admin",
+      "topic_type": "core_concept",
+      "source_type": "real",
+      "source_ids": [
+        "226jy01-algorithm-file009-page02-if-chunk002"
+      ],
+      "source_file": "アルゴリズムの授業ルール.pdf",
+      "source_page_or_section": "page 2",
+      "source_chunk": "5. 課題チェック表（ Classroom ）の見方 Classroom 上の「課題チェック表」を確認し、自分の進捗を把握してください。 提出直後は、自分の欄は「無記名（空欄）」のままで構いません。先生が内容を確認した後、合格なら「〇」を記入 し、修正が必要な場合は「コメント」を入力して空欄に戻します。 記入内容 意味 〇 課題合格（ OK ） 空白 課題 NG 、または未提出、または未チェック 再提出 学生が修正して提出済み（教員の確認待ち） 💬 指摘事項の確認方法 課題 NG の場合、セル内のコメントに 「日付 ＋ 指摘内容」 が記載されます。 【記入例】 2026/4/6 ：変数宣言の型に誤りがあります。 コメントを確認し、速やかに修正して再提出の手順を行ってください。 6. アルゴリズムの記述ルール ・演算子の使用 四則演算（ +, -, ÷, × ）などの記号を使用して記述すること。 ・条件分岐の条件 条件文は「日本語」で記述すること。 ※比較演算子（ <, > など）の記述は不可。 ・インデント（字下げ）のルール 条件分岐（ if ）や繰り返し（ for/while ）の内側の処理には、必ず「 Tab キー」を 1 回押してインデントを入 れます。 どこからどこまでが「 if 文の中の処理」なのかを分かりやすくし、プログラムの構造（可読性）を高める ため！",
+      "source_excerpt": "5. 課題チェック表（ Classroom ）の見方 Classroom 上の「課題チェック表」を確認し、自分の進捗を把握してください。 提出直後は、自分の欄は「無記名（空欄）」のままで構いません。先生が内容を確認した後、合格なら「〇」を記入 し、修正が必要な場合は「コメント」を入力して空欄に戻します。 記入内容 意味 〇 課題合格（ OK ） 空白 課題 NG 、または未提出、または未チェック 再提出 学生が修正して提出済み（教員の確",
+      "keywords": [
+        "Classroom",
+        "if",
+        "NG",
+        "課題",
+        "課題チェック表",
+        "・インデント",
+        "・演算子の使用",
+        "・条件分岐の条件",
+        "for/while",
+        "OK",
+        "Tab",
+        "アルゴリズムの記述ルール"
+      ],
+      "prerequisites": [
+        "kp-variable"
+      ],
+      "next_topics": [
+        "kp-loop"
+      ],
+      "related_exercises": [],
+      "ai_supplement": true,
+      "confidence": 0.54,
+      "extraction_status": "ok",
+      "needs_ocr": false,
+      "extraction_failed": false,
+      "source_quality": {
+        "is_real_file": true,
+        "is_admin_material": true,
+        "contains_definition": true,
+        "contains_example": true,
+        "contains_exercise": true,
+        "keyword_match_score": 0.08,
+        "is_primary_learning_source": false
+      },
+      "review_reasons": [
+        "admin_material_used_as_concept_source",
+        "confidence_below_0.7",
+        "keyword_match_score_below_0.5",
+        "not_primary_learning_source"
+      ],
+      "needs_review": true
+    },
+    {
+      "topic_id": "programming-basics-loop-001",
+      "knowledge_id": "kp-loop",
+      "subject_id": "programming-basics",
+      "topic_title": "循环",
+      "material_type": "concept",
+      "topic_type": "core_concept",
+      "source_type": "mock",
+      "source_ids": [],
+      "source_file": "data/study_system.json",
+      "source_page_or_section": "knowledgePoints[id=kp-loop]",
+      "source_chunk": "循环让同一段处理在条件满足时重复执行。",
+      "source_excerpt": "循环让同一段处理在条件满足时重复执行。",
+      "keywords": [
+        "循环",
+        "循环让同一段处理在条件满足时重复执行",
+        "循环通常包含初始值",
+        "继续条件",
+        "循环体和更新步骤",
+        "缺少更新容易形成无限循环"
+      ],
+      "prerequisites": [
+        "kp-condition"
+      ],
+      "next_topics": [
+        "kp-function"
+      ],
+      "related_exercises": [],
+      "ai_supplement": true,
+      "confidence": 0.4,
+      "source_quality": {
+        "is_real_file": false,
+        "is_admin_material": false,
+        "contains_definition": false,
+        "contains_example": false,
+        "contains_exercise": false,
+        "keyword_match_score": 0,
+        "is_primary_learning_source": false
+      },
+      "needs_review": true,
+      "review_reasons": [
+        "mock_fallback",
+        "not_real_source",
+        "not_primary_learning_source"
+      ]
+    },
+    {
+      "topic_id": "programming-basics-function-001",
+      "knowledge_id": "kp-function",
+      "subject_id": "programming-basics",
+      "topic_title": "函数",
+      "material_type": "concept",
+      "topic_type": "advanced_concept",
+      "source_type": "mock",
+      "source_ids": [],
+      "source_file": "data/study_system.json",
+      "source_page_or_section": "knowledgePoints[id=kp-function]",
+      "source_chunk": "函数把一组处理打包成可以反复调用的名字。",
+      "source_excerpt": "函数把一组处理打包成可以反复调用的名字。",
+      "keywords": [
+        "函数",
+        "函数把一组处理打包成可以反复调用的名字",
+        "函数可以接收参数",
+        "执行内部逻辑",
+        "并用",
+        "return",
+        "把结果交回调用处"
+      ],
+      "prerequisites": [
+        "kp-variable",
+        "kp-condition",
+        "kp-loop"
+      ],
+      "next_topics": [],
+      "related_exercises": [],
+      "ai_supplement": true,
+      "confidence": 0.4,
+      "source_quality": {
+        "is_real_file": false,
+        "is_admin_material": false,
+        "contains_definition": false,
+        "contains_example": false,
+        "contains_exercise": false,
+        "keyword_match_score": 0,
+        "is_primary_learning_source": false
+      },
+      "needs_review": true,
+      "review_reasons": [
+        "mock_fallback",
+        "not_real_source",
+        "not_primary_learning_source"
+      ]
+    },
+    {
+      "topic_id": "web-basics-html-001",
+      "knowledge_id": "kp-html",
+      "subject_id": "web-basics",
+      "topic_title": "HTML",
+      "material_type": "concept",
+      "topic_type": "core_concept",
+      "source_type": "mock",
+      "source_ids": [],
+      "source_file": "data/study_system.json",
+      "source_page_or_section": "knowledgePoints[id=kp-html]",
+      "source_chunk": "HTML 用标签描述网页内容和结构。",
+      "source_excerpt": "HTML 用标签描述网页内容和结构。",
+      "keywords": [
+        "HTML",
+        "用标签描述网页内容和结构",
+        "元素通常由开始标签",
+        "内容和结束标签组成",
+        "浏览器根据标签理解页面层级"
+      ],
+      "prerequisites": [],
+      "next_topics": [
+        "kp-css"
+      ],
+      "related_exercises": [],
+      "ai_supplement": true,
+      "confidence": 0.4,
+      "source_quality": {
+        "is_real_file": false,
+        "is_admin_material": false,
+        "contains_definition": false,
+        "contains_example": false,
+        "contains_exercise": false,
+        "keyword_match_score": 0,
+        "is_primary_learning_source": false
+      },
+      "needs_review": true,
+      "review_reasons": [
+        "mock_fallback",
+        "not_real_source",
+        "not_primary_learning_source"
+      ]
+    },
+    {
+      "topic_id": "web-basics-css-001",
+      "knowledge_id": "kp-css",
+      "subject_id": "web-basics",
+      "topic_title": "CSS",
+      "material_type": "concept",
+      "topic_type": "core_concept",
+      "source_type": "mock",
+      "source_ids": [],
+      "source_file": "data/study_system.json",
+      "source_page_or_section": "knowledgePoints[id=kp-css]",
+      "source_chunk": "CSS 控制网页元素的外观和布局。",
+      "source_excerpt": "CSS 控制网页元素的外观和布局。",
+      "keywords": [
+        "CSS",
+        "控制网页元素的外观和布局",
+        "通过选择器找到元素",
+        "再给它设置颜色",
+        "间距",
+        "大小",
+        "布局等规则"
+      ],
+      "prerequisites": [
+        "kp-html"
+      ],
+      "next_topics": [
+        "kp-javascript"
+      ],
+      "related_exercises": [],
+      "ai_supplement": true,
+      "confidence": 0.4,
+      "source_quality": {
+        "is_real_file": false,
+        "is_admin_material": false,
+        "contains_definition": false,
+        "contains_example": false,
+        "contains_exercise": false,
+        "keyword_match_score": 0,
+        "is_primary_learning_source": false
+      },
+      "needs_review": true,
+      "review_reasons": [
+        "mock_fallback",
+        "not_real_source",
+        "not_primary_learning_source"
+      ]
+    },
+    {
+      "topic_id": "web-basics-javascript-001",
+      "knowledge_id": "kp-javascript",
+      "subject_id": "web-basics",
+      "topic_title": "JavaScript",
+      "material_type": "concept",
+      "topic_type": "advanced_concept",
+      "source_type": "mock",
+      "source_ids": [],
+      "source_file": "data/study_system.json",
+      "source_page_or_section": "knowledgePoints[id=kp-javascript]",
+      "source_chunk": "JavaScript 让网页能根据用户操作改变状态。",
+      "source_excerpt": "JavaScript 让网页能根据用户操作改变状态。",
+      "keywords": [
+        "JavaScript",
+        "让网页能根据用户操作改变状态",
+        "可以读取数据",
+        "监听事件",
+        "修改",
+        "DOM",
+        "让静态页面变成可交互页面"
+      ],
+      "prerequisites": [
+        "kp-html",
+        "kp-css",
+        "kp-variable"
+      ],
+      "next_topics": [
+        "kp-dom"
+      ],
+      "related_exercises": [],
+      "ai_supplement": true,
+      "confidence": 0.4,
+      "source_quality": {
+        "is_real_file": false,
+        "is_admin_material": false,
+        "contains_definition": false,
+        "contains_example": false,
+        "contains_exercise": false,
+        "keyword_match_score": 0,
+        "is_primary_learning_source": false
+      },
+      "needs_review": true,
+      "review_reasons": [
+        "mock_fallback",
+        "not_real_source",
+        "not_primary_learning_source"
+      ]
+    },
+    {
+      "topic_id": "web-basics-dom-001",
+      "knowledge_id": "kp-dom",
+      "subject_id": "26jy-sql",
+      "topic_title": "DOM",
+      "material_type": "overview",
+      "topic_type": "advanced_concept",
+      "source_type": "real",
+      "source_ids": [
+        "26jy-sql-file001-page01-select-chunk002"
+      ],
+      "source_file": "26jy_SQLシラバス.pdf",
+      "source_page_or_section": "page 1",
+      "source_chunk": "習 ・SELECT句、FROM句、WHERE句演習 課題（講義、実習） 2 SELECT文に関する問題が解けるようになる（１） ・SQL SELECT文の基本構文 （SELECCT句、FROM句、WHERE句、GROUP BY句、HAVING句、ORDER BY句） 課題（講義、実習） 3 SELECT文に関する問題が解けるようになる（２） ・SQL SELECT文の基本(演算子、NULLの概念) 課題（講義、実習） 学習目標 学習項目 1 データベースの役割、関係データベースとは何かについて説明できるようになる。 ・実習環境整備（実習で使用するテーブル、提出方法、チェック方法などの説明） ・データベースの目的 ・関係データベースの構造 課題（講義、実習） 【科目内容に沿った実務経験】 有 試験対策テキストⅡ、SQLポケットリファレンス 、実習課題プリント プログラマー及びシステムエンジニアとしてシステム開発に従事した実務経験がある。その経験を 活かして本科目に対して職業実践的な教育を行う。 基本情報対策として、関係データベースの操作言語であるＳＱＬの基礎、データベースの設 計・障害対応を学習する。 基本情報に出題されるデータベースの問題が解けるようになること。 評価方法・基準 ※左記に示した評価項目の割合（％）を基準に、総合評価点を 算出して成績評価を行う。 ※出席率が80％未満の場合は、評価対象としない。 【評価基準】 SQLの基礎文法を理解し基本情報の問題が解けること ※必須課題が未提出の場合は、評価対象としない。 情報システム開発科 シラバス 2026年度入学生 科目名 SQL 2026年3月25日 担当教員 加瀬 典子、岩崎 久美子 テキスト・参考文献 企業連携 無 前期 実習・実験駒数／週 授業の目的 到達目標 区分 開講時期・ 標準履修年 1年次 講義・演習駒数／週 合計駒数／週 1 駒",
+      "source_excerpt": "習 ・SELECT句、FROM句、WHERE句演習 課題（講義、実習） 2 SELECT文に関する問題が解けるようになる（１） ・SQL SELECT文の基本構文 （SELECCT句、FROM句、WHERE句、GROUP BY句、HAVING句、ORDER BY句） 課題（講義、実習） 3 SELECT文に関する問題が解けるようになる（２） ・SQL SELECT文の基本(演算子、NULLの概念) 課題（講義、実習） 学習目標 学習項目",
+      "keywords": [
+        "SELECT",
+        "SQL",
+        "課題",
+        "講義",
+        "実習",
+        "BY",
+        "FROM",
+        "WHERE",
+        "評価対象としない",
+        "文に関する問題が解けるようになる",
+        "・データベースの目的",
+        "・関係データベースの構造"
+      ],
+      "prerequisites": [
+        "kp-html",
+        "kp-javascript"
+      ],
+      "next_topics": [],
+      "related_exercises": [],
+      "ai_supplement": true,
+      "confidence": 0.53,
+      "extraction_status": "ok",
+      "needs_ocr": false,
+      "extraction_failed": false,
+      "source_quality": {
+        "is_real_file": true,
+        "is_admin_material": true,
+        "contains_definition": true,
+        "contains_example": false,
+        "contains_exercise": true,
+        "keyword_match_score": 0.09,
+        "is_primary_learning_source": false
+      },
+      "review_reasons": [
+        "admin_material_used_as_concept_source",
+        "confidence_below_0.7",
+        "keyword_match_score_below_0.5",
+        "not_primary_learning_source"
+      ],
+      "needs_review": true
+    },
+    {
+      "topic_id": "database-basics-table-001",
+      "knowledge_id": "kp-table",
+      "subject_id": "database-basics",
+      "topic_title": "表",
+      "material_type": "concept",
+      "topic_type": "core_concept",
+      "source_type": "mock",
+      "source_ids": [],
+      "source_file": "data/study_system.json",
+      "source_page_or_section": "knowledgePoints[id=kp-table]",
+      "source_chunk": "表用行和列保存同一类数据。",
+      "source_excerpt": "表用行和列保存同一类数据。",
+      "keywords": [
+        "表",
+        "表用行和列保存同一类数据",
+        "列定义数据项目",
+        "行代表一条记录",
+        "表名表示这类数据的集合"
+      ],
+      "prerequisites": [],
+      "next_topics": [
+        "kp-primary-key"
+      ],
+      "related_exercises": [],
+      "ai_supplement": true,
+      "confidence": 0.4,
+      "source_quality": {
+        "is_real_file": false,
+        "is_admin_material": false,
+        "contains_definition": false,
+        "contains_example": false,
+        "contains_exercise": false,
+        "keyword_match_score": 0,
+        "is_primary_learning_source": false
+      },
+      "needs_review": true,
+      "review_reasons": [
+        "mock_fallback",
+        "not_real_source",
+        "not_primary_learning_source"
+      ]
+    },
+    {
+      "topic_id": "database-basics-primary-key-001",
+      "knowledge_id": "kp-primary-key",
+      "subject_id": "database-basics",
+      "topic_title": "主键",
+      "material_type": "concept",
+      "topic_type": "core_concept",
+      "source_type": "mock",
+      "source_ids": [],
+      "source_file": "data/study_system.json",
+      "source_page_or_section": "knowledgePoints[id=kp-primary-key]",
+      "source_chunk": "主键是表中唯一识别一条记录的字段。",
+      "source_excerpt": "主键是表中唯一识别一条记录的字段。",
+      "keywords": [
+        "主键",
+        "主键是表中唯一识别一条记录的字段",
+        "主键不能重复",
+        "通常也不应该为空",
+        "用来稳定定位某一行"
+      ],
+      "prerequisites": [
+        "kp-table"
+      ],
+      "next_topics": [
+        "kp-foreign-key"
+      ],
+      "related_exercises": [],
+      "ai_supplement": true,
+      "confidence": 0.4,
+      "source_quality": {
+        "is_real_file": false,
+        "is_admin_material": false,
+        "contains_definition": false,
+        "contains_example": false,
+        "contains_exercise": false,
+        "keyword_match_score": 0,
+        "is_primary_learning_source": false
+      },
+      "needs_review": true,
+      "review_reasons": [
+        "mock_fallback",
+        "not_real_source",
+        "not_primary_learning_source"
+      ]
+    },
+    {
+      "topic_id": "database-basics-foreign-key-001",
+      "knowledge_id": "kp-foreign-key",
+      "subject_id": "database-basics",
+      "topic_title": "外键",
+      "material_type": "concept",
+      "topic_type": "core_concept",
+      "source_type": "mock",
+      "source_ids": [],
+      "source_file": "data/study_system.json",
+      "source_page_or_section": "knowledgePoints[id=kp-foreign-key]",
+      "source_chunk": "外键用一个表的字段引用另一个表的主键。",
+      "source_excerpt": "外键用一个表的字段引用另一个表的主键。",
+      "keywords": [
+        "外键",
+        "外键用一个表的字段引用另一个表的主键",
+        "外键让不同表之间建立关系",
+        "例如成绩表通过",
+        "student_id",
+        "对应学生表"
+      ],
+      "prerequisites": [
+        "kp-primary-key"
+      ],
+      "next_topics": [
+        "kp-select"
+      ],
+      "related_exercises": [],
+      "ai_supplement": true,
+      "confidence": 0.4,
+      "source_quality": {
+        "is_real_file": false,
+        "is_admin_material": false,
+        "contains_definition": false,
+        "contains_example": false,
+        "contains_exercise": false,
+        "keyword_match_score": 0,
+        "is_primary_learning_source": false
+      },
+      "needs_review": true,
+      "review_reasons": [
+        "mock_fallback",
+        "not_real_source",
+        "not_primary_learning_source"
+      ]
+    },
+    {
+      "topic_id": "database-basics-select-001",
+      "knowledge_id": "kp-select",
+      "subject_id": "26jy-sql",
+      "topic_title": "SELECT",
+      "material_type": "concept",
+      "topic_type": "core_concept",
+      "source_type": "real",
+      "source_ids": [
+        "26jy-sql-file006-page04-select-chunk004"
+      ],
+      "source_file": "SQL文法1(基本_AS_ULL).pdf",
+      "source_page_or_section": "page 4",
+      "source_chunk": "SELECT 文の基本（列の表示１）  表から列を指定して選択する  表のすべてを出力する  列に別名を付けて表示する 文法 SELECT 列名 [, 列名・・・ ] FROM 表名 ; 文法 SELECT ＊ FROM 表名 ; 文法 SELECT 列名 AS 表示する別名 FROM 表名 ; 4",
+      "source_excerpt": "SELECT 文の基本（列の表示１）  表から列を指定して選択する  表のすべてを出力する  列に別名を付けて表示する 文法 SELECT 列名 [, 列名・・・ ] FROM 表名 ; 文法 SELECT ＊ FROM 表名 ; 文法 SELECT 列名 AS 表示する別名 FROM 表名 ; 4",
+      "keywords": [
+        "SELECT",
+        "FROM",
+        "表名",
+        "文法",
+        "列名",
+        "AS",
+        "表から列を指定して選択する",
+        "表のすべてを出力する",
+        "表示する別名",
+        "文の基本",
+        "列に別名を付けて表示する",
+        "列の表示"
+      ],
+      "prerequisites": [
+        "kp-table"
+      ],
+      "next_topics": [
+        "kp-where"
+      ],
+      "related_exercises": [],
+      "ai_supplement": true,
+      "confidence": 0.85,
+      "extraction_status": "ok",
+      "needs_ocr": false,
+      "extraction_failed": false,
+      "source_quality": {
+        "is_real_file": true,
+        "is_admin_material": false,
+        "contains_definition": true,
+        "contains_example": false,
+        "contains_exercise": false,
+        "keyword_match_score": 0.5,
+        "is_primary_learning_source": true
+      },
+      "review_reasons": [],
+      "needs_review": false
+    },
+    {
+      "topic_id": "database-basics-where-001",
+      "knowledge_id": "kp-where",
+      "subject_id": "26jy-sql",
+      "topic_title": "WHERE",
+      "material_type": "concept",
+      "topic_type": "advanced_concept",
+      "source_type": "real",
+      "source_ids": [
+        "26jy-sql-file006-page10-select-chunk010"
+      ],
+      "source_file": "SQL文法1(基本_AS_ULL).pdf",
+      "source_page_or_section": "page 10",
+      "source_chunk": "SELECT 文の基本（行の選択 1 ）  条件に合った行を表示する  例： SELECT NAME FROM GOODS WHERE PRICE > 1000 ; 文法 SELECT 列名 FROM 表名 WHERE 列名 比較演算子 値 ; ※ 比較演算子：＝（等しい） ＜＞（等しくない） ＞＝（以上） ＞（より大きい） ＜＝（以下） ＜（より小さい 未満） 10",
+      "source_excerpt": "SELECT 文の基本（行の選択 1 ）  条件に合った行を表示する  例： SELECT NAME FROM GOODS WHERE PRICE > 1000 ; 文法 SELECT 列名 FROM 表名 WHERE 列名 比較演算子 値 ; ※ 比較演算子：＝（等しい） ＜＞（等しくない） ＞＝（以上） ＞（より大きい） ＜＝（以下） ＜（より小さい 未満） 10",
+      "keywords": [
+        "SELECT",
+        "FROM",
+        "WHERE",
+        "比較演算子",
+        "列名",
+        "GOODS",
+        "NAME",
+        "PRICE",
+        "より小さい",
+        "より大きい",
+        "以下",
+        "以上"
+      ],
+      "prerequisites": [
+        "kp-select",
+        "kp-condition"
+      ],
+      "next_topics": [],
+      "related_exercises": [],
+      "ai_supplement": true,
+      "confidence": 0.9,
+      "extraction_status": "ok",
+      "needs_ocr": false,
+      "extraction_failed": false,
+      "source_quality": {
+        "is_real_file": true,
+        "is_admin_material": false,
+        "contains_definition": true,
+        "contains_example": true,
+        "contains_exercise": false,
+        "keyword_match_score": 0.5,
+        "is_primary_learning_source": true
+      },
+      "review_reasons": [],
+      "needs_review": false
+    },
+    {
+      "topic_id": "network-basics-ip-001",
+      "knowledge_id": "kp-ip",
+      "subject_id": "network-basics",
+      "topic_title": "IP地址",
+      "material_type": "concept",
+      "topic_type": "core_concept",
+      "source_type": "mock",
+      "source_ids": [],
+      "source_file": "data/study_system.json",
+      "source_page_or_section": "knowledgePoints[id=kp-ip]",
+      "source_chunk": "IP地址是在网络中定位设备的逻辑地址。",
+      "source_excerpt": "IP地址是在网络中定位设备的逻辑地址。",
+      "keywords": [
+        "IP地址",
+        "IP",
+        "地址是在网络中定位设备的逻辑地址",
+        "设备通信时需要知道目标",
+        "数据包才能被送往正确方向"
+      ],
+      "prerequisites": [],
+      "next_topics": [
+        "kp-dns"
+      ],
+      "related_exercises": [],
+      "ai_supplement": true,
+      "confidence": 0.4,
+      "source_quality": {
+        "is_real_file": false,
+        "is_admin_material": false,
+        "contains_definition": false,
+        "contains_example": false,
+        "contains_exercise": false,
+        "keyword_match_score": 0,
+        "is_primary_learning_source": false
+      },
+      "needs_review": true,
+      "review_reasons": [
+        "mock_fallback",
+        "not_real_source",
+        "not_primary_learning_source"
+      ]
+    },
+    {
+      "topic_id": "network-basics-dns-001",
+      "knowledge_id": "kp-dns",
+      "subject_id": "network-basics",
+      "topic_title": "DNS",
+      "material_type": "concept",
+      "topic_type": "core_concept",
+      "source_type": "mock",
+      "source_ids": [],
+      "source_file": "data/study_system.json",
+      "source_page_or_section": "knowledgePoints[id=kp-dns]",
+      "source_chunk": "DNS 把人容易记的域名解析成 IP 地址。",
+      "source_excerpt": "DNS 把人容易记的域名解析成 IP 地址。",
+      "keywords": [
+        "DNS",
+        "把人容易记的域名解析成",
+        "IP",
+        "地址",
+        "浏览器访问域名时",
+        "先通过",
+        "查询对应",
+        "再向目标服务器发起连接"
+      ],
+      "prerequisites": [
+        "kp-ip"
+      ],
+      "next_topics": [
+        "kp-router"
+      ],
+      "related_exercises": [],
+      "ai_supplement": true,
+      "confidence": 0.4,
+      "source_quality": {
+        "is_real_file": false,
+        "is_admin_material": false,
+        "contains_definition": false,
+        "contains_example": false,
+        "contains_exercise": false,
+        "keyword_match_score": 0,
+        "is_primary_learning_source": false
+      },
+      "needs_review": true,
+      "review_reasons": [
+        "mock_fallback",
+        "not_real_source",
+        "not_primary_learning_source"
+      ]
+    },
+    {
+      "topic_id": "network-basics-router-001",
+      "knowledge_id": "kp-router",
+      "subject_id": "network-basics",
+      "topic_title": "路由器",
+      "material_type": "concept",
+      "topic_type": "core_concept",
+      "source_type": "mock",
+      "source_ids": [],
+      "source_file": "data/study_system.json",
+      "source_page_or_section": "knowledgePoints[id=kp-router]",
+      "source_chunk": "路由器根据目标地址决定数据包下一步往哪里走。",
+      "source_excerpt": "路由器根据目标地址决定数据包下一步往哪里走。",
+      "keywords": [
+        "路由器",
+        "路由器根据目标地址决定数据包下一步往哪里走",
+        "路由器连接不同网络",
+        "转发数据包",
+        "让信息跨网络到达目的地"
+      ],
+      "prerequisites": [
+        "kp-ip"
+      ],
+      "next_topics": [
+        "kp-tcpip"
+      ],
+      "related_exercises": [],
+      "ai_supplement": true,
+      "confidence": 0.4,
+      "source_quality": {
+        "is_real_file": false,
+        "is_admin_material": false,
+        "contains_definition": false,
+        "contains_example": false,
+        "contains_exercise": false,
+        "keyword_match_score": 0,
+        "is_primary_learning_source": false
+      },
+      "needs_review": true,
+      "review_reasons": [
+        "mock_fallback",
+        "not_real_source",
+        "not_primary_learning_source"
+      ]
+    },
+    {
+      "topic_id": "network-basics-tcpip-001",
+      "knowledge_id": "kp-tcpip",
+      "subject_id": "network-basics",
+      "topic_title": "TCP/IP",
+      "material_type": "concept",
+      "topic_type": "advanced_concept",
+      "source_type": "mock",
+      "source_ids": [],
+      "source_file": "data/study_system.json",
+      "source_page_or_section": "knowledgePoints[id=kp-tcpip]",
+      "source_chunk": "TCP/IP 是互联网通信的一组核心协议。",
+      "source_excerpt": "TCP/IP 是互联网通信的一组核心协议。",
+      "keywords": [
+        "TCP/IP",
+        "是互联网通信的一组核心协议",
+        "IP",
+        "负责寻址和传送方向",
+        "TCP",
+        "负责可靠连接",
+        "顺序和重传"
+      ],
+      "prerequisites": [
+        "kp-ip",
+        "kp-router"
+      ],
+      "next_topics": [],
+      "related_exercises": [],
+      "ai_supplement": true,
+      "confidence": 0.4,
+      "source_quality": {
+        "is_real_file": false,
+        "is_admin_material": false,
+        "contains_definition": false,
+        "contains_example": false,
+        "contains_exercise": false,
+        "keyword_match_score": 0,
+        "is_primary_learning_source": false
+      },
+      "needs_review": true,
+      "review_reasons": [
+        "mock_fallback",
+        "not_real_source",
+        "not_primary_learning_source"
+      ]
+    }
+  ]
+}

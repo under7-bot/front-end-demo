@@ -1,0 +1,393 @@
+{
+  "site": {
+    "title": "AI记忆宫殿学习系统",
+    "subtitle": "把课程、知识点、练习和复习路线连成可以走的学习地图"
+  },
+  "courses": [
+    {
+      "id": "programming-basics",
+      "title": "编程基础",
+      "summary": "学习程序如何保存数据、做判断、重复执行和封装逻辑。",
+      "page": "course-programming-basics.html",
+      "materials": [
+        "Python基础：变量与输入",
+        "条件分岐：if / else",
+        "循环与函数练习"
+      ],
+      "aiSummary": "编程基础的主线是：先让程序记住数据，再让程序根据条件选择路径，之后让重复动作自动化，最后把常用逻辑封装成函数。",
+      "misunderstandings": [
+        "把变量名当成固定的值，而不是指向当前数据的名字。",
+        "只看 if 条件，不看 else 对应哪一层。",
+        "循环条件写错导致一次都不执行或停不下来。"
+      ],
+      "oldKnowledge": [
+        "数学中的等号和比较关系",
+        "日常流程图里的分支和重复",
+        "表格中一格保存一个值的概念"
+      ],
+      "reviewQuestions": [
+        "变量、条件、循环分别解决什么问题？",
+        "一个程序从输入到输出通常经过哪些步骤？",
+        "什么时候应该把代码写成函数？"
+      ],
+      "knowledgeIds": ["kp-variable", "kp-condition", "kp-loop", "kp-function"]
+    },
+    {
+      "id": "web-basics",
+      "title": "Web基础",
+      "summary": "理解网页从结构、样式到交互的组成方式。",
+      "page": "course-web-basics.html",
+      "materials": ["HTML标签", "CSS选择器", "JavaScript DOM"],
+      "aiSummary": "Web基础可以看成一间房子：HTML 搭骨架，CSS 负责外观，JavaScript 让页面能响应点击、输入和状态变化。",
+      "misunderstandings": [
+        "把 HTML 当成排版工具，而忘记它主要表达结构。",
+        "CSS 选择器优先级混乱导致样式不生效。",
+        "DOM 是页面对象树，不是普通字符串。"
+      ],
+      "oldKnowledge": ["文档大纲", "颜色和尺寸单位", "事件触发的因果关系"],
+      "reviewQuestions": [
+        "HTML、CSS、JavaScript 各自负责什么？",
+        "为什么 DOM 能让 JS 修改页面？",
+        "一个按钮点击后页面变化的流程是什么？"
+      ],
+      "knowledgeIds": ["kp-html", "kp-css", "kp-javascript", "kp-dom"]
+    },
+    {
+      "id": "database-basics",
+      "title": "数据库基础",
+      "summary": "学习如何用表保存数据，并用 SQL 查询需要的信息。",
+      "page": "course-database-basics.html",
+      "materials": ["数据库表", "主键与外键", "SELECT / WHERE"],
+      "aiSummary": "数据库学习主线是：先理解表，再理解每一行如何被主键识别，表之间如何用外键连接，最后用 SQL 把数据筛选出来。",
+      "misunderstandings": [
+        "把表名、列名、记录混在一起。",
+        "主键和外键都叫 key，但作用完全不同。",
+        "WHERE 是筛选行，不是筛选列。"
+      ],
+      "oldKnowledge": ["Excel 表格", "编号管理", "条件筛选"],
+      "reviewQuestions": [
+        "一张表由哪些部分组成？",
+        "主键为什么不能随便重复？",
+        "SELECT 和 WHERE 的分工是什么？"
+      ],
+      "knowledgeIds": ["kp-table", "kp-primary-key", "kp-foreign-key", "kp-select", "kp-where"]
+    },
+    {
+      "id": "network-basics",
+      "title": "网络基础",
+      "summary": "理解电脑如何通过地址、名称解析和协议互相通信。",
+      "page": "course-network-basics.html",
+      "materials": ["IP地址", "DNS", "路由器", "TCP/IP"],
+      "aiSummary": "网络基础的主线是：设备先有 IP 地址，域名通过 DNS 找到地址，路由器决定转发路径，TCP/IP 规定数据如何可靠传输。",
+      "misunderstandings": [
+        "把 DNS 当成网站本身，而不是名称解析服务。",
+        "认为路由器只负责 Wi-Fi，忽略它的转发作用。",
+        "把 IP 地址和 MAC 地址混淆。"
+      ],
+      "oldKnowledge": ["家庭住址", "邮局转发", "电话簿查询"],
+      "reviewQuestions": [
+        "输入网址后，浏览器为什么需要 DNS？",
+        "路由器在网络中负责什么？",
+        "TCP/IP 为什么要分层理解？"
+      ],
+      "knowledgeIds": ["kp-ip", "kp-dns", "kp-router", "kp-tcpip"]
+    }
+  ],
+  "knowledgePoints": [
+    {
+      "id": "kp-variable",
+      "title": "变量",
+      "courseId": "programming-basics",
+      "oneLine": "变量是给数据起名字，让程序后面可以读取和修改它。",
+      "core": "变量由变量名和值组成。写入时把值保存到名字下面，读取时用变量名取得当前值。",
+      "example": "score = 80；之后 print(score) 会输出 80。",
+      "prerequisiteIds": [],
+      "relatedIds": ["kp-table"],
+      "nextIds": ["kp-condition"],
+      "confusions": ["变量名不是字符串内容；赋值 = 不是数学等号。"],
+      "coreQuestion": "程序怎样记住一个值，并在后面继续使用？",
+      "myUnderstanding": "把变量想成贴了标签的抽屉，标签是变量名，抽屉里现在放着的东西是值。"
+    },
+    {
+      "id": "kp-condition",
+      "title": "条件判断",
+      "courseId": "programming-basics",
+      "oneLine": "条件判断让程序根据 true/false 选择不同执行路径。",
+      "core": "if 会先计算条件式。条件为真时执行 if 块，否则执行 else 或跳过。",
+      "example": "if score >= 60: print('合格') else: print('不合格')",
+      "prerequisiteIds": ["kp-variable"],
+      "relatedIds": ["kp-where"],
+      "nextIds": ["kp-loop"],
+      "confusions": ["else 对应最近的一层 if；条件式必须能判断真假。"],
+      "coreQuestion": "程序怎样根据情况走不同路线？",
+      "myUnderstanding": "条件判断像岔路门，条件成立走左边，不成立走右边。"
+    },
+    {
+      "id": "kp-loop",
+      "title": "循环",
+      "courseId": "programming-basics",
+      "oneLine": "循环让同一段处理在条件满足时重复执行。",
+      "core": "循环通常包含初始值、继续条件、循环体和更新步骤。缺少更新容易形成无限循环。",
+      "example": "for i in range(3): print(i) 会输出 0、1、2。",
+      "prerequisiteIds": ["kp-condition"],
+      "relatedIds": ["kp-dom"],
+      "nextIds": ["kp-function"],
+      "confusions": ["循环次数和最后一个值不一定相同；while 要特别注意停止条件。"],
+      "coreQuestion": "程序怎样自动重复做类似的事？",
+      "myUnderstanding": "循环像传送带，每来一个编号就执行同一套动作。"
+    },
+    {
+      "id": "kp-function",
+      "title": "函数",
+      "courseId": "programming-basics",
+      "oneLine": "函数把一组处理打包成可以反复调用的名字。",
+      "core": "函数可以接收参数，执行内部逻辑，并用 return 把结果交回调用处。",
+      "example": "def add(a, b): return a + b",
+      "prerequisiteIds": ["kp-variable", "kp-condition", "kp-loop"],
+      "relatedIds": ["kp-javascript"],
+      "nextIds": [],
+      "confusions": ["print 是显示，return 是交回结果；定义函数不等于已经执行函数。"],
+      "coreQuestion": "怎样把重复逻辑变成可复用工具？",
+      "myUnderstanding": "函数像自动售货机，投入参数，按内部规则处理，吐出结果。"
+    },
+    {
+      "id": "kp-html",
+      "title": "HTML",
+      "courseId": "web-basics",
+      "oneLine": "HTML 用标签描述网页内容和结构。",
+      "core": "HTML 元素通常由开始标签、内容和结束标签组成，浏览器根据标签理解页面层级。",
+      "example": "<h1>标题</h1><p>段落</p>",
+      "prerequisiteIds": [],
+      "relatedIds": ["kp-table"],
+      "nextIds": ["kp-css"],
+      "confusions": ["HTML 不是编程语言；标签语义比外观更重要。"],
+      "coreQuestion": "网页的内容骨架怎样被浏览器理解？",
+      "myUnderstanding": "HTML 是房子的结构图，先决定哪里是标题、段落、列表。"
+    },
+    {
+      "id": "kp-css",
+      "title": "CSS",
+      "courseId": "web-basics",
+      "oneLine": "CSS 控制网页元素的外观和布局。",
+      "core": "CSS 通过选择器找到元素，再给它设置颜色、间距、大小、布局等规则。",
+      "example": "p { color: blue; }",
+      "prerequisiteIds": ["kp-html"],
+      "relatedIds": [],
+      "nextIds": ["kp-javascript"],
+      "confusions": ["选择器没选中时样式不会生效；后写规则可能覆盖先写规则。"],
+      "coreQuestion": "怎样让同一份内容呈现不同视觉效果？",
+      "myUnderstanding": "CSS 像给房子刷漆和摆家具。"
+    },
+    {
+      "id": "kp-javascript",
+      "title": "JavaScript",
+      "courseId": "web-basics",
+      "oneLine": "JavaScript 让网页能根据用户操作改变状态。",
+      "core": "JavaScript 可以读取数据、监听事件、修改 DOM，让静态页面变成可交互页面。",
+      "example": "button.addEventListener('click', () => alert('Hi'))",
+      "prerequisiteIds": ["kp-html", "kp-css", "kp-variable"],
+      "relatedIds": ["kp-function"],
+      "nextIds": ["kp-dom"],
+      "confusions": ["JS 逻辑错误和 CSS 样式错误要分开排查。"],
+      "coreQuestion": "网页怎样响应点击、输入和状态变化？",
+      "myUnderstanding": "JavaScript 像房间里的开关和机关。"
+    },
+    {
+      "id": "kp-dom",
+      "title": "DOM",
+      "courseId": "web-basics",
+      "oneLine": "DOM 是浏览器把 HTML 转成的页面对象树。",
+      "core": "JavaScript 操作 DOM 节点，就能改变页面内容、属性和样式。",
+      "example": "document.querySelector('h1').textContent = '新标题'",
+      "prerequisiteIds": ["kp-html", "kp-javascript"],
+      "relatedIds": ["kp-loop"],
+      "nextIds": [],
+      "confusions": ["HTML 源码和当前 DOM 可能不同，因为 JS 可以修改 DOM。"],
+      "coreQuestion": "JS 为什么能找到并修改页面上的元素？",
+      "myUnderstanding": "DOM 像网页的立体模型，JS 可以伸手移动模型里的零件。"
+    },
+    {
+      "id": "kp-table",
+      "title": "表",
+      "courseId": "database-basics",
+      "oneLine": "表用行和列保存同一类数据。",
+      "core": "列定义数据项目，行代表一条记录。表名表示这类数据的集合。",
+      "example": "students(id, name, age)",
+      "prerequisiteIds": [],
+      "relatedIds": ["kp-html"],
+      "nextIds": ["kp-primary-key"],
+      "confusions": ["列是字段，行是记录，不要反过来。"],
+      "coreQuestion": "数据库怎样有结构地保存一组数据？",
+      "myUnderstanding": "表像规则更严格的 Excel。"
+    },
+    {
+      "id": "kp-primary-key",
+      "title": "主键",
+      "courseId": "database-basics",
+      "oneLine": "主键是表中唯一识别一条记录的字段。",
+      "core": "主键不能重复，通常也不应该为空，用来稳定定位某一行。",
+      "example": "student_id 作为学生表主键。",
+      "prerequisiteIds": ["kp-table"],
+      "relatedIds": [],
+      "nextIds": ["kp-foreign-key"],
+      "confusions": ["主键不是显示顺序，而是身份标识。"],
+      "coreQuestion": "怎样准确找到表里的某一条记录？",
+      "myUnderstanding": "主键像学生证号码。"
+    },
+    {
+      "id": "kp-foreign-key",
+      "title": "外键",
+      "courseId": "database-basics",
+      "oneLine": "外键用一个表的字段引用另一个表的主键。",
+      "core": "外键让不同表之间建立关系，例如成绩表通过 student_id 对应学生表。",
+      "example": "scores.student_id -> students.id",
+      "prerequisiteIds": ["kp-primary-key"],
+      "relatedIds": [],
+      "nextIds": ["kp-select"],
+      "confusions": ["外键不是本表身份，而是指向别的表。"],
+      "coreQuestion": "多张表之间怎样连接起来？",
+      "myUnderstanding": "外键像一张纸条，写着去另一张表找谁。"
+    },
+    {
+      "id": "kp-select",
+      "title": "SELECT",
+      "courseId": "database-basics",
+      "oneLine": "SELECT 用来指定查询结果要显示哪些列。",
+      "core": "SELECT 后写列名，FROM 后写表名，组合成最基本的查询。",
+      "example": "SELECT name FROM students;",
+      "prerequisiteIds": ["kp-table"],
+      "relatedIds": [],
+      "nextIds": ["kp-where"],
+      "confusions": ["SELECT 选列，WHERE 筛行。"],
+      "coreQuestion": "怎样从表里取出需要看的字段？",
+      "myUnderstanding": "SELECT 像点菜单，决定端上来哪些列。"
+    },
+    {
+      "id": "kp-where",
+      "title": "WHERE",
+      "courseId": "database-basics",
+      "oneLine": "WHERE 根据条件筛选符合要求的行。",
+      "core": "WHERE 放在 FROM 之后，用比较条件限制返回的记录。",
+      "example": "SELECT name FROM students WHERE age >= 18;",
+      "prerequisiteIds": ["kp-select", "kp-condition"],
+      "relatedIds": ["kp-condition"],
+      "nextIds": [],
+      "confusions": ["WHERE 不决定显示哪些列，而决定哪些行留下。"],
+      "coreQuestion": "怎样只查询满足条件的数据？",
+      "myUnderstanding": "WHERE 像筛子，把不符合条件的行筛掉。"
+    },
+    {
+      "id": "kp-ip",
+      "title": "IP地址",
+      "courseId": "network-basics",
+      "oneLine": "IP地址是在网络中定位设备的逻辑地址。",
+      "core": "设备通信时需要知道目标 IP，数据包才能被送往正确方向。",
+      "example": "192.168.1.10",
+      "prerequisiteIds": [],
+      "relatedIds": [],
+      "nextIds": ["kp-dns"],
+      "confusions": ["IP 地址会变化；它不是设备的永久硬件编号。"],
+      "coreQuestion": "网络里怎样标识目标设备？",
+      "myUnderstanding": "IP 像网络世界里的门牌号。"
+    },
+    {
+      "id": "kp-dns",
+      "title": "DNS",
+      "courseId": "network-basics",
+      "oneLine": "DNS 把人容易记的域名解析成 IP 地址。",
+      "core": "浏览器访问域名时，先通过 DNS 查询对应 IP，再向目标服务器发起连接。",
+      "example": "example.com -> 93.184.216.34",
+      "prerequisiteIds": ["kp-ip"],
+      "relatedIds": [],
+      "nextIds": ["kp-router"],
+      "confusions": ["DNS 不保存网页内容，只负责名称到地址的转换。"],
+      "coreQuestion": "为什么输入域名也能找到服务器？",
+      "myUnderstanding": "DNS 像电话簿，把名字查成号码。"
+    },
+    {
+      "id": "kp-router",
+      "title": "路由器",
+      "courseId": "network-basics",
+      "oneLine": "路由器根据目标地址决定数据包下一步往哪里走。",
+      "core": "路由器连接不同网络，转发数据包，让信息跨网络到达目的地。",
+      "example": "家庭路由器把家里设备连接到互联网。",
+      "prerequisiteIds": ["kp-ip"],
+      "relatedIds": [],
+      "nextIds": ["kp-tcpip"],
+      "confusions": ["Wi-Fi 是无线接入方式，路由是转发路径选择。"],
+      "coreQuestion": "数据怎样从一个网络走到另一个网络？",
+      "myUnderstanding": "路由器像十字路口的指路员。"
+    },
+    {
+      "id": "kp-tcpip",
+      "title": "TCP/IP",
+      "courseId": "network-basics",
+      "oneLine": "TCP/IP 是互联网通信的一组核心协议。",
+      "core": "IP 负责寻址和传送方向，TCP 负责可靠连接、顺序和重传。",
+      "example": "浏览网页时，TCP 负责可靠传输，IP 负责把包送到目标地址。",
+      "prerequisiteIds": ["kp-ip", "kp-router"],
+      "relatedIds": [],
+      "nextIds": [],
+      "confusions": ["TCP 和 IP 不是同一个职责；协议是一组通信规则。"],
+      "coreQuestion": "网络通信为什么能按规则可靠完成？",
+      "myUnderstanding": "TCP/IP 像快递系统的地址规则和签收规则。"
+    }
+  ],
+  "maps": [
+    {
+      "id": "map-programming",
+      "title": "编程基础路线",
+      "nodes": ["kp-variable", "kp-condition", "kp-loop", "kp-function"]
+    },
+    {
+      "id": "map-web",
+      "title": "Web路线",
+      "nodes": ["kp-html", "kp-css", "kp-javascript", "kp-dom"]
+    },
+    {
+      "id": "map-database",
+      "title": "数据库路线",
+      "nodes": ["kp-table", "kp-primary-key", "kp-foreign-key", "kp-select", "kp-where"]
+    },
+    {
+      "id": "map-network",
+      "title": "网络路线",
+      "nodes": ["kp-ip", "kp-dns", "kp-router", "kp-tcpip"]
+    }
+  ],
+  "comparisons": [
+    {
+      "id": "compare-select-where",
+      "title": "SELECT vs WHERE",
+      "leftId": "kp-select",
+      "rightId": "kp-where",
+      "points": [
+        ["作用", "决定显示哪些列", "决定保留哪些行"],
+        ["位置", "写在查询开头", "写在 FROM 后面"],
+        ["常见错误", "误以为 SELECT 能筛选记录", "误以为 WHERE 能决定列显示"]
+      ]
+    },
+    {
+      "id": "compare-print-return",
+      "title": "print vs return",
+      "leftLabel": "print",
+      "rightId": "kp-function",
+      "points": [
+        ["作用", "把内容显示到画面", "把结果交回调用处"],
+        ["是否可复用", "显示后通常不能继续计算", "返回值可以保存、比较、继续传递"],
+        ["记忆法", "像喊出来", "像递回一张结果单"]
+      ]
+    },
+    {
+      "id": "compare-primary-foreign-key",
+      "title": "主键 vs 外键",
+      "leftId": "kp-primary-key",
+      "rightId": "kp-foreign-key",
+      "points": [
+        ["身份", "本表记录的唯一身份", "指向其他表记录的连接字段"],
+        ["能否重复", "通常不能重复", "可以重复引用同一个主键"],
+        ["用途", "定位一行", "建立表关系"]
+      ]
+    }
+  ]
+}
