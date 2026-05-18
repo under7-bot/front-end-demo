@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python 基础详情页</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: Arial, "Microsoft YaHei", sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      color: #222;
+    }
+
+    header {
+      background: #1f2937;
+      color: white;
+      padding: 24px;
+    }
+
+    .header-inner {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .back-link {
+      color: white;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.45);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 14px;
+    }
+
+    .back-link:hover {
+      background: white;
+      color: #1f2937;
+    }
+
+    .language-switcher {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .language-button {
+      border: 1px solid rgba(255,255,255,0.45);
+      background: transparent;
+      color: white;
+      border-radius: 999px;
+      padding: 8px 14px;
+      cursor: pointer;
+      font-size: 14px;
+      min-width: 76px;
+      min-height: 40px;
+    }
+
+    .language-button:hover,
+    .language-button.active {
+      background: white;
+      color: #1f2937;
+    }
+
+    .hero {
+      margin-top: 34px;
+      max-width: 760px;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: 42px;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      margin: 14px 0 0;
+      font-size: 17px;
+      line-height: 1.7;
+      color: #dbeafe;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 30px auto 48px;
+    }
+
+    .section-title {
+      margin: 38px 0 16px;
+      border-left: 6px solid #2563eb;
+      padding-left: 12px;
+      font-size: 24px;
+      line-height: 1.35;
+    }
+
+    .panel {
+      background: white;
+      border-radius: 12px;
+      padding: 22px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      overflow-wrap: anywhere;
+    }
+
+    .summary {
+      font-size: 18px;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    .path {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .path-item {
+      background: #e0ecff;
+      color: #1d4ed8;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .path-arrow {
+      color: #64748b;
+      font-size: 18px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      min-height: 100%;
+      overflow-wrap: anywhere;
+    }
+
+    .card-link {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      color: #1d4ed8;
+      line-height: 1.35;
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.7;
+      color: #334155;
+    }
+
+    .tag-list {
+      margin-top: 14px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #e0ecff;
+      color: #1d4ed8;
+      padding: 4px 8px;
+      margin: 4px 4px 0 0;
+      border-radius: 6px;
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .note-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .note-list li {
+      background: white;
+      border-left: 5px solid #2563eb;
+      border-radius: 10px;
+      padding: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 640px) {
+      header {
+        padding: 24px 16px;
+      }
+
+      .header-inner,
+      .container {
+        width: 100%;
+      }
+
+      .topbar {
+        align-items: stretch;
+      }
+
+      .back-link {
+        text-align: center;
+      }
+
+      .language-switcher {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        width: 100%;
+      }
+
+      .language-button {
+        width: 100%;
+        min-width: 0;
+        padding: 10px 8px;
+        font-size: 13px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .container {
+        padding: 0 16px;
+        margin: 24px auto 40px;
+      }
+
+      .section-title {
+        font-size: 20px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .panel,
+      .card {
+        padding: 18px;
+      }
+
+      .path {
+        display: grid;
+        gap: 8px;
+      }
+
+      .path-arrow {
+        display: none;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .language-switcher {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="topbar">
+      <a class="back-link" href="知识导航初版.html" data-i18n="backHome">返回首页</a>
+      <div class="language-switcher" aria-label="Language switcher">
+        <button class="language-button active" type="button" data-lang="zh">中文</button>
+        <button class="language-button" type="button" data-lang="ja">日本語</button>
+        <button class="language-button" type="button" data-lang="en">English</button>
+      </div>
+    </div>
+
+    <div class="hero">
+      <h1 data-i18n="pageTitle">Python 基础</h1>
+      <p data-i18n="pageSubtitle">从变量、条件分支、循环和函数开始，把 Python 基础知识整理成可以复习、可以关联、可以继续扩展的学习路径。</p>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <h2 class="section-title" data-i18n="summaryTitle">一句话理解</h2>
+  <section class="panel">
+    <p class="summary" data-i18n="summaryText">Python 是一种语法简单、适合入门、自动化处理和项目实战的编程语言。</p>
+  </section>
+
+  <h2 class="section-title" data-i18n="pathTitle">学习路径</h2>
+  <section class="panel">
+    <div class="path">
+      <span class="path-item" data-i18n="pathVariable">变量</span>
+      <span class="path-arrow">→</span>
+      <span class="path-item" data-i18n="pathCondition">条件分支</span>
+      <span class="path-arrow">→</span>
+      <span class="path-item" data-i18n="pathLoop">循环</span>
+      <span class="path-arrow">→</span>
+      <span class="path-item" data-i18n="pathFunction">函数</span>
+      <span class="path-arrow">→</span>
+      <span class="path-item" data-i18n="pathFile">文件处理</span>
+      <span class="path-arrow">→</span>
+      <span class="path-item" data-i18n="pathProject">项目实战</span>
+    </div>
+  </section>
+
+  <h2 class="section-title" data-i18n="knowledgeTitle">知识点卡片</h2>
+  <section class="grid">
+    <a class="card-link" href="python-variable.html">
+      <article class="card">
+        <h3 data-i18n="variableTitle">变量</h3>
+        <p data-i18n="variableDesc">用名字保存数据，例如姓名、数字、计算结果，是程序记住信息的基础。</p>
+        <div class="tag-list">
+          <span class="tag" data-i18n="tagBeginner">入门</span>
+          <span class="tag" data-i18n="tagData">数据</span>
+        </div>
+      </article>
+    </a>
+
+    <article class="card">
+      <h3 data-i18n="conditionTitle">条件分支</h3>
+      <p data-i18n="conditionDesc">用 if / elif / else 根据条件选择不同处理，让程序能够做判断。</p>
+      <div class="tag-list">
+        <span class="tag">if</span>
+        <span class="tag" data-i18n="tagLogic">逻辑</span>
+      </div>
+    </article>
+
+    <article class="card">
+      <h3 data-i18n="loopTitle">循环</h3>
+      <p data-i18n="loopDesc">用 for 或 while 重复执行处理，适合遍历列表、重复计算和批量操作。</p>
+      <div class="tag-list">
+        <span class="tag">for</span>
+        <span class="tag">while</span>
+      </div>
+    </article>
+
+    <article class="card">
+      <h3 data-i18n="functionTitle">函数</h3>
+      <p data-i18n="functionDesc">把一段处理打包成可以重复调用的模块，重点理解参数、return 和调用位置。</p>
+      <div class="tag-list">
+        <span class="tag">def</span>
+        <span class="tag">return</span>
+      </div>
+    </article>
+
+    <article class="card">
+      <h3 data-i18n="fileTitle">文件处理</h3>
+      <p data-i18n="fileDesc">读取和写入文件，把程序运行结果保存下来，也能处理外部数据。</p>
+      <div class="tag-list">
+        <span class="tag">open</span>
+        <span class="tag" data-i18n="tagPractice">实战</span>
+      </div>
+    </article>
+  </section>
+
+  <h2 class="section-title" data-i18n="questionTitle">提问笔记入口</h2>
+  <ul class="note-list">
+    <li data-i18n="questionReturn">return 也是出力吗？</li>
+    <li data-i18n="questionLoop">为什么 for 循环会重复执行？</li>
+    <li data-i18n="questionVariable">变量里面保存的是文字还是数字？</li>
+  </ul>
+
+  <h2 class="section-title" data-i18n="memoryTitle">记忆宫殿入口</h2>
+  <section class="panel">
+    <p class="summary" data-i18n="memoryText">把 Python 想象成一个工具房：变量是贴着标签的盒子，if 是分岔路口，for 是传送带，函数是可以反复启动的机器。</p>
+  </section>
+</main>
+
+<script>
+  const translations = {
+    zh: {
+      documentTitle: "Python 基础详情页",
+      backHome: "返回首页",
+      pageTitle: "Python 基础",
+      pageSubtitle: "从变量、条件分支、循环和函数开始，把 Python 基础知识整理成可以复习、可以关联、可以继续扩展的学习路径。",
+      summaryTitle: "一句话理解",
+      summaryText: "Python 是一种语法简单、适合入门、自动化处理和项目实战的编程语言。",
+      pathTitle: "学习路径",
+      pathVariable: "变量",
+      pathCondition: "条件分支",
+      pathLoop: "循环",
+      pathFunction: "函数",
+      pathFile: "文件处理",
+      pathProject: "项目实战",
+      knowledgeTitle: "知识点卡片",
+      variableTitle: "变量",
+      variableDesc: "用名字保存数据，例如姓名、数字、计算结果，是程序记住信息的基础。",
+      conditionTitle: "条件分支",
+      conditionDesc: "用 if / elif / else 根据条件选择不同处理，让程序能够做判断。",
+      loopTitle: "循环",
+      loopDesc: "用 for 或 while 重复执行处理，适合遍历列表、重复计算和批量操作。",
+      functionTitle: "函数",
+      functionDesc: "把一段处理打包成可以重复调用的模块，重点理解参数、return 和调用位置。",
+      fileTitle: "文件处理",
+      fileDesc: "读取和写入文件，把程序运行结果保存下来，也能处理外部数据。",
+      questionTitle: "提问笔记入口",
+      questionReturn: "return 也是出力吗？",
+      questionLoop: "为什么 for 循环会重复执行？",
+      questionVariable: "变量里面保存的是文字还是数字？",
+      memoryTitle: "记忆宫殿入口",
+      memoryText: "把 Python 想象成一个工具房：变量是贴着标签的盒子，if 是分岔路口，for 是传送带，函数是可以反复启动的机器。",
+      tagBeginner: "入门",
+      tagData: "数据",
+      tagLogic: "逻辑",
+      tagPractice: "实战"
+    },
+    ja: {
+      documentTitle: "Python 基礎 詳細ページ",
+      backHome: "ホームへ戻る",
+      pageTitle: "Python 基礎",
+      pageSubtitle: "変数、条件分岐、ループ、関数から始めて、Python の基礎を復習しやすく、関連づけやすく、拡張しやすい学習ルートに整理します。",
+      summaryTitle: "一言で理解",
+      summaryText: "Python は文法がシンプルで、入門、作業の自動化、プロジェクト実践に向いているプログラミング言語です。",
+      pathTitle: "学習ルート",
+      pathVariable: "変数",
+      pathCondition: "条件分岐",
+      pathLoop: "ループ",
+      pathFunction: "関数",
+      pathFile: "ファイル処理",
+      pathProject: "プロジェクト実践",
+      knowledgeTitle: "知識カード",
+      variableTitle: "変数",
+      variableDesc: "名前をつけてデータを保存します。名前、数字、計算結果など、プログラムが情報を覚える基本です。",
+      conditionTitle: "条件分岐",
+      conditionDesc: "if / elif / else を使って条件ごとに処理を選び、プログラムに判断させます。",
+      loopTitle: "ループ",
+      loopDesc: "for や while で処理を繰り返します。リストの処理、反復計算、一括操作に使います。",
+      functionTitle: "関数",
+      functionDesc: "処理を再利用できるまとまりにします。引数、return、呼び出し位置を重点的に理解します。",
+      fileTitle: "ファイル処理",
+      fileDesc: "ファイルを読み書きして、実行結果を保存したり、外部データを処理したりします。",
+      questionTitle: "質問ノート入口",
+      questionReturn: "return も出力ですか？",
+      questionLoop: "なぜ for ループは繰り返し実行されるの？",
+      questionVariable: "変数には文字と数字のどちらが保存されるの？",
+      memoryTitle: "記憶宮殿入口",
+      memoryText: "Python を道具部屋として想像します。変数はラベル付きの箱、if は分かれ道、for はベルトコンベア、関数は何度も起動できる機械です。",
+      tagBeginner: "入門",
+      tagData: "データ",
+      tagLogic: "ロジック",
+      tagPractice: "実践"
+    },
+    en: {
+      documentTitle: "Python Basics Detail Page",
+      backHome: "Back Home",
+      pageTitle: "Python Basics",
+      pageSubtitle: "Start with variables, conditionals, loops, and functions, then organize Python basics into a reviewable, connected, and expandable learning path.",
+      summaryTitle: "One-Sentence Summary",
+      summaryText: "Python is a programming language with simple syntax, suitable for beginners, automation, and project practice.",
+      pathTitle: "Learning Path",
+      pathVariable: "Variables",
+      pathCondition: "Conditionals",
+      pathLoop: "Loops",
+      pathFunction: "Functions",
+      pathFile: "File Handling",
+      pathProject: "Project Practice",
+      knowledgeTitle: "Knowledge Cards",
+      variableTitle: "Variables",
+      variableDesc: "Store data with names, such as names, numbers, and calculation results. This is how programs remember information.",
+      conditionTitle: "Conditionals",
+      conditionDesc: "Use if / elif / else to choose different actions based on conditions, giving programs decision-making ability.",
+      loopTitle: "Loops",
+      loopDesc: "Use for or while to repeat actions. Loops are useful for lists, repeated calculations, and batch operations.",
+      functionTitle: "Functions",
+      functionDesc: "Package a process into a reusable module. Focus on parameters, return, and the call location.",
+      fileTitle: "File Handling",
+      fileDesc: "Read and write files to save program results and process external data.",
+      questionTitle: "Question Notes",
+      questionReturn: "Is return also output?",
+      questionLoop: "Why does a for loop run repeatedly?",
+      questionVariable: "Do variables store text or numbers?",
+      memoryTitle: "Memory Palace Entrance",
+      memoryText: "Imagine Python as a tool room: variables are labeled boxes, if is a fork in the road, for is a conveyor belt, and functions are machines you can start again and again.",
+      tagBeginner: "Beginner",
+      tagData: "Data",
+      tagLogic: "Logic",
+      tagPractice: "Practice"
+    }
+  };
+
+  const htmlLang = {
+    zh: "zh-CN",
+    ja: "ja",
+    en: "en"
+  };
+
+  function setLanguage(lang) {
+    const dictionary = translations[lang] || translations.zh;
+
+    document.documentElement.lang = htmlLang[lang] || "zh-CN";
+    document.title = dictionary.documentTitle;
+
+    document.querySelectorAll("[data-i18n]").forEach((element) => {
+      const key = element.dataset.i18n;
+      if (dictionary[key]) {
+        element.textContent = dictionary[key];
+      }
+    });
+
+    document.querySelectorAll(".language-button").forEach((button) => {
+      button.classList.toggle("active", button.dataset.lang === lang);
+    });
+
+    localStorage.setItem("studyNavigatorLanguage", lang);
+  }
+
+  document.querySelectorAll(".language-button").forEach((button) => {
+    button.addEventListener("click", () => {
+      setLanguage(button.dataset.lang);
+    });
+  });
+
+  setLanguage(localStorage.getItem("studyNavigatorLanguage") || "zh");
+</script>
+
+</body>
+</html>

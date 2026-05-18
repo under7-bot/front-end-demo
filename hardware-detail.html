@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ハードウェア基礎理論分支详情</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { overflow-x: hidden; }
+    body {
+      font-family: Arial, "Microsoft YaHei", sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      color: #222;
+    }
+    header {
+      background: #1f2937;
+      color: white;
+      padding: 24px;
+    }
+    .header-inner, .container {
+      width: 90%;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .back-link, .branch-link, .language-button {
+      border: 1px solid rgba(255,255,255,0.45);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 14px;
+      text-decoration: none;
+    }
+    .back-link {
+      color: white;
+    }
+    .back-link:hover, .language-button:hover, .language-button.active {
+      background: white;
+      color: #1f2937;
+    }
+    .language-switcher {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .language-button {
+      background: transparent;
+      color: white;
+      cursor: pointer;
+      min-width: 76px;
+      min-height: 40px;
+    }
+    .hero {
+      margin-top: 34px;
+      max-width: 860px;
+    }
+    .hero h1 {
+      margin: 0;
+      font-size: 40px;
+      line-height: 1.2;
+    }
+    .hero p {
+      margin: 14px 0 0;
+      font-size: 17px;
+      line-height: 1.7;
+      color: #dbeafe;
+    }
+    .container {
+      margin: 30px auto 48px;
+    }
+    .branch-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .branch-link {
+      color: #1d4ed8;
+      background: white;
+      border-color: #bfdbfe;
+      cursor: pointer;
+    }
+    .branch-link.active, .branch-link:hover {
+      background: #1d4ed8;
+      color: white;
+      border-color: #1d4ed8;
+    }
+    .section-title {
+      margin: 34px 0 16px;
+      border-left: 6px solid #2563eb;
+      padding-left: 12px;
+      font-size: 24px;
+      line-height: 1.35;
+    }
+    .panel, .card {
+      background: white;
+      border-radius: 12px;
+      padding: 22px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      overflow-wrap: anywhere;
+    }
+    .lead {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 18px;
+    }
+    .card h3 {
+      margin: 0 0 10px;
+      color: #1d4ed8;
+      line-height: 1.35;
+    }
+    .card p, .panel p, .panel li {
+      font-size: 15px;
+      line-height: 1.75;
+    }
+    .card p, .panel p { margin: 0; }
+    ul, ol { margin: 0; padding-left: 20px; }
+    pre {
+      background: #111827;
+      color: #e5e7eb;
+      border-radius: 10px;
+      padding: 16px;
+      overflow-x: auto;
+      line-height: 1.65;
+      margin: 0;
+      font-family: Consolas, "Courier New", monospace;
+    }
+    .tag {
+      display: inline-block;
+      background: #e0ecff;
+      color: #1d4ed8;
+      padding: 4px 8px;
+      margin: 10px 4px 0 0;
+      border-radius: 6px;
+      font-size: 12px;
+    }
+    @media (max-width: 640px) {
+      header { padding: 24px 16px; }
+      .header-inner, .container { width: 100%; }
+      .topbar { align-items: stretch; }
+      .back-link { text-align: center; }
+      .language-switcher {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        width: 100%;
+      }
+      .language-button {
+        width: 100%;
+        min-width: 0;
+        padding: 10px 8px;
+        font-size: 13px;
+      }
+      .hero h1 { font-size: 30px; }
+      .hero p { font-size: 15px; }
+      .container {
+        padding: 0 16px;
+        margin: 24px auto 40px;
+      }
+      .branch-nav, .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .branch-link { text-align: center; }
+      .section-title { font-size: 20px; }
+      .panel, .card { padding: 18px; }
+    }
+    @media (max-width: 380px) {
+      .language-switcher { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 27px; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <div class="topbar">
+      <a class="back-link" href="hardware.html" data-ui="back">返回ハードウェア首页</a>
+      <div class="language-switcher" aria-label="Language switcher">
+        <button class="language-button active" type="button" data-lang="zh">中文</button>
+        <button class="language-button" type="button" data-lang="ja">日本語</button>
+        <button class="language-button" type="button" data-lang="en">English</button>
+      </div>
+    </div>
+    <div class="hero">
+      <h1 id="branchTitle">ハードウェア分支详情</h1>
+      <p id="branchSubtitle">根据课堂资料整理的 FE 考试复习分支。</p>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <nav class="branch-nav" id="branchNav"></nav>
+
+  <h2 class="section-title" data-ui="goalTitle">学习目标</h2>
+  <section class="panel">
+    <p class="lead" id="goalText"></p>
+  </section>
+
+  <h2 class="section-title" data-ui="pointsTitle">核心知识</h2>
+  <section class="grid" id="pointGrid"></section>
+
+  <h2 class="section-title" data-ui="stepsTitle">解题步骤</h2>
+  <section class="grid" id="stepsGrid"></section>
+
+  <h2 class="section-title" data-ui="cheatTitle">必背速查</h2>
+  <section class="panel">
+    <pre id="cheatBlock"></pre>
+  </section>
+
+  <h2 class="section-title" data-ui="exampleTitle">课堂例题整理</h2>
+  <section class="panel">
+    <pre id="exampleBlock"></pre>
+  </section>
+
+  <h2 class="section-title" data-ui="examTitle">FE考试提醒</h2>
+  <section class="grid" id="examGrid"></section>
+
+  <h2 class="section-title" data-ui="memoryTitle">记忆宫殿</h2>
+  <section class="panel">
+    <p class="lead" id="memoryText"></p>
+  </section>
+
+  <h2 class="section-title" data-ui="quizTitle">自测题</h2>
+  <section class="panel">
+    <ol id="quizList"></ol>
+  </section>
+</main>
+
+<script>
+  const ui = {
+    zh: {
+      documentTitle: "ハードウェア基礎理論分支详情",
+      back: "返回ハードウェア首页",
+      goalTitle: "学习目标",
+      pointsTitle: "核心知识",
+      stepsTitle: "解题步骤",
+      cheatTitle: "必背速查",
+      exampleTitle: "课堂例题整理",
+      examTitle: "FE考试提醒",
+      memoryTitle: "记忆宫殿",
+      quizTitle: "自测题"
+    },
+    ja: {
+      documentTitle: "ハードウェア基礎理論 分岐詳細",
+      back: "ハードウェア首頁へ戻る",
+      goalTitle: "学習目標",
+      pointsTitle: "核心知識",
+      stepsTitle: "解き方",
+      cheatTitle: "暗記表",
+      exampleTitle: "授業例題の整理",
+      examTitle: "FE試験の注意点",
+      memoryTitle: "記憶宮殿",
+      quizTitle: "セルフチェック"
+    },
+    en: {
+      documentTitle: "Hardware Fundamentals Branch Detail",
+      back: "Back to Hardware Home",
+      goalTitle: "Goal",
+      pointsTitle: "Core Knowledge",
+      stepsTitle: "Solving Steps",
+      cheatTitle: "Quick Reference",
+      exampleTitle: "Class Examples",
+      examTitle: "FE Exam Notes",
+      memoryTitle: "Memory Palace",
+      quizTitle: "Self Check"
+    }
+  };
+
+  const branches = {
+    binary: {
+      nav: { zh: "二进制与基数", ja: "2進数と基数", en: "Binary and Radix" },
+      zh: {
+        title: "二进制与基数",
+        subtitle: "对应课堂资料 01：情報分野での数の表現方法。先搞懂“几个进一位”，再进入转换。",
+        goal: "能解释基数是什么、为什么计算机使用2进制，并能看懂 (10)10 与 (10)2 表示的值不同。",
+        points: [
+          ["基数", "基数就是几个数字后进一位。10进制满10进1，2进制满2进1。"],
+          ["2进制", "只使用0和1。硬件用电压高低、ON/OFF、真/假来表示最稳定。"],
+          ["表记", "(10)10 是十进制的10，(10)2 是二进制的10，也就是十进制的2。"]
+        ],
+        steps: [
+          ["看到“基数”", "先翻译成“几个进一位”。题目问基数的定义时，不要答成数字大小。"],
+          ["看到括号下标", "先确认下标是 2、8、10 还是 16，再计算。没有下标时，考试通常默认10进制。"],
+          ["看到为什么用2进制", "从硬件角度答：电压高低、ON/OFF、抗噪声、回路简单。"]
+        ],
+        cheat: "基数 = いくつで桁が上がるか\n2進数 = 0 と 1\n(10)2 = 2\n(10)10 = 10\nBinary = 2进制\n为什么计算机用2进制：两种状态容易判定、抗噪声、硬件简单、可表示真/假",
+        example: "(5)10 = (0101)2\n(1001)2 = 1×8 + 0×4 + 0×2 + 1×1 = (9)10\n\n常见基数：\n10进制：0-9\n2进制：0,1\n8进制：0-7\n16进制：0-9,A-F",
+        exam: [
+          ["为什么用2进制", "因为电气信号分成两种状态比区分十种状态容易，也更抗噪声。"],
+          ["FE选项陷阱", "题目问“2進数で表したもの”时，注意选项可能补前导0，比如 7 = 0111。"]
+        ],
+        memory: "玄关只有两个按钮：0按钮让灯灭，1按钮让灯亮。门口保安喊“满几个就进一位”，这就是基数。",
+        quiz: ["基数とは何か？", "(10)2 表示十进制的多少？", "计算机为什么适合用0和1表示信息？"]
+      },
+      ja: {
+        title: "2進数と基数",
+        subtitle: "授業資料01に対応。まず「いくつで桁が上がるか」を理解してから変換へ進みます。",
+        goal: "基数の意味、コンピュータが2進数を使う理由、(10)10 と (10)2 の違いを説明できるようにする。",
+        points: [
+          ["基数", "いくつで桁が上がるかを表す数。10進数は10、2進数は2。"],
+          ["2進数", "0と1だけを使う。電圧の高低、ON/OFF、真/偽で表しやすい。"],
+          ["表記", "(10)10 は10進数の10、(10)2 は10進数の2。"]
+        ],
+        example: "(5)10 = (0101)2\n(1001)2 = 1×8 + 0×4 + 0×2 + 1×1 = (9)10\n\nよく使う基数：\n10進数：0-9\n2進数：0,1\n8進数：0-7\n16進数：0-9,A-F",
+        exam: [
+          ["2進数を使う理由", "電気信号を二つの状態で判定する方が簡単で、ノイズにも強い。"],
+          ["FEの選択肢", "7を2進数で表す問題では 0111 のように前に0が付くことがある。"]
+        ],
+        memory: "玄関に0と1のボタンだけがある。警備員が「満何個で桁上がり」と言う。これが基数。",
+        quiz: ["基数とは何ですか？", "(10)2 は10進数でいくつ？", "なぜコンピュータは0と1を使う？"]
+      },
+      en: {
+        title: "Binary and Radix",
+        subtitle: "Based on class material 01. Understand place systems before doing conversions.",
+        goal: "Explain what radix means, why computers use binary, and why (10)10 and (10)2 have different values.",
+        points: [
+          ["Radix", "The number of symbols before carrying to the next digit. Decimal carries at 10, binary at 2."],
+          ["Binary", "Uses only 0 and 1, matching voltage high/low, ON/OFF, and true/false states."],
+          ["Notation", "(10)10 is decimal ten. (10)2 is binary ten, which equals decimal two."]
+        ],
+        example: "(5)10 = (0101)2\n(1001)2 = 1×8 + 0×4 + 0×2 + 1×1 = (9)10\n\nCommon radices:\nDecimal: 0-9\nBinary: 0,1\nOctal: 0-7\nHex: 0-9,A-F",
+        exam: [
+          ["Why binary", "Two electrical states are easier to detect and more noise-resistant than ten levels."],
+          ["FE trap", "Binary answer choices may include leading zeros, such as 7 = 0111."]
+        ],
+        memory: "At the entrance, there are only two buttons: 0 turns the light off, 1 turns it on. A guard says, 'carry after this many symbols.'",
+        quiz: ["What is a radix?", "What is (10)2 in decimal?", "Why is binary suitable for computers?"]
+      }
+    },
+    conversion: {
+      nav: { zh: "基数转换", ja: "基数変換", en: "Radix Conversion" },
+      zh: {
+        title: "基数转换",
+        subtitle: "对应课堂资料 01 和 02：2进制、8进制、10进制、16进制的互相转换。",
+        goal: "能用权重法把 n 进制转10进制，也能用除法取余法把10进制转 n 进制。",
+        points: [
+          ["2进制 → 10进制", "把每一位乘以对应权重，1的位置相加。权重从右往左是 1、2、4、8、16..."],
+          ["10进制 → 2进制", "不断除以2，记录余数，最后从下往上读。"],
+          ["10进制 → 8/16进制", "同样用除法取余。除以8或16，余数如果是10-15就写 A-F。"]
+        ],
+        steps: [
+          ["n进制 → 10进制", "写出每一位的权重：个位是 n^0，左边依次 n^1、n^2。数字 × 权重后相加。"],
+          ["10进制 → n进制", "反复除以 n，记录余数，到商为0结束，最后从下往上读余数。"],
+          ["检查答案", "把得到的结果再转回10进制，看看是否等于原数；这是考试防粗心最快的方法。"]
+        ],
+        cheat: "2进制权重：128 64 32 16 8 4 2 1\n(10111)2 = 16 + 4 + 2 + 1 = 23\n10进制转n进制：除n取余，倒读\n10以上的16进制余数：10=A, 11=B, 12=C, 13=D, 14=E, 15=F",
+        example: "(10111)2 = 16 + 4 + 2 + 1 = 23\n\n25÷2 = 12 余1\n12÷2 = 6 余0\n6÷2 = 3 余0\n3÷2 = 1 余1\n1÷2 = 0 余1\n从下往上读：25 = (11001)2\n\n3434÷16 = 214 余10(A)\n214÷16 = 13(D) 余6\n3434 = (D6A)16",
+        exam: [
+          ["先看进制标记", "(1010)2、(1010)10、(1010)16 是完全不同的值。"],
+          ["倒读余数", "10进制转其他进制时，余数一定从最后一次往第一次读。"]
+        ],
+        memory: "走廊里有除法机器，每除一次吐出余数。最后你把地上的余数卡片从出口往入口倒着捡。",
+        quiz: ["(11011)2 转10进制是多少？", "(100)10 转2进制是多少？", "(241)10 转16进制是多少？"]
+      },
+      ja: {
+        title: "基数変換",
+        subtitle: "授業資料01・02に対応。2進、8進、10進、16進の変換。",
+        goal: "重みで n 進数を10進数へ、割り算の余りで10進数を n 進数へ変換できるようにする。",
+        points: [
+          ["2進数 → 10進数", "各桁に重みを掛け、1の位置の重みを足す。右から 1、2、4、8、16..."],
+          ["10進数 → 2進数", "2で割り続け、余りを下から読む。"],
+          ["10進数 → 8/16進数", "8または16で割る。余りが10-15なら A-F を使う。"]
+        ],
+        example: "(10111)2 = 16 + 4 + 2 + 1 = 23\n\n25÷2 = 12 余り1\n12÷2 = 6 余り0\n6÷2 = 3 余り0\n3÷2 = 1 余り1\n1÷2 = 0 余り1\n下から読む：25 = (11001)2\n\n3434÷16 = 214 余り10(A)\n214÷16 = 13(D) 余り6\n3434 = (D6A)16",
+        exam: [
+          ["基数表記を見る", "(1010)2、(1010)10、(1010)16 は値が違う。"],
+          ["余りは下から", "10進数から変換するとき、余りは最後から最初へ読む。"]
+        ],
+        memory: "廊下の割り算機が余りカードを吐き出す。出口側から入口側へ逆順に拾う。",
+        quiz: ["(11011)2 を10進数にすると？", "(100)10 を2進数にすると？", "(241)10 を16進数にすると？"]
+      },
+      en: {
+        title: "Radix Conversion",
+        subtitle: "Based on materials 01 and 02: converting between base 2, 8, 10, and 16.",
+        goal: "Use place weights to convert to decimal and repeated division with remainders to convert from decimal.",
+        points: [
+          ["Binary → Decimal", "Multiply each digit by its place weight. Add the weights where the digit is 1."],
+          ["Decimal → Binary", "Repeatedly divide by 2, record remainders, then read upward."],
+          ["Decimal → Octal/Hex", "Divide by 8 or 16. Remainders 10-15 become A-F in hex."]
+        ],
+        example: "(10111)2 = 16 + 4 + 2 + 1 = 23\n\n25÷2 = 12 r1\n12÷2 = 6 r0\n6÷2 = 3 r0\n3÷2 = 1 r1\n1÷2 = 0 r1\nRead upward: 25 = (11001)2\n\n3434÷16 = 214 r10(A)\n214÷16 = 13(D) r6\n3434 = (D6A)16",
+        exam: [
+          ["Check notation", "(1010)2, (1010)10, and (1010)16 mean different values."],
+          ["Read remainders upward", "When converting from decimal, read the remainders from last to first."]
+        ],
+        memory: "A division machine drops remainder cards. Pick them up from the exit back to the entrance.",
+        quiz: ["Convert (11011)2 to decimal.", "Convert (100)10 to binary.", "Convert (241)10 to hexadecimal."]
+      }
+    },
+    octhex: {
+      nav: { zh: "8/16进制", ja: "8/16進数", en: "Octal / Hex" },
+      zh: {
+        title: "8进制与16进制",
+        subtitle: "对应课堂资料 02：8进制、16进制和2进制之间的快速转换。",
+        goal: "能利用 8=2^3、16=2^4，把长二进制快速缩短成8进制或16进制。",
+        points: [
+          ["8进制", "1位8进制对应3位2进制。2进制转8进制时，从右往左每3位分组。"],
+          ["16进制", "1位16进制对应4位2进制。2进制转16进制时，从右往左每4位分组。"],
+          ["A-F", "16进制中 A=10、B=11、C=12、D=13、E=14、F=15。"]
+        ],
+        steps: [
+          ["8进制 ↔ 2进制", "8=2^3，所以每1位8进制直接换成3位2进制。反过来从右起3位一组。"],
+          ["16进制 ↔ 2进制", "16=2^4，所以每1位16进制直接换成4位2进制。反过来从右起4位一组。"],
+          ["有小数点时", "整数部分从小数点往左分组，小数部分从小数点往右分组，不足位补0。"]
+        ],
+        cheat: "8进制1位 = 2进制3位\n16进制1位 = 2进制4位\n001=1, 010=2, 011=3, 100=4, 101=5, 110=6, 111=7\nA=1010, B=1011, C=1100, D=1101, E=1110, F=1111",
+        example: "(123)8 = 001 010 011 = (1010011)2\n(100100100)2 = 100 100 100 = (444)8\n\n(F3)16 = 1111 0011 = (11110011)2\n(100100100)2 = 0001 0010 0100 = (124)16",
+        exam: [
+          ["分组方向", "整数部分从右往左分组；小数部分从小数点往右分组。"],
+          ["补0", "不够3位或4位时补0，补0不改变数值。"]
+        ],
+        memory: "电视遥控器每3个按钮绑成一组变8进制；屏幕每4个像素合成一个16进制字符。",
+        quiz: ["(111010)2 转8进制是多少？", "(F3)16 转2进制是多少？", "16进制的 E 等于10进制多少？"]
+      },
+      ja: {
+        title: "8進数と16進数",
+        subtitle: "授業資料02に対応。8進数・16進数と2進数の高速変換。",
+        goal: "8=2^3、16=2^4 を使って、長い2進数を短く表せるようにする。",
+        points: [
+          ["8進数", "8進数1桁は2進数3桁。2進数からは右から3桁ずつ区切る。"],
+          ["16進数", "16進数1桁は2進数4桁。2進数からは右から4桁ずつ区切る。"],
+          ["A-F", "16進数では A=10、B=11、C=12、D=13、E=14、F=15。"]
+        ],
+        example: "(123)8 = 001 010 011 = (1010011)2\n(100100100)2 = 100 100 100 = (444)8\n\n(F3)16 = 1111 0011 = (11110011)2\n(100100100)2 = 0001 0010 0100 = (124)16",
+        exam: [
+          ["区切る方向", "整数部は右から左へ、小数部は小数点から右へ区切る。"],
+          ["0で補う", "3桁・4桁に足りない部分は0で補う。値は変わらない。"]
+        ],
+        memory: "テレビのリモコンは3個ずつで8進数、画面の画素は4個ずつで16進数になる。",
+        quiz: ["(111010)2 を8進数にすると？", "(F3)16 を2進数にすると？", "16進数の E は10進数でいくつ？"]
+      },
+      en: {
+        title: "Octal and Hexadecimal",
+        subtitle: "Based on material 02: fast conversion between binary, octal, and hexadecimal.",
+        goal: "Use 8=2^3 and 16=2^4 to shorten long binary numbers.",
+        points: [
+          ["Octal", "One octal digit maps to three binary bits. Group binary from the right in groups of 3."],
+          ["Hexadecimal", "One hex digit maps to four binary bits. Group binary from the right in groups of 4."],
+          ["A-F", "In hex, A=10, B=11, C=12, D=13, E=14, F=15."]
+        ],
+        example: "(123)8 = 001 010 011 = (1010011)2\n(100100100)2 = 100 100 100 = (444)8\n\n(F3)16 = 1111 0011 = (11110011)2\n(100100100)2 = 0001 0010 0100 = (124)16",
+        exam: [
+          ["Grouping direction", "Integer parts group from right to left; fractional parts group from the point to the right."],
+          ["Padding zeros", "Pad missing bits with 0 to make groups of 3 or 4."]
+        ],
+        memory: "The TV remote groups buttons in threes for octal; the screen groups pixels in fours for hex.",
+        quiz: ["Convert (111010)2 to octal.", "Convert (F3)16 to binary.", "What is hex E in decimal?"]
+      }
+    },
+    fraction: {
+      nav: { zh: "小数与误差", ja: "小数と誤差", en: "Fractions" },
+      zh: {
+        title: "小数转换与丸め誤差",
+        subtitle: "对应课堂资料 02 后半：2进制小数、乘2取整、无限小数。",
+        goal: "能把有限10进制小数转成2进制，并知道为什么有些小数会产生浮点误差。",
+        points: [
+          ["小数权重", "小数点右边第一位是 2^-1=0.5，第二位是 2^-2=0.25，第三位是 2^-3=0.125。"],
+          ["10进制小数 → 2进制", "不断乘以2，取整数部分，直到小数部分为0或达到题目要求位数。"],
+          ["无限小数", "0.4 这类数在2进制中可能变成循环小数，无法有限精确表示。"]
+        ],
+        steps: [
+          ["2进制小数 → 10进制", "小数点右边用负次方：第一位2^-1，第二位2^-2，第三位2^-3。"],
+          ["10进制小数 → 2进制", "小数部分不断 ×2，把每次整数部分从上到下排列。"],
+          ["判断误差题", "如果小数部分无法变成0，会出现无限小数，计算机只能保存近似值。"]
+        ],
+        cheat: "2^-1 = 0.5\n2^-2 = 0.25\n2^-3 = 0.125\n2^-4 = 0.0625\n0.625 = 0.1012\n0.4 = 0.011001100110...2\n丸め誤差 = rounding error",
+        example: "0.625×2 = 1.25 → 1\n0.25×2 = 0.5 → 0\n0.5×2 = 1.0 → 1\n所以 0.625 = (0.101)2\n\n(1000.01)2 = 8 + 0.25 = 8.25\n0.4 = (0.011001100110...)2",
+        exam: [
+          ["小数点右边是负次方", "0.1012 = 1×2^-1 + 0×2^-2 + 1×2^-3。"],
+          ["丸め誤差", "不能用有限二进制表示时，计算机会用近似值保存。"]
+        ],
+        memory: "书桌上小数小人每被乘以2，就吐出一个0或1。键盘上的0.4会吐出无限0110纸带。",
+        quiz: ["0.625 转2进制是多少？", "(1000.01)2 转10进制是多少？", "丸め誤差为什么会发生？"]
+      },
+      ja: {
+        title: "小数変換と丸め誤差",
+        subtitle: "授業資料02後半に対応。2進小数、2倍して整数を取る方法、無限小数。",
+        goal: "有限の10進小数を2進数へ変換し、一部の小数で誤差が出る理由を説明できるようにする。",
+        points: [
+          ["小数の重み", "小数点右側は 2^-1=0.5、2^-2=0.25、2^-3=0.125。"],
+          ["10進小数 → 2進数", "小数部に2を掛け、整数部分を順に読む。"],
+          ["無限小数", "0.4 のように2進数で循環し、有限桁で正確に表せない数がある。"]
+        ],
+        example: "0.625×2 = 1.25 → 1\n0.25×2 = 0.5 → 0\n0.5×2 = 1.0 → 1\nしたがって 0.625 = (0.101)2\n\n(1000.01)2 = 8 + 0.25 = 8.25\n0.4 = (0.011001100110...)2",
+        exam: [
+          ["右側は負の重み", "0.1012 = 1×2^-1 + 0×2^-2 + 1×2^-3。"],
+          ["丸め誤差", "有限桁で表せないとき、コンピュータは近似値で保存する。"]
+        ],
+        memory: "机の小数人間が2倍されるたびに0か1を吐き出す。0.4キーは無限の0110テープを吐く。",
+        quiz: ["0.625 を2進数にすると？", "(1000.01)2 を10進数にすると？", "丸め誤差はなぜ発生する？"]
+      },
+      en: {
+        title: "Fractions and Rounding Error",
+        subtitle: "Based on the second half of material 02: binary fractions and repeating fractions.",
+        goal: "Convert finite decimal fractions to binary and explain why some decimals cause floating-point error.",
+        points: [
+          ["Fractional weights", "After the point: 2^-1=0.5, 2^-2=0.25, 2^-3=0.125."],
+          ["Decimal fraction → binary", "Repeatedly multiply by 2 and take the integer part."],
+          ["Repeating fractions", "Some decimals such as 0.4 repeat in binary and cannot be represented exactly with finite bits."]
+        ],
+        example: "0.625×2 = 1.25 → 1\n0.25×2 = 0.5 → 0\n0.5×2 = 1.0 → 1\nSo 0.625 = (0.101)2\n\n(1000.01)2 = 8 + 0.25 = 8.25\n0.4 = (0.011001100110...)2",
+        exam: [
+          ["Negative powers", "0.1012 = 1×2^-1 + 0×2^-2 + 1×2^-3."],
+          ["Rounding error", "If a value cannot be represented in finite binary, computers store an approximation."]
+        ],
+        memory: "A decimal person on the desk is doubled and spits out 0 or 1. The 0.4 key prints an endless 0110 tape.",
+        quiz: ["Convert 0.625 to binary.", "Convert (1000.01)2 to decimal.", "Why does rounding error happen?"]
+      }
+    },
+    units: {
+      nav: { zh: "信息单位", ja: "情報の単位", en: "Units" },
+      zh: {
+        title: "信息单位 bit / byte / KMG",
+        subtitle: "对应课堂资料 03：数据单位、bit 与 byte、1000 和 1024 的区别。",
+        goal: "能进行 bit/byte、K/M/G/T、m/μ/n/p 的单位换算，并能判断题目使用1000还是1024。",
+        points: [
+          ["bit 与 byte", "1bit 是一个二进制位，1byte = 8bit。byte 常用大写 B 表示。"],
+          ["n bit 范围", "n bit 可以表示 2^n 种状态，无符号整数范围是 0 到 2^n-1。"],
+          ["单位换算", "K=10^3、M=10^6、G=10^9、T=10^12；信息容量题有时用 1K=1024。"]
+        ],
+        steps: [
+          ["bit / byte 换算", "byte 转 bit 乘8；bit 转 byte 除8。题目里 B 和 b 要看清。"],
+          ["n bit 范围题", "先算 2^n 种状态；如果问无符号整数范围，就是 0 到 2^n-1。"],
+          ["K/M/G/T 换算", "先看题目定义。如果没有特别说明，资格考试常按1000；内存/容量背景可能出现1024。"]
+        ],
+        cheat: "1 byte = 8 bit\n8bit = 2^8 = 256种状态 = 0〜255\n10bit = 2^10 = 1024种状态 = 0〜1023\nK=10^3, M=10^6, G=10^9, T=10^12\nm=10^-3, μ=10^-6, n=10^-9, p=10^-12\n传输时间 = 数据量 ÷ 传输速度",
+        example: "20byte = 20×8 = 160bit\n880bit = 880÷8 = 110byte\n32bit 正整数范围：0 到 2^32-1 = 4294967295\n16000bit = 16000÷8÷1000 = 2Kbyte\n0.03秒 = 30m秒",
+        exam: [
+          ["1000 vs 1024", "资格考试通常按题目定义。一般单位多用1000，信息内部容量可能用1024。"],
+          ["传输题", "速度常用 bit/s，文件大小常用 byte。计算前先统一单位。"]
+        ],
+        memory: "厨房里8粒bit米饭捏成1个byte饭团。冰箱左门写1000，右门写1024，裁判永远是题目。",
+        quiz: ["20byte 等于多少 bit？", "10bit 无符号范围是多少？", "16000bit 等于多少 Kbyte？"]
+      },
+      ja: {
+        title: "情報の単位 bit / byte / KMG",
+        subtitle: "授業資料03に対応。データ単位、bit と byte、1000 と 1024 の違い。",
+        goal: "bit/byte、K/M/G/T、m/μ/n/p の換算を行い、1000と1024のどちらを使うか判断できるようにする。",
+        points: [
+          ["bit と byte", "1bit は2進数1桁。1byte = 8bit。byte は大文字Bで表すことがある。"],
+          ["n bit の範囲", "n bit は 2^n 通り。符号なし整数の範囲は 0 から 2^n-1。"],
+          ["単位換算", "K=10^3、M=10^6、G=10^9、T=10^12。情報容量では 1K=1024 の場合もある。"]
+        ],
+        example: "20byte = 20×8 = 160bit\n880bit = 880÷8 = 110byte\n32bit 正整数範囲：0 から 2^32-1 = 4294967295\n16000bit = 16000÷8÷1000 = 2Kbyte\n0.03秒 = 30m秒",
+        exam: [
+          ["1000 vs 1024", "資格試験では問題文の定義を優先。一般単位は1000、内部容量は1024の場合がある。"],
+          ["転送問題", "速度は bit/s、ファイルサイズは byte が多い。先に単位をそろえる。"]
+        ],
+        memory: "台所で8粒のbit米が1個のbyteおにぎりになる。冷蔵庫の左扉は1000、右扉は1024。裁判官は問題文。",
+        quiz: ["20byte は何 bit？", "10bit 符号なしの範囲は？", "16000bit は何 Kbyte？"]
+      },
+      en: {
+        title: "Information Units: bit / byte / KMG",
+        subtitle: "Based on material 03: data units, bit and byte, and 1000 vs 1024.",
+        goal: "Convert bit/byte, K/M/G/T, and m/μ/n/p units, and decide whether the question uses 1000 or 1024.",
+        points: [
+          ["bit and byte", "1 bit is one binary digit. 1 byte = 8 bits. Byte is often written as uppercase B."],
+          ["n-bit range", "n bits represent 2^n states. Unsigned range is 0 to 2^n-1."],
+          ["Unit conversion", "K=10^3, M=10^6, G=10^9, T=10^12. Information capacity may use 1K=1024."]
+        ],
+        example: "20 bytes = 20×8 = 160 bits\n880 bits = 880÷8 = 110 bytes\n32-bit positive range: 0 to 2^32-1 = 4294967295\n16000 bits = 16000÷8÷1000 = 2 Kbytes\n0.03 seconds = 30 ms",
+        exam: [
+          ["1000 vs 1024", "Follow the question definition. General units often use 1000; internal capacity may use 1024."],
+          ["Transfer questions", "Speed is often bit/s while file size is byte. Convert units before calculating."]
+        ],
+        memory: "In the kitchen, 8 grains of bit rice become 1 byte rice ball. The refrigerator has 1000 on one door and 1024 on the other; the judge is the question.",
+        quiz: ["How many bits are 20 bytes?", "What is the unsigned range of 10 bits?", "How many Kbytes are 16000 bits?"]
+      }
+    },
+    arithmetic: {
+      nav: { zh: "二进制运算", ja: "2進数演算", en: "Arithmetic" },
+      zh: {
+        title: "二进制四则运算",
+        subtitle: "对应课堂资料 03 后半：二进制加减乘除、进位与借位。",
+        goal: "能完成基础二进制加减乘除，并在复杂题中先转10进制再算、再转回。",
+        points: [
+          ["加法", "1+1 在二进制中等于 10，要向高位进1，日语叫繰り上がり。"],
+          ["减法", "0-1 不够减，要向高位借位，借来的是 (10)2。日语叫繰り下がり。"],
+          ["乘除与移位", "乘以 2^n 相当于左移 n 位；除以 2^n 相当于右移 n 位。"]
+        ],
+        steps: [
+          ["二进制加法", "从右往左算。0+0=0，0+1=1，1+1=10，别忘了进位。"],
+          ["二进制减法", "从右往左算。遇到0-1就向高位借1，借来后这一位当作(10)2。"],
+          ["复杂四则运算", "如果是8/16进制或位数很多，先转10进制计算，再转回原进制，速度更稳。"]
+        ],
+        cheat: "加法：0+0=0, 0+1=1, 1+0=1, 1+1=10\n减法：1-1=0, 1-0=1, 0-0=0, 10-1=1\n繰り上がり = carry\n繰り下がり = borrow\n左移n位 = ×2^n\n右移n位 = ÷2^n",
+        example: "(1010)2 + (111)2 = (10001)2\n(1000)2 - (11)2 = (101)2\n(1000)2 × (11)2 = (11000)2\n(1001)2 ÷ (11)2 = (11)2\n\n复杂的8/16进制加减：可以先转10进制计算，再转回。",
+        exam: [
+          ["进位/借位", "加法看1+1，减法看0-1。这两个地方最容易错。"],
+          ["移位题", "左移变大、右移变小；左移n位就是乘2^n。"]
+        ],
+        memory: "洗手台上两滴1水撞成10水花；浴室里0号浴缸不够减1，就向高位借一桶10的水。",
+        quiz: ["(1010)2 + (111)2 等于多少？", "(1000)2 - (11)2 等于多少？", "左移3位相当于乘多少？"]
+      },
+      ja: {
+        title: "2進数の四則演算",
+        subtitle: "授業資料03後半に対応。2進数の加減乗除、繰り上がりと繰り下がり。",
+        goal: "基本的な2進数の加減乗除を行い、複雑な場合は10進数へ変換してから戻せるようにする。",
+        points: [
+          ["加算", "2進数では 1+1=10。上の桁に1が繰り上がる。"],
+          ["減算", "0-1 は引けないため、上の桁から (10)2 を借りる。繰り下がり。"],
+          ["乗除とシフト", "2^n を掛けることは左シフト n 桁、2^n で割ることは右シフト n 桁。"]
+        ],
+        example: "(1010)2 + (111)2 = (10001)2\n(1000)2 - (11)2 = (101)2\n(1000)2 × (11)2 = (11000)2\n(1001)2 ÷ (11)2 = (11)2\n\n複雑な8/16進数の計算は10進数に変換してから戻してもよい。",
+        exam: [
+          ["繰り上がり/繰り下がり", "加算は1+1、減算は0-1を特に注意。"],
+          ["シフト問題", "左シフトは大きく、右シフトは小さくなる。左 n 桁は ×2^n。"]
+        ],
+        memory: "洗面台で1と1の水滴が10の水しぶきになる。浴室では0の浴槽が上位から10の水を借りる。",
+        quiz: ["(1010)2 + (111)2 は？", "(1000)2 - (11)2 は？", "左に3桁シフトすると何倍？"]
+      },
+      en: {
+        title: "Binary Arithmetic",
+        subtitle: "Based on the second half of material 03: binary addition, subtraction, multiplication, and division.",
+        goal: "Do basic binary arithmetic and know when to convert to decimal first for complex octal/hex calculations.",
+        points: [
+          ["Addition", "In binary, 1+1=10, so carry 1 to the next digit."],
+          ["Subtraction", "0-1 requires borrowing (10)2 from the higher digit."],
+          ["Multiplication/division and shifts", "Multiplying by 2^n equals left shift n places; dividing by 2^n equals right shift n places."]
+        ],
+        example: "(1010)2 + (111)2 = (10001)2\n(1000)2 - (11)2 = (101)2\n(1000)2 × (11)2 = (11000)2\n(1001)2 ÷ (11)2 = (11)2\n\nFor complex octal/hex arithmetic, convert to decimal, calculate, then convert back.",
+        exam: [
+          ["Carry/borrow", "Watch 1+1 in addition and 0-1 in subtraction."],
+          ["Shift questions", "Left shift increases, right shift decreases. Left shift by n means ×2^n."]
+        ],
+        memory: "At the sink, two drops of 1 collide and become a 10 splash. In the bath, 0 borrows a bucket of 10 from the higher digit.",
+        quiz: ["What is (1010)2 + (111)2?", "What is (1000)2 - (11)2?", "Left shifting by 3 means multiplying by what?"]
+      }
+    }
+  };
+
+  const htmlLang = { zh: "zh-CN", ja: "ja", en: "en" };
+
+  function readSavedLanguage() {
+    try {
+      return localStorage.getItem("studyNavigatorLanguage") || "zh";
+    } catch (error) {
+      return "zh";
+    }
+  }
+
+  function saveLanguage(lang) {
+    try {
+      localStorage.setItem("studyNavigatorLanguage", lang);
+    } catch (error) {
+      // Local file previews may block storage. The page should still render.
+    }
+  }
+
+  let currentLang = readSavedLanguage();
+
+  function getBranchId() {
+    const id = location.hash.replace("#", "");
+    return branches[id] ? id : "binary";
+  }
+
+  function render() {
+    const branchId = getBranchId();
+    const branch = branches[branchId];
+    const data = branch[currentLang] || branch.zh;
+    const uiText = ui[currentLang] || ui.zh;
+
+    document.documentElement.lang = htmlLang[currentLang] || "zh-CN";
+    document.title = `${data.title} - ${uiText.documentTitle}`;
+    document.querySelectorAll("[data-ui]").forEach((el) => {
+      el.textContent = uiText[el.dataset.ui];
+    });
+
+    document.getElementById("branchTitle").textContent = data.title;
+    document.getElementById("branchSubtitle").textContent = data.subtitle;
+    document.getElementById("goalText").textContent = data.goal;
+    document.getElementById("cheatBlock").textContent = data.cheat || branch.zh.cheat || "";
+    document.getElementById("exampleBlock").textContent = data.example;
+    document.getElementById("memoryText").textContent = data.memory;
+
+    document.getElementById("branchNav").innerHTML = Object.entries(branches).map(([id, value]) => {
+      const label = (value.nav[currentLang] || value.nav.zh);
+      return `<a class="branch-link ${id === branchId ? "active" : ""}" href="#${id}">${label}</a>`;
+    }).join("");
+
+    document.getElementById("pointGrid").innerHTML = data.points.map((item) => {
+      return `<article class="card"><h3>${item[0]}</h3><p>${item[1]}</p></article>`;
+    }).join("");
+
+    const steps = data.steps || branch.zh.steps || [];
+    document.getElementById("stepsGrid").innerHTML = steps.map((item) => {
+      return `<article class="card"><h3>${item[0]}</h3><p>${item[1]}</p></article>`;
+    }).join("");
+
+    document.getElementById("examGrid").innerHTML = data.exam.map((item) => {
+      return `<article class="card"><h3>${item[0]}</h3><p>${item[1]}</p><span class="tag">FE</span></article>`;
+    }).join("");
+
+    document.getElementById("quizList").innerHTML = data.quiz.map((item) => `<li>${item}</li>`).join("");
+
+    document.querySelectorAll(".language-button").forEach((button) => {
+      button.classList.toggle("active", button.dataset.lang === currentLang);
+    });
+  }
+
+  document.querySelectorAll(".language-button").forEach((button) => {
+    button.addEventListener("click", () => {
+      currentLang = button.dataset.lang;
+      saveLanguage(currentLang);
+      render();
+    });
+  });
+
+  window.addEventListener("hashchange", render);
+  render();
+</script>
+</body>
+</html>

@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python 变量详情页</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: Arial, "Microsoft YaHei", sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      color: #222;
+    }
+
+    header {
+      background: #1f2937;
+      color: white;
+      padding: 24px;
+    }
+
+    .header-inner,
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .back-link {
+      color: white;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.45);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 14px;
+    }
+
+    .back-link:hover {
+      background: white;
+      color: #1f2937;
+    }
+
+    .language-switcher {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .language-button {
+      border: 1px solid rgba(255,255,255,0.45);
+      background: transparent;
+      color: white;
+      border-radius: 999px;
+      padding: 8px 14px;
+      cursor: pointer;
+      font-size: 14px;
+      min-width: 76px;
+      min-height: 40px;
+    }
+
+    .language-button:hover,
+    .language-button.active {
+      background: white;
+      color: #1f2937;
+    }
+
+    .hero {
+      margin-top: 34px;
+      max-width: 780px;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: 42px;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      margin: 14px 0 0;
+      font-size: 17px;
+      line-height: 1.7;
+      color: #dbeafe;
+    }
+
+    .container {
+      margin: 30px auto 48px;
+    }
+
+    .section-title {
+      margin: 38px 0 16px;
+      border-left: 6px solid #2563eb;
+      padding-left: 12px;
+      font-size: 24px;
+      line-height: 1.35;
+    }
+
+    .panel,
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 22px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      overflow-wrap: anywhere;
+    }
+
+    .lead {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      color: #1d4ed8;
+      line-height: 1.35;
+    }
+
+    .card p,
+    .panel p,
+    .panel li {
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    .panel p {
+      margin: 0;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    code,
+    pre {
+      font-family: Consolas, "Courier New", monospace;
+    }
+
+    pre {
+      background: #111827;
+      color: #e5e7eb;
+      border-radius: 10px;
+      padding: 16px;
+      overflow-x: auto;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #e0ecff;
+      color: #1d4ed8;
+      padding: 4px 8px;
+      margin: 10px 4px 0 0;
+      border-radius: 6px;
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 640px) {
+      header {
+        padding: 24px 16px;
+      }
+
+      .header-inner,
+      .container {
+        width: 100%;
+      }
+
+      .topbar {
+        align-items: stretch;
+      }
+
+      .back-link {
+        text-align: center;
+      }
+
+      .language-switcher {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        width: 100%;
+      }
+
+      .language-button {
+        width: 100%;
+        min-width: 0;
+        padding: 10px 8px;
+        font-size: 13px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .container {
+        padding: 0 16px;
+        margin: 24px auto 40px;
+      }
+
+      .section-title {
+        font-size: 20px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .panel,
+      .card {
+        padding: 18px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .language-switcher {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="topbar">
+      <a class="back-link" href="python.html" data-i18n="backPython">返回 Python 基础</a>
+      <div class="language-switcher" aria-label="Language switcher">
+        <button class="language-button active" type="button" data-lang="zh">中文</button>
+        <button class="language-button" type="button" data-lang="ja">日本語</button>
+        <button class="language-button" type="button" data-lang="en">English</button>
+      </div>
+    </div>
+
+    <div class="hero">
+      <h1 data-i18n="pageTitle">变量</h1>
+      <p data-i18n="pageSubtitle">变量是 Python 程序里给数据贴上的名字。先理解变量，后面的条件分支、循环和函数才会顺起来。</p>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <h2 class="section-title" data-i18n="summaryTitle">一句话理解</h2>
+  <section class="panel">
+    <p class="lead" data-i18n="summaryText">变量就是一个名字，用来指向程序正在使用的数据。</p>
+  </section>
+
+  <h2 class="section-title" data-i18n="keywordTitle">关键词</h2>
+  <section class="grid">
+    <article class="card">
+      <h3 data-i18n="nameTitle">变量名</h3>
+      <p data-i18n="nameDesc">给数据起的名字，例如 <code>age</code>、<code>name</code>、<code>score</code>。</p>
+      <span class="tag" data-i18n="tagBasic">基础</span>
+    </article>
+    <article class="card">
+      <h3 data-i18n="valueTitle">值</h3>
+      <p data-i18n="valueDesc">变量指向的具体数据，可以是数字、文字、列表等。</p>
+      <span class="tag" data-i18n="tagData">数据</span>
+    </article>
+    <article class="card">
+      <h3 data-i18n="assignTitle">赋值</h3>
+      <p data-i18n="assignDesc">用 <code>=</code> 把右边的数据交给左边的变量名。</p>
+      <span class="tag">=</span>
+    </article>
+  </section>
+
+  <h2 class="section-title" data-i18n="exampleTitle">代码例子</h2>
+  <section class="panel">
+    <pre><code>name = "Yuki"
+age = 20
+score = 85
+
+print(name)
+print(age + 1)
+print(score >= 80)</code></pre>
+  </section>
+
+  <h2 class="section-title" data-i18n="explainTitle">代码怎么读</h2>
+  <section class="panel">
+    <ul>
+      <li data-i18n="explainOne"><code>name = "Yuki"</code>：把文字 Yuki 保存到变量 name 里。</li>
+      <li data-i18n="explainTwo"><code>age = 20</code>：把数字 20 保存到变量 age 里。</li>
+      <li data-i18n="explainThree"><code>print(age + 1)</code>：先取出 age 的值，再加 1，最后显示结果。</li>
+    </ul>
+  </section>
+
+  <h2 class="section-title" data-i18n="mistakeTitle">易混点</h2>
+  <section class="grid">
+    <article class="card">
+      <h3 data-i18n="mistakeOneTitle">变量不是盒子本身</h3>
+      <p data-i18n="mistakeOneDesc">更准确地说，变量名是指向数据的名字。入门阶段可以先把它想象成贴标签的盒子。</p>
+    </article>
+    <article class="card">
+      <h3 data-i18n="mistakeTwoTitle">等号不是数学等于</h3>
+      <p data-i18n="mistakeTwoDesc">Python 里的 <code>=</code> 是赋值，意思是“把右边交给左边”。比较是否相等要用 <code>==</code>。</p>
+    </article>
+  </section>
+
+  <h2 class="section-title" data-i18n="memoryTitle">记忆宫殿画面</h2>
+  <section class="panel">
+    <p class="lead" data-i18n="memoryText">想象一个仓库管理员给盒子贴标签：贴着 <code>name</code> 的盒子里放文字，贴着 <code>age</code> 的盒子里放数字。程序要用数据时，就按标签去找。</p>
+  </section>
+
+  <h2 class="section-title" data-i18n="quizTitle">自测题</h2>
+  <section class="panel">
+    <ul>
+      <li data-i18n="quizOne">Q1：<code>x = 10</code> 里的变量名是什么？</li>
+      <li data-i18n="quizTwo">Q2：如果写 <code>x = x + 1</code>，它是什么意思？</li>
+      <li data-i18n="quizThree">Q3：赋值的 <code>=</code> 和比较的 <code>==</code> 有什么区别？</li>
+    </ul>
+  </section>
+</main>
+
+<script>
+  const translations = {
+    zh: {
+      documentTitle: "Python 变量详情页",
+      backPython: "返回 Python 基础",
+      pageTitle: "变量",
+      pageSubtitle: "变量是 Python 程序里给数据贴上的名字。先理解变量，后面的条件分支、循环和函数才会顺起来。",
+      summaryTitle: "一句话理解",
+      summaryText: "变量就是一个名字，用来指向程序正在使用的数据。",
+      keywordTitle: "关键词",
+      nameTitle: "变量名",
+      nameDesc: "给数据起的名字，例如 age、name、score。",
+      valueTitle: "值",
+      valueDesc: "变量指向的具体数据，可以是数字、文字、列表等。",
+      assignTitle: "赋值",
+      assignDesc: "用 = 把右边的数据交给左边的变量名。",
+      exampleTitle: "代码例子",
+      explainTitle: "代码怎么读",
+      explainOne: "name = \"Yuki\"：把文字 Yuki 保存到变量 name 里。",
+      explainTwo: "age = 20：把数字 20 保存到变量 age 里。",
+      explainThree: "print(age + 1)：先取出 age 的值，再加 1，最后显示结果。",
+      mistakeTitle: "易混点",
+      mistakeOneTitle: "变量不是盒子本身",
+      mistakeOneDesc: "更准确地说，变量名是指向数据的名字。入门阶段可以先把它想象成贴标签的盒子。",
+      mistakeTwoTitle: "等号不是数学等于",
+      mistakeTwoDesc: "Python 里的 = 是赋值，意思是“把右边交给左边”。比较是否相等要用 ==。",
+      memoryTitle: "记忆宫殿画面",
+      memoryText: "想象一个仓库管理员给盒子贴标签：贴着 name 的盒子里放文字，贴着 age 的盒子里放数字。程序要用数据时，就按标签去找。",
+      quizTitle: "自测题",
+      quizOne: "Q1：x = 10 里的变量名是什么？",
+      quizTwo: "Q2：如果写 x = x + 1，它是什么意思？",
+      quizThree: "Q3：赋值的 = 和比较的 == 有什么区别？",
+      tagBasic: "基础",
+      tagData: "数据"
+    },
+    ja: {
+      documentTitle: "Python 変数 詳細ページ",
+      backPython: "Python 基礎へ戻る",
+      pageTitle: "変数",
+      pageSubtitle: "変数は Python プログラムの中でデータにつける名前です。変数を理解すると、条件分岐、ループ、関数もつながって見えます。",
+      summaryTitle: "一言で理解",
+      summaryText: "変数とは、プログラムで使うデータを指すための名前です。",
+      keywordTitle: "キーワード",
+      nameTitle: "変数名",
+      nameDesc: "データにつける名前です。例：age、name、score。",
+      valueTitle: "値",
+      valueDesc: "変数が指している具体的なデータです。数字、文字、リストなどがあります。",
+      assignTitle: "代入",
+      assignDesc: "= を使って、右側のデータを左側の変数名に渡します。",
+      exampleTitle: "コード例",
+      explainTitle: "コードの読み方",
+      explainOne: "name = \"Yuki\"：文字 Yuki を変数 name に保存します。",
+      explainTwo: "age = 20：数字 20 を変数 age に保存します。",
+      explainThree: "print(age + 1)：age の値を取り出し、1 を足して、結果を表示します。",
+      mistakeTitle: "間違えやすい点",
+      mistakeOneTitle: "変数は箱そのものではない",
+      mistakeOneDesc: "正確には、変数名はデータを指す名前です。入門段階ではラベル付きの箱として考えて大丈夫です。",
+      mistakeTwoTitle: "等号は数学のイコールではない",
+      mistakeTwoDesc: "Python の = は代入です。「右側を左側に渡す」という意味です。等しいか比べるときは == を使います。",
+      memoryTitle: "記憶宮殿のイメージ",
+      memoryText: "倉庫係が箱にラベルを貼る場面を想像します。name の箱には文字、age の箱には数字が入っています。プログラムはラベルを見てデータを探します。",
+      quizTitle: "セルフチェック",
+      quizOne: "Q1：x = 10 の変数名は何ですか？",
+      quizTwo: "Q2：x = x + 1 はどんな意味ですか？",
+      quizThree: "Q3：代入の = と比較の == は何が違いますか？",
+      tagBasic: "基礎",
+      tagData: "データ"
+    },
+    en: {
+      documentTitle: "Python Variable Detail Page",
+      backPython: "Back to Python Basics",
+      pageTitle: "Variables",
+      pageSubtitle: "A variable is a name attached to data in a Python program. Once variables make sense, conditionals, loops, and functions become much easier.",
+      summaryTitle: "One-Sentence Summary",
+      summaryText: "A variable is a name that points to data used by a program.",
+      keywordTitle: "Keywords",
+      nameTitle: "Variable Name",
+      nameDesc: "The name given to data, such as age, name, or score.",
+      valueTitle: "Value",
+      valueDesc: "The actual data a variable points to, such as a number, text, or list.",
+      assignTitle: "Assignment",
+      assignDesc: "Use = to give the data on the right to the variable name on the left.",
+      exampleTitle: "Code Example",
+      explainTitle: "How to Read the Code",
+      explainOne: "name = \"Yuki\": save the text Yuki in the variable name.",
+      explainTwo: "age = 20: save the number 20 in the variable age.",
+      explainThree: "print(age + 1): get the value of age, add 1, then display the result.",
+      mistakeTitle: "Common Confusions",
+      mistakeOneTitle: "A variable is not exactly the box itself",
+      mistakeOneDesc: "More precisely, a variable name points to data. As a beginner image, it is fine to imagine a labeled box.",
+      mistakeTwoTitle: "The equals sign is not mathematical equality",
+      mistakeTwoDesc: "In Python, = means assignment: give the right side to the left side. To compare equality, use ==.",
+      memoryTitle: "Memory Palace Image",
+      memoryText: "Imagine a warehouse worker labeling boxes: the name box holds text, and the age box holds a number. When the program needs data, it looks for the label.",
+      quizTitle: "Self Check",
+      quizOne: "Q1: In x = 10, what is the variable name?",
+      quizTwo: "Q2: What does x = x + 1 mean?",
+      quizThree: "Q3: What is the difference between assignment = and comparison ==?",
+      tagBasic: "Basic",
+      tagData: "Data"
+    }
+  };
+
+  const htmlLang = {
+    zh: "zh-CN",
+    ja: "ja",
+    en: "en"
+  };
+
+  function setLanguage(lang) {
+    const dictionary = translations[lang] || translations.zh;
+
+    document.documentElement.lang = htmlLang[lang] || "zh-CN";
+    document.title = dictionary.documentTitle;
+
+    document.querySelectorAll("[data-i18n]").forEach((element) => {
+      const key = element.dataset.i18n;
+      if (dictionary[key]) {
+        element.textContent = dictionary[key];
+      }
+    });
+
+    document.querySelectorAll(".language-button").forEach((button) => {
+      button.classList.toggle("active", button.dataset.lang === lang);
+    });
+
+    localStorage.setItem("studyNavigatorLanguage", lang);
+  }
+
+  document.querySelectorAll(".language-button").forEach((button) => {
+    button.addEventListener("click", () => {
+      setLanguage(button.dataset.lang);
+    });
+  });
+
+  setLanguage(localStorage.getItem("studyNavigatorLanguage") || "zh");
+</script>
+
+</body>
+</html>

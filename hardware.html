@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ハードウェア基礎理論详情页</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: Arial, "Microsoft YaHei", sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      color: #222;
+    }
+
+    header {
+      background: #1f2937;
+      color: white;
+      padding: 24px;
+    }
+
+    .header-inner,
+    .container {
+      width: 90%;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .back-link {
+      color: white;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.45);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 14px;
+    }
+
+    .back-link:hover {
+      background: white;
+      color: #1f2937;
+    }
+
+    .language-switcher {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .language-button {
+      border: 1px solid rgba(255,255,255,0.45);
+      background: transparent;
+      color: white;
+      border-radius: 999px;
+      padding: 8px 14px;
+      cursor: pointer;
+      font-size: 14px;
+      min-width: 76px;
+      min-height: 40px;
+    }
+
+    .language-button:hover,
+    .language-button.active {
+      background: white;
+      color: #1f2937;
+    }
+
+    .hero {
+      margin-top: 34px;
+      max-width: 840px;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: 40px;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      margin: 14px 0 0;
+      font-size: 17px;
+      line-height: 1.7;
+      color: #dbeafe;
+    }
+
+    .container {
+      margin: 30px auto 48px;
+    }
+
+    .section-title {
+      margin: 38px 0 16px;
+      border-left: 6px solid #2563eb;
+      padding-left: 12px;
+      font-size: 24px;
+      line-height: 1.35;
+    }
+
+    .panel,
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 22px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      overflow-wrap: anywhere;
+    }
+
+    .lead {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 18px;
+    }
+
+    .card-link {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .card-link .card {
+      min-height: 100%;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card-link:hover .card {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      color: #1d4ed8;
+      line-height: 1.35;
+    }
+
+    .card p,
+    .panel p,
+    .panel li {
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    .card p,
+    .panel p {
+      margin: 0;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #e0ecff;
+      color: #1d4ed8;
+      padding: 4px 8px;
+      margin: 10px 4px 0 0;
+      border-radius: 6px;
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .path {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 12px;
+    }
+
+    .path-step {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 10px;
+      padding: 14px;
+      color: #1e3a8a;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .formula-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .formula-list li {
+      background: #111827;
+      color: #e5e7eb;
+      border-radius: 10px;
+      padding: 14px;
+      font-family: Consolas, "Courier New", monospace;
+    }
+
+    .quiz-list {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    @media (max-width: 640px) {
+      header {
+        padding: 24px 16px;
+      }
+
+      .header-inner,
+      .container {
+        width: 100%;
+      }
+
+      .topbar {
+        align-items: stretch;
+      }
+
+      .back-link {
+        text-align: center;
+      }
+
+      .language-switcher {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        width: 100%;
+      }
+
+      .language-button {
+        width: 100%;
+        min-width: 0;
+        padding: 10px 8px;
+        font-size: 13px;
+      }
+
+      .hero h1 {
+        font-size: 30px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .container {
+        padding: 0 16px;
+        margin: 24px auto 40px;
+      }
+
+      .section-title {
+        font-size: 20px;
+      }
+
+      .grid,
+      .path,
+      .formula-list {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .panel,
+      .card {
+        padding: 18px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .language-switcher {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 27px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="topbar">
+      <a class="back-link" href="知识导航初版.html" data-i18n="backHome">返回首页</a>
+      <div class="language-switcher" aria-label="Language switcher">
+        <button class="language-button active" type="button" data-lang="zh">中文</button>
+        <button class="language-button" type="button" data-lang="ja">日本語</button>
+        <button class="language-button" type="button" data-lang="en">English</button>
+      </div>
+    </div>
+
+    <div class="hero">
+      <h1 data-i18n="pageTitle">ハードウェア基礎理論</h1>
+      <p data-i18n="pageSubtitle">把课堂资料中的基数转换、信息单位、2进制四则运算整理成 FE 考试可直接复习的知识地图。</p>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <h2 class="section-title" data-i18n="summaryTitle">一句话理解</h2>
+  <section class="panel">
+    <p class="lead" data-i18n="summaryText">本章的核心是理解计算机如何用 0 和 1 表示数据，并能熟练完成进制转换、单位换算和二进制运算。</p>
+  </section>
+
+  <h2 class="section-title" data-i18n="pathTitle">学习路径</h2>
+  <section class="path">
+    <div class="path-step" data-i18n="pathOne">01 二进制与基数：为什么计算机使用 0 和 1</div>
+    <div class="path-step" data-i18n="pathTwo">02 基数转换：2 / 8 / 10 / 16 进制互转</div>
+    <div class="path-step" data-i18n="pathThree">03 小数转换：小数点右边是负次方</div>
+    <div class="path-step" data-i18n="pathFour">04 信息单位：bit、byte、K、M、G、T</div>
+    <div class="path-step" data-i18n="pathFive">05 二进制运算：加法、减法、移位</div>
+    <div class="path-step" data-i18n="pathSix">06 FE 考法：范围、单位、误差、传输时间</div>
+  </section>
+
+  <h2 class="section-title" data-i18n="knowledgeTitle">考试核心知识</h2>
+  <section class="grid">
+    <a class="card-link" href="hardware-detail.html#binary">
+      <article class="card">
+        <h3 data-i18n="binaryTitle">二进制与基数</h3>
+        <p data-i18n="binaryDesc">基数是“几个进一位”。2进制只使用 0 和 1，适合硬件用电压高低、开关状态表示。</p>
+        <span class="tag">base</span>
+        <span class="tag">radix</span>
+      </article>
+    </a>
+
+    <a class="card-link" href="hardware-detail.html#conversion">
+      <article class="card">
+        <h3 data-i18n="conversionTitle">基数转换</h3>
+        <p data-i18n="conversionDesc">2进制转10进制看权重并相加；10进制转2/8/16进制用除法取余并倒读。</p>
+        <span class="tag" data-i18n="tagWeight">重み</span>
+        <span class="tag" data-i18n="tagRemainder">余り</span>
+      </article>
+    </a>
+
+    <a class="card-link" href="hardware-detail.html#octhex">
+      <article class="card">
+        <h3 data-i18n="octHexTitle">8进制与16进制</h3>
+        <p data-i18n="octHexDesc">2进制转8进制从右起3位一组；转16进制从右起4位一组，A 到 F 对应 10 到 15。</p>
+        <span class="tag">8 = 2^3</span>
+        <span class="tag">16 = 2^4</span>
+      </article>
+    </a>
+
+    <a class="card-link" href="hardware-detail.html#fraction">
+      <article class="card">
+        <h3 data-i18n="fractionTitle">小数与误差</h3>
+        <p data-i18n="fractionDesc">2进制小数位权是 2^-1、2^-2、2^-3。有些10进制小数会变成无限循环2进制，产生丸め誤差。</p>
+        <span class="tag" data-i18n="tagRounding">丸め誤差</span>
+      </article>
+    </a>
+
+    <a class="card-link" href="hardware-detail.html#units">
+      <article class="card">
+        <h3 data-i18n="unitTitle">bit / byte / 单位</h3>
+        <p data-i18n="unitDesc">1bit 是一个 0 或 1，1byte = 8bit。K、M、G、T 有时按1000，有时按1024，考试以题干为准。</p>
+        <span class="tag">1B = 8bit</span>
+        <span class="tag">2^10 = 1024</span>
+      </article>
+    </a>
+
+    <a class="card-link" href="hardware-detail.html#arithmetic">
+      <article class="card">
+        <h3 data-i18n="operationTitle">二进制运算</h3>
+        <p data-i18n="operationDesc">加法重点是进位，减法重点是借位；左移 n 位相当于乘 2^n，右移 n 位相当于除以 2^n。</p>
+        <span class="tag" data-i18n="tagCarry">繰り上がり</span>
+        <span class="tag" data-i18n="tagBorrow">繰り下がり</span>
+      </article>
+    </a>
+  </section>
+
+  <h2 class="section-title" data-i18n="formulaTitle">必须背的公式</h2>
+  <ul class="formula-list">
+    <li data-i18n="formulaOne">n bit = 2^n 种状态</li>
+    <li data-i18n="formulaTwo">无符号 n bit 范围 = 0 到 2^n - 1</li>
+    <li data-i18n="formulaThree">1 byte = 8 bit</li>
+    <li data-i18n="formulaFour">左移 n 位 = × 2^n</li>
+    <li data-i18n="formulaFive">右移 n 位 = ÷ 2^n</li>
+    <li data-i18n="formulaSix">传输时间 = 数据量 ÷ 传输速度</li>
+  </ul>
+
+  <h2 class="section-title" data-i18n="mistakeTitle">FE 易混点</h2>
+  <section class="grid">
+    <article class="card">
+      <h3 data-i18n="mistakeOneTitle">256 和 255</h3>
+      <p data-i18n="mistakeOneDesc">8bit 有 256 种状态，但无符号整数范围是 0 到 255，因为从 0 开始编号。</p>
+    </article>
+
+    <article class="card">
+      <h3 data-i18n="mistakeTwoTitle">1000 和 1024</h3>
+      <p data-i18n="mistakeTwoDesc">通信速度常见 1000 进制，内存容量题常见 1024 进制；FE 题目优先看题干定义。</p>
+    </article>
+
+    <article class="card">
+      <h3 data-i18n="mistakeThreeTitle">分组方向</h3>
+      <p data-i18n="mistakeThreeDesc">2进制转8/16进制时，从小数点或最右侧开始分组，不够位时补 0。</p>
+    </article>
+  </section>
+
+  <h2 class="section-title" data-i18n="memoryTitle">记忆宫殿路线</h2>
+  <section class="panel">
+    <p class="lead" data-i18n="memoryText">从玄关的 0/1 按钮出发，经过鞋柜权重、走廊除法机器、电视 3位/4位分组、厨房 bit 饭团、冰箱 1000/1024，再到洗手台进位和床上左右移位。按这条路线复习，整章会自然连起来。</p>
+  </section>
+
+  <h2 class="section-title" data-i18n="quizTitle">自测题</h2>
+  <section class="panel">
+    <ol class="quiz-list">
+      <li data-i18n="quizOne">(10111)₂ 转成10进制是多少？</li>
+      <li data-i18n="quizTwo">10进制的 25 转成2进制是多少？</li>
+      <li data-i18n="quizThree">8bit 无符号整数最大值是多少？</li>
+      <li data-i18n="quizFour">1byte 等于多少 bit？</li>
+      <li data-i18n="quizFive">为什么 0.1 + 0.2 在计算机里可能不是刚好 0.3？</li>
+    </ol>
+  </section>
+</main>
+
+<script>
+  const translations = {
+    zh: {
+      documentTitle: "ハードウェア基礎理論详情页",
+      backHome: "返回首页",
+      pageTitle: "ハードウェア基礎理論",
+      pageSubtitle: "把课堂资料中的基数转换、信息单位、2进制四则运算整理成 FE 考试可直接复习的知识地图。",
+      summaryTitle: "一句话理解",
+      summaryText: "本章的核心是理解计算机如何用 0 和 1 表示数据，并能熟练完成进制转换、单位换算和二进制运算。",
+      pathTitle: "学习路径",
+      pathOne: "01 二进制与基数：为什么计算机使用 0 和 1",
+      pathTwo: "02 基数转换：2 / 8 / 10 / 16 进制互转",
+      pathThree: "03 小数转换：小数点右边是负次方",
+      pathFour: "04 信息单位：bit、byte、K、M、G、T",
+      pathFive: "05 二进制运算：加法、减法、移位",
+      pathSix: "06 FE 考法：范围、单位、误差、传输时间",
+      knowledgeTitle: "考试核心知识",
+      binaryTitle: "二进制与基数",
+      binaryDesc: "基数是“几个进一位”。2进制只使用 0 和 1，适合硬件用电压高低、开关状态表示。",
+      conversionTitle: "基数转换",
+      conversionDesc: "2进制转10进制看权重并相加；10进制转2/8/16进制用除法取余并倒读。",
+      octHexTitle: "8进制与16进制",
+      octHexDesc: "2进制转8进制从右起3位一组；转16进制从右起4位一组，A 到 F 对应 10 到 15。",
+      fractionTitle: "小数与误差",
+      fractionDesc: "2进制小数位权是 2^-1、2^-2、2^-3。有些10进制小数会变成无限循环2进制，产生丸め誤差。",
+      unitTitle: "bit / byte / 单位",
+      unitDesc: "1bit 是一个 0 或 1，1byte = 8bit。K、M、G、T 有时按1000，有时按1024，考试以题干为准。",
+      operationTitle: "二进制运算",
+      operationDesc: "加法重点是进位，减法重点是借位；左移 n 位相当于乘 2^n，右移 n 位相当于除以 2^n。",
+      formulaTitle: "必须背的公式",
+      formulaOne: "n bit = 2^n 种状态",
+      formulaTwo: "无符号 n bit 范围 = 0 到 2^n - 1",
+      formulaThree: "1 byte = 8 bit",
+      formulaFour: "左移 n 位 = × 2^n",
+      formulaFive: "右移 n 位 = ÷ 2^n",
+      formulaSix: "传输时间 = 数据量 ÷ 传输速度",
+      mistakeTitle: "FE 易混点",
+      mistakeOneTitle: "256 和 255",
+      mistakeOneDesc: "8bit 有 256 种状态，但无符号整数范围是 0 到 255，因为从 0 开始编号。",
+      mistakeTwoTitle: "1000 和 1024",
+      mistakeTwoDesc: "通信速度常见 1000 进制，内存容量题常见 1024 进制；FE 题目优先看题干定义。",
+      mistakeThreeTitle: "分组方向",
+      mistakeThreeDesc: "2进制转8/16进制时，从小数点或最右侧开始分组，不够位时补 0。",
+      memoryTitle: "记忆宫殿路线",
+      memoryText: "从玄关的 0/1 按钮出发，经过鞋柜权重、走廊除法机器、电视 3位/4位分组、厨房 bit 饭团、冰箱 1000/1024，再到洗手台进位和床上左右移位。按这条路线复习，整章会自然连起来。",
+      quizTitle: "自测题",
+      quizOne: "(10111)₂ 转成10进制是多少？",
+      quizTwo: "10进制的 25 转成2进制是多少？",
+      quizThree: "8bit 无符号整数最大值是多少？",
+      quizFour: "1byte 等于多少 bit？",
+      quizFive: "为什么 0.1 + 0.2 在计算机里可能不是刚好 0.3？",
+      tagWeight: "重み",
+      tagRemainder: "余り",
+      tagRounding: "丸め誤差",
+      tagCarry: "繰り上がり",
+      tagBorrow: "繰り下がり"
+    },
+    ja: {
+      documentTitle: "ハードウェア基礎理論 詳細ページ",
+      backHome: "ホームへ戻る",
+      pageTitle: "ハードウェア基礎理論",
+      pageSubtitle: "授業資料の基数変換、情報の単位、2進数の四則演算を、FE試験で復習しやすい知識マップに整理します。",
+      summaryTitle: "一言で理解",
+      summaryText: "この章の核心は、コンピュータが 0 と 1 でデータを表す仕組みを理解し、基数変換、単位換算、2進数演算を解けるようにすることです。",
+      pathTitle: "学習ルート",
+      pathOne: "01 2進数と基数：なぜコンピュータは 0 と 1 を使うのか",
+      pathTwo: "02 基数変換：2 / 8 / 10 / 16 進数の相互変換",
+      pathThree: "03 小数変換：小数点の右側は負の重み",
+      pathFour: "04 情報の単位：bit、byte、K、M、G、T",
+      pathFive: "05 2進数演算：加算、減算、シフト",
+      pathSix: "06 FEの出題：範囲、単位、誤差、転送時間",
+      knowledgeTitle: "試験の核心知識",
+      binaryTitle: "2進数と基数",
+      binaryDesc: "基数とは、いくつで桁が上がるかを表す数です。2進数は 0 と 1 だけを使い、電圧の高低やON/OFFで表しやすいです。",
+      conversionTitle: "基数変換",
+      conversionDesc: "2進数から10進数へは重みを足します。10進数から2/8/16進数へは割り算の余りを下から読みます。",
+      octHexTitle: "8進数と16進数",
+      octHexDesc: "2進数から8進数へは右から3桁ずつ、16進数へは右から4桁ずつ区切ります。AからFは10から15です。",
+      fractionTitle: "小数と誤差",
+      fractionDesc: "2進小数の重みは 2^-1、2^-2、2^-3 です。一部の10進小数は2進数で循環し、丸め誤差が発生します。",
+      unitTitle: "bit / byte / 単位",
+      unitDesc: "1bit は 0 または 1 の1桁で、1byte = 8bit です。K、M、G、T は1000の場合と1024の場合があり、問題文を優先します。",
+      operationTitle: "2進数演算",
+      operationDesc: "加算は繰り上がり、減算は繰り下がりが重要です。左シフト n 桁は ×2^n、右シフト n 桁は ÷2^n です。",
+      formulaTitle: "必ず覚える公式",
+      formulaOne: "n bit = 2^n 通り",
+      formulaTwo: "符号なし n bit の範囲 = 0 から 2^n - 1",
+      formulaThree: "1 byte = 8 bit",
+      formulaFour: "左シフト n 桁 = × 2^n",
+      formulaFive: "右シフト n 桁 = ÷ 2^n",
+      formulaSix: "転送時間 = データ量 ÷ 転送速度",
+      mistakeTitle: "FEで間違えやすい点",
+      mistakeOneTitle: "256 と 255",
+      mistakeOneDesc: "8bit は 256 通り表せますが、符号なし整数の範囲は 0 から 255 です。0 から数えるためです。",
+      mistakeTwoTitle: "1000 と 1024",
+      mistakeTwoDesc: "通信速度では1000進み、メモリ容量では1024進みがよく出ます。FEでは問題文の定義を優先します。",
+      mistakeThreeTitle: "区切る方向",
+      mistakeThreeDesc: "2進数を8/16進数へ変換するときは、小数点または右端から区切り、不足する桁は 0 で補います。",
+      memoryTitle: "記憶宮殿ルート",
+      memoryText: "玄関の 0/1 ボタンから始め、靴箱の重み、廊下の割り算機、テレビの3桁/4桁グループ、台所のbitおにぎり、冷蔵庫の1000/1024、洗面台の繰り上がり、ベッドの左右シフトへ進みます。この順番で復習すると章全体がつながります。",
+      quizTitle: "セルフチェック",
+      quizOne: "(10111)₂ を10進数にすると？",
+      quizTwo: "10進数の 25 を2進数にすると？",
+      quizThree: "8bit 符号なし整数の最大値は？",
+      quizFour: "1byte は何 bit？",
+      quizFive: "なぜ 0.1 + 0.2 がコンピュータ上でちょうど 0.3 にならないことがある？",
+      tagWeight: "重み",
+      tagRemainder: "余り",
+      tagRounding: "丸め誤差",
+      tagCarry: "繰り上がり",
+      tagBorrow: "繰り下がり"
+    },
+    en: {
+      documentTitle: "Hardware Fundamentals Detail Page",
+      backHome: "Back Home",
+      pageTitle: "Hardware Fundamentals",
+      pageSubtitle: "Organize radix conversion, information units, and binary arithmetic from the class materials into an FE-ready study map.",
+      summaryTitle: "One-Sentence Summary",
+      summaryText: "The core of this chapter is understanding how computers represent data with 0 and 1, then solving radix conversion, unit conversion, and binary arithmetic questions.",
+      pathTitle: "Learning Path",
+      pathOne: "01 Binary and radix: why computers use 0 and 1",
+      pathTwo: "02 Radix conversion: convert between base 2 / 8 / 10 / 16",
+      pathThree: "03 Fractions: positions after the point use negative powers",
+      pathFour: "04 Information units: bit, byte, K, M, G, T",
+      pathFive: "05 Binary arithmetic: addition, subtraction, shifts",
+      pathSix: "06 FE patterns: range, units, error, transfer time",
+      knowledgeTitle: "Exam Core Knowledge",
+      binaryTitle: "Binary and Radix",
+      binaryDesc: "A radix tells how many symbols are used before carrying to the next digit. Binary uses only 0 and 1, matching voltage high/low and on/off states.",
+      conversionTitle: "Radix Conversion",
+      conversionDesc: "Binary to decimal uses place weights and addition. Decimal to base 2/8/16 uses repeated division, remainders, and reading upward.",
+      octHexTitle: "Octal and Hexadecimal",
+      octHexDesc: "Binary to octal groups 3 bits from the right. Binary to hexadecimal groups 4 bits from the right. A to F mean 10 to 15.",
+      fractionTitle: "Fractions and Error",
+      fractionDesc: "Binary fractional weights are 2^-1, 2^-2, and 2^-3. Some decimal fractions become repeating binary fractions, causing rounding error.",
+      unitTitle: "bit / byte / Units",
+      unitDesc: "1 bit is one 0 or 1, and 1 byte = 8 bits. K, M, G, and T may use 1000 or 1024, so follow the exam question definition.",
+      operationTitle: "Binary Arithmetic",
+      operationDesc: "Addition focuses on carry, subtraction on borrow. Left shift by n means multiply by 2^n, and right shift by n means divide by 2^n.",
+      formulaTitle: "Must-Know Formulas",
+      formulaOne: "n bits = 2^n states",
+      formulaTwo: "Unsigned n-bit range = 0 to 2^n - 1",
+      formulaThree: "1 byte = 8 bits",
+      formulaFour: "Left shift n places = × 2^n",
+      formulaFive: "Right shift n places = ÷ 2^n",
+      formulaSix: "Transfer time = data size ÷ transfer speed",
+      mistakeTitle: "FE Pitfalls",
+      mistakeOneTitle: "256 and 255",
+      mistakeOneDesc: "8 bits can represent 256 states, but the unsigned integer range is 0 to 255 because counting starts at 0.",
+      mistakeTwoTitle: "1000 and 1024",
+      mistakeTwoDesc: "Communication speed often uses 1000-based units, while memory capacity often uses 1024-based units. In FE questions, follow the given definition.",
+      mistakeThreeTitle: "Grouping Direction",
+      mistakeThreeDesc: "When converting binary to octal or hexadecimal, group from the decimal point or the right edge, and pad missing digits with 0.",
+      memoryTitle: "Memory Palace Route",
+      memoryText: "Start from the 0/1 buttons at the entrance, then move through shoe-rack weights, the hallway division machine, TV 3-bit/4-bit groups, kitchen bit rice balls, refrigerator 1000/1024, sink carry, and bed left/right shifts. This route connects the entire chapter.",
+      quizTitle: "Self Check",
+      quizOne: "What is (10111)₂ in decimal?",
+      quizTwo: "What is decimal 25 in binary?",
+      quizThree: "What is the maximum unsigned 8-bit integer?",
+      quizFour: "How many bits are in 1 byte?",
+      quizFive: "Why might 0.1 + 0.2 not be exactly 0.3 in a computer?",
+      tagWeight: "Weight",
+      tagRemainder: "Remainder",
+      tagRounding: "Rounding Error",
+      tagCarry: "Carry",
+      tagBorrow: "Borrow"
+    }
+  };
+
+  const htmlLang = {
+    zh: "zh-CN",
+    ja: "ja",
+    en: "en"
+  };
+
+  function setLanguage(lang) {
+    const dictionary = translations[lang] || translations.zh;
+
+    document.documentElement.lang = htmlLang[lang] || "zh-CN";
+    document.title = dictionary.documentTitle;
+
+    document.querySelectorAll("[data-i18n]").forEach((element) => {
+      const key = element.dataset.i18n;
+      if (dictionary[key]) {
+        element.textContent = dictionary[key];
+      }
+    });
+
+    document.querySelectorAll(".language-button").forEach((button) => {
+      button.classList.toggle("active", button.dataset.lang === lang);
+    });
+
+    localStorage.setItem("studyNavigatorLanguage", lang);
+  }
+
+  document.querySelectorAll(".language-button").forEach((button) => {
+    button.addEventListener("click", () => {
+      setLanguage(button.dataset.lang);
+    });
+  });
+
+  setLanguage(localStorage.getItem("studyNavigatorLanguage") || "zh");
+</script>
+
+</body>
+</html>
