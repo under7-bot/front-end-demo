@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>iBut考试对策学习宫殿</title>
+  </head>
+  <body>
+    <!-- 顶部标题区：显示项目名称、简介和学习进度 -->
+    <header class="site-header" id="site-header">
+      <h1 class="site-title">iBut考试对策学习宫殿</h1>
+      <p class="site-description">按章节学习 · 按题眼速查 · 按关键词复习</p>
+      <p class="study-progress" id="progressText">已读 0 / 20</p>
+    </header>
+
+    <!-- 章节导航区：后续可以放章节切换按钮 -->
+    <nav class="chapter-nav" id="navButtons" aria-label="章节导航">
+      <button class="chapter-nav-button" type="button">第1章</button>
+      <button class="chapter-nav-button" type="button">第2章</button>
+      <button class="chapter-nav-button" type="button">第3章</button>
+      <button class="chapter-nav-button" type="button">第4章</button>
+      <button class="chapter-nav-button" type="button">第5章</button>
+    </nav>
+
+    <!-- 搜索区：后续可以用 app.js 实现关键词搜索和筛选 -->
+    <section class="search-section" id="search-section" aria-labelledby="search-title">
+      <h2 id="search-title">关键词搜索</h2>
+      <form class="search-form" id="search-form">
+        <label class="search-label" for="searchInput">输入关键词</label>
+        <input
+          class="search-input"
+          id="searchInput"
+          name="keyword-search"
+          type="search"
+          placeholder="例如：フィッシング、著作権、DNS"
+        >
+        <button class="search-button" type="submit">搜索</button>
+      </form>
+    </section>
+
+    <!-- 主内容区：包含章节目录、正文、关键词、题眼和模拟题 -->
+    <main class="page-main" id="page-main">
+      <!-- 章节目录区：后续可以用 Flex 放在正文左侧 -->
+      <aside class="chapter-sidebar" id="chapter-sidebar" aria-labelledby="sidebar-title">
+        <h2 id="sidebar-title">章节目录</h2>
+        <ul class="chapter-list" id="sidebarList">
+          <li class="chapter-list-item">
+            <a class="chapter-link" href="#contentArea">第1章：互联网基础</a>
+          </li>
+          <li class="chapter-list-item">
+            <a class="chapter-link" href="#contentArea">第2章：网络被害</a>
+          </li>
+          <li class="chapter-list-item">
+            <a class="chapter-link" href="#contentArea">第3章：法律与权利</a>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- 内容阅读区：显示当前章节的学习正文 -->
+      <section class="main-content" id="contentArea" aria-labelledby="main-content-title">
+        <h2 id="main-content-title">当前章节内容</h2>
+        <article class="lesson-card" id="lesson-card">
+          <h3 class="lesson-title">第2章：网络被害</h3>
+          <p class="lesson-text">这里放当前章节的原文、中文解释和学习重点。</p>
+        </article>
+      </section>
+
+      <!-- 关键词中日英对照区：显示当前章节的重要术语 -->
+      <section class="terms-section" id="termsArea" aria-labelledby="terms-title">
+        <h2 id="terms-title">关键词中日英对照</h2>
+        <table class="terms-table" id="terms-table">
+          <thead>
+            <tr>
+              <th scope="col">中文</th>
+              <th scope="col">日本語</th>
+              <th scope="col">English</th>
+              <th scope="col">备注</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>网络钓鱼</td>
+              <td>フィッシング</td>
+              <td>phishing</td>
+              <td>假网站骗取账号或密码</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 题眼速查区：帮助快速识别考试关键词 -->
+      <section class="exam-hints-section" id="examHintsArea" aria-labelledby="exam-hints-title">
+        <h2 id="exam-hints-title">题眼速查</h2>
+        <article class="exam-hint-card">
+          <h3 class="exam-hint-title">常见题眼</h3>
+          <p class="exam-hint-text">看到“假网站”和“输入账号密码”，优先想到フィッシング。</p>
+        </article>
+      </section>
+
+      <!-- 模拟题区：后续可以用 app.js 渲染练习题和答案 -->
+      <section class="quiz-section" id="quizArea" aria-labelledby="quiz-title">
+        <h2 id="quiz-title">模拟题练习</h2>
+        <article class="quiz-card" id="quiz-card">
+          <h3 class="quiz-question">问题 1</h3>
+          <p class="quiz-text">如果邮件引导你进入假网站输入密码，这是什么攻击？</p>
+          <ol class="quiz-options">
+            <li>フィッシング</li>
+            <li>スキミング</li>
+            <li>暗号化</li>
+          </ol>
+        </article>
+      </section>
+    </main>
+
+    <!-- 页脚区：说明项目用途 -->
+    <footer class="site-footer" id="site-footer">
+      <p class="footer-text">本页面用于 iBut 考试对策复习，只包含静态前端结构。</p>
+    </footer>
+    <script src="./content-data.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>

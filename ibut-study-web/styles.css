@@ -1,0 +1,419 @@
+/* 全局基础样式：统一盒模型、字体、颜色和页面宽度 */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: #f8fafc;
+  color: #1f2937;
+  font-family: Arial, "Microsoft YaHei", sans-serif;
+  line-height: 1.7;
+}
+
+a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+/* 通用内容块：让主要区域有统一宽度和留白 */
+.site-header,
+.chapter-nav,
+.search-section,
+.page-main,
+.site-footer {
+  width: 92%;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+/* Header 样式：标题清晰，说明文字和进度有层级 */
+.site-header {
+  padding: 40px 0 24px;
+}
+
+.site-title {
+  margin: 0;
+  font-size: 36px;
+  line-height: 1.25;
+}
+
+.site-description {
+  margin: 12px 0 0;
+  color: #6b7280;
+  font-size: 18px;
+}
+
+.study-progress {
+  display: inline-block;
+  margin: 18px 0 0;
+  padding: 6px 12px;
+  border: 1px solid #bfdbfe;
+  border-radius: 999px;
+  background: #eff6ff;
+  color: #2563eb;
+  font-weight: 700;
+}
+
+/* Nav 样式：章节按钮使用 Flex 自动换行 */
+.chapter-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 16px 0;
+}
+
+.chapter-nav-button {
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #1f2937;
+  cursor: pointer;
+}
+
+.chapter-nav-button:hover,
+.chapter-nav-button.active {
+  border-color: #2563eb;
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+/* Search 区域样式：搜索表单用 Flex 排列，输入框方便点击 */
+.search-section {
+  margin-top: 8px;
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.search-section h2 {
+  margin: 0 0 14px;
+  font-size: 22px;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.search-label {
+  color: #6b7280;
+  font-weight: 700;
+}
+
+.search-input {
+  flex: 1;
+  min-width: 220px;
+  padding: 12px 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  color: #1f2937;
+}
+
+.search-input:focus {
+  border-color: #2563eb;
+  outline: 2px solid #bfdbfe;
+}
+
+.search-button {
+  min-height: 44px;
+  padding: 10px 18px;
+  border: 0;
+  border-radius: 8px;
+  background: #2563eb;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* Main Layout 样式：桌面端使用 Flex 做左右双栏 */
+.page-main {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.chapter-sidebar {
+  flex: 0 0 260px;
+}
+
+.main-content {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.terms-section,
+.exam-hints-section,
+.quiz-section {
+  width: calc(100% - 284px);
+  margin-left: 284px;
+}
+
+.chapter-sidebar,
+.main-content,
+.terms-section,
+.exam-hints-section,
+.quiz-section,
+.lesson-card,
+.exam-hint-card,
+.quiz-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.chapter-sidebar,
+.main-content,
+.terms-section,
+.exam-hints-section,
+.quiz-section {
+  padding: 22px;
+}
+
+/* Sidebar 样式：章节目录清晰，预留 active 和已读状态 */
+.chapter-sidebar h2 {
+  margin: 0 0 14px;
+  font-size: 22px;
+}
+
+.chapter-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chapter-list-item {
+  margin-bottom: 8px;
+}
+
+.chapter-link {
+  display: block;
+  padding: 10px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #1f2937;
+}
+
+.chapter-link:hover,
+.chapter-link.active {
+  border-color: #2563eb;
+  background: #eff6ff;
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.chapter-link.is-read {
+  border-color: #bbf7d0;
+  color: #16a34a;
+}
+
+/* Main Content 样式：正文层级清楚，适合长时间阅读 */
+.main-content h2,
+.terms-section h2,
+.exam-hints-section h2,
+.quiz-section h2 {
+  margin: 0 0 16px;
+  font-size: 24px;
+}
+
+.lesson-card,
+.exam-hint-card,
+.quiz-card {
+  padding: 18px;
+}
+
+.lesson-title,
+.exam-hint-title,
+.quiz-question {
+  margin: 0 0 10px;
+  font-size: 19px;
+}
+
+.lesson-text,
+.exam-hint-text,
+.quiz-text,
+.footer-text {
+  margin: 0;
+  color: #374151;
+}
+
+.keyword,
+.exam-point,
+.memory-tip {
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: #fff7ed;
+  color: #f97316;
+  font-weight: 700;
+}
+
+/* Terms Table 样式：表格清晰，表格区域可以横向滑动 */
+.terms-section {
+  overflow-x: auto;
+}
+
+.terms-table {
+  width: 100%;
+  min-width: 680px;
+  border-collapse: collapse;
+}
+
+.terms-table th,
+.terms-table td {
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+  text-align: left;
+  vertical-align: top;
+}
+
+.terms-table th {
+  background: #eff6ff;
+  color: #1f2937;
+}
+
+.terms-table td {
+  background: #ffffff;
+}
+
+/* Quiz 样式：题目卡片清晰，预留答案展开样式 */
+.quiz-options {
+  margin: 12px 0 0;
+  padding-left: 24px;
+}
+
+.quiz-options li {
+  margin-bottom: 8px;
+}
+
+.answer-button {
+  min-height: 44px;
+  margin-top: 14px;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 8px;
+  background: #f97316;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.answer-box {
+  margin-top: 14px;
+  padding: 14px;
+  border-left: 4px solid #16a34a;
+  border-radius: 8px;
+  background: #f0fdf4;
+  color: #166534;
+}
+
+.answer-box.warning {
+  border-left-color: #dc2626;
+  background: #fef2f2;
+  color: #991b1b;
+}
+
+/* Footer 样式：简洁收尾，使用次级文字颜色 */
+.site-footer {
+  padding: 28px 0 40px;
+  color: #6b7280;
+  text-align: center;
+}
+
+/* 响应式样式：手机端改为单列，不出现页面级横向滚动 */
+@media (max-width: 768px) {
+  .site-header,
+  .chapter-nav,
+  .search-section,
+  .page-main,
+  .site-footer {
+    width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .site-header {
+    padding-top: 28px;
+  }
+
+  .site-title {
+    font-size: 28px;
+  }
+
+  .site-description {
+    font-size: 16px;
+  }
+
+  .chapter-nav {
+    gap: 10px;
+  }
+
+  .chapter-nav-button {
+    flex: 1 1 120px;
+    min-width: 120px;
+  }
+
+  .search-section {
+    margin-top: 4px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  .search-form {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .search-input,
+  .search-button {
+    width: 100%;
+  }
+
+  .page-main {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .chapter-sidebar,
+  .main-content,
+  .terms-section,
+  .exam-hints-section,
+  .quiz-section {
+    width: 100%;
+    margin-left: 0;
+    padding: 18px;
+  }
+
+  .chapter-sidebar,
+  .main-content {
+    flex: 1 1 auto;
+  }
+
+  .lesson-card,
+  .exam-hint-card,
+  .quiz-card {
+    padding: 16px;
+  }
+
+  .terms-section {
+    max-width: 100%;
+  }
+}
