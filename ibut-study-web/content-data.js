@@ -17,12 +17,25 @@ const studySections = [
     summary: "使う側がクライアント、提供する側がサーバ"
   },
   {
+    id: "sec-2-1",
+    chapter: "第2章 インターネットでの被害",
+    title: "インターネットは、具体的にどんな被害をもたらすのか",
+    category: "被害",
+    goal: "理解网络可能带来的金钱、信息、名誉和安全方面的损害。",
+    jpKeywords: ["被害", "金銭的被害", "個人情報", "なりすまし", "誹謗中傷"],
+    explanation: "网络被害包括被骗钱、个人信息泄露、被冒充、受到攻击性发言或感染病毒。",
+    scenario: "账号密码被盗后，别人冒充本人发帖或购物。",
+    examHints: ["お金をだまし取られる", "ID・パスワードが盗まれる", "他人の名前で投稿"],
+    confusion: "金銭的被害是钱的损失，情報流出是信息被泄露。",
+    summary: "お金・情報・名誉・安全が狙われる"
+  },
+  {
     id: "sec-2-2",
     chapter: "第2章 インターネットでの被害",
     title: "フィッシング詐欺",
     category: "被害",
     goal: "理解フィッシング詐欺的典型场景、考试题眼和防范方法。",
-    jpKeywords: ["偽サイト", "ID", "パスワード", "クレジットカード番号"],
+    jpKeywords: ["フィッシング詐欺", "偽サイト", "ID", "パスワード"],
     explanation: "假装成银行、购物网站或信用卡公司，引导用户进入假网站并输入账号密码。",
     scenario: "「本人確認が必要です」「至急ログインしてください」などのメール。",
     examHints: ["偽サイト", "ID・パスワード", "銀行を装う"],
@@ -35,7 +48,7 @@ const studySections = [
     title: "ワンクリック詐欺",
     category: "被害",
     goal: "理解点击后突然显示注册完成和费用请求的诈骗。",
-    jpKeywords: ["クリック", "登録完了", "料金請求", "退会"],
+    jpKeywords: ["ワンクリック詐欺", "登録完了", "料金請求", "架空請求"],
     explanation: "用户点击链接后，页面突然显示已经注册，并要求支付费用。",
     scenario: "「登録が完了しました」「料金を支払ってください」と表示される。",
     examHints: ["クリック", "登録完了", "料金請求"],
@@ -43,17 +56,56 @@ const studySections = [
     summary: "クリック後に請求 → ワンクリック詐欺"
   },
   {
+    id: "sec-2-4",
+    chapter: "第2章 インターネットでの被害",
+    title: "詐欺、犯罪に巻き込まれないために",
+    category: "被害",
+    goal: "掌握遇到可疑链接、账单和诈骗信息时的正确行动。",
+    jpKeywords: ["相談する", "支払わない", "連絡しない", "削除する"],
+    explanation: "遇到可疑信息时，不点链接、不输入个人信息、不付款、不联系对方，并向可信的人或机构咨询。",
+    scenario: "收到不认识的收费通知时，不按邮件里的电话联系，先找老师、家人或官方窗口确认。",
+    examHints: ["支払わない", "連絡しない", "相談する"],
+    confusion: "不要用诈骗信息里的联系方式确认，要用官方网站或可信窗口。",
+    summary: "不点・不填・不付・相談"
+  },
+  {
     id: "sec-2-5",
     chapter: "第2章 インターネットでの被害",
-    title: "サポート詐欺",
+    title: "インターネットに関連した新たな詐欺の被害例",
     category: "被害",
-    goal: "理解假警告画面和假客服电话诱导的诈骗。",
-    jpKeywords: ["ウイルス感染", "警告画面", "電話", "遠隔操作"],
-    explanation: "假装电脑感染病毒，让用户打电话或安装远程操作软件。",
-    scenario: "「ウイルスに感染しました。今すぐ電話してください」と表示される。",
-    examHints: ["ウイルス感染", "電話してください", "サポート"],
-    confusion: "真正的安全软件不会要求你立刻给陌生电话付款。",
-    summary: "偽警告と電話 → サポート詐欺"
+    goal: "理解サポート詐欺、偽通販、投資詐欺、ロマンス詐欺等新型诈骗的题眼。",
+    jpKeywords: ["サポート詐欺", "偽通販サイト", "投資詐欺", "ロマンス詐欺", "QRコード詐欺"],
+    explanation: "新型诈骗常通过假警告、假购物网站、虚假投资、感情诱导或二维码把人引到假网站。",
+    scenario: "画面に偽警告が出て、電話や遠隔操作ソフトの安装を求められる。",
+    examHints: ["偽警告", "遠隔操作ソフト", "必ず儲かる", "恋愛感情"],
+    confusion: "サポート詐欺是假客服，偽通販サイト是假购物页面。",
+    summary: "警告・安すぎる商品・必ず儲かる話に注意"
+  },
+  {
+    id: "sec-2-6",
+    chapter: "第2章 インターネットでの被害",
+    title: "迷惑メール、チェーンメール",
+    category: "被害",
+    goal: "区分迷惑メール和チェーンメール，并理解正确处理方式。",
+    jpKeywords: ["迷惑メール", "チェーンメール", "転送する", "削除する"],
+    explanation: "迷惑メール可能包含广告、诈骗或病毒。チェーンメール要求继续转发，容易造成谣言和混乱。",
+    scenario: "「このメールを10人に送ってください」と書かれたメールが届く。",
+    examHints: ["広告・詐欺・ウイルス付きメール", "このメールを○人に送って"],
+    confusion: "迷惑メール是垃圾或诈骗邮件，チェーンメール重点是要求转发。",
+    summary: "怪しいメールは開かない・転送しない"
+  },
+  {
+    id: "sec-2-7",
+    chapter: "第2章 インターネットでの被害",
+    title: "健康面への影響",
+    category: "被害",
+    goal: "理解网络过度使用对眼睛、睡眠、身体姿势和心理的影响。",
+    jpKeywords: ["ネット依存", "睡眠不足", "目の疲れ", "肩こり", "ストレス"],
+    explanation: "长时间使用网络可能导致睡眠不足、眼疲劳、肩颈酸痛、网络依赖和精神压力。",
+    scenario: "夜遅くまでスマホを見続けて、次の日に眠くなる。",
+    examHints: ["夜遅くまでスマホ", "やめたいのにやめられない", "SNSで比較して不安"],
+    confusion: "健康面への影響不仅是身体问题，也包括心理压力和依赖。",
+    summary: "使いすぎは体と心に影響する"
   },
   {
     id: "sec-3-1",
@@ -165,7 +217,67 @@ const terms = [
     hint: "接続サービス業者"
   },
   {
-    id: "term-phishing",
+    id: "term-2-damage",
+    sectionId: "sec-2-1",
+    chapter: "第2章 インターネットでの被害",
+    jp: "被害",
+    reading: "ひがい",
+    zh: "受害、损害",
+    en: "damage or harm",
+    hint: "ネットで受ける損害"
+  },
+  {
+    id: "term-2-financial-damage",
+    sectionId: "sec-2-1",
+    chapter: "第2章 インターネットでの被害",
+    jp: "金銭的被害",
+    reading: "きんせんてきひがい",
+    zh: "金钱损失",
+    en: "financial damage",
+    hint: "お金をだまし取られる"
+  },
+  {
+    id: "term-2-personal-information",
+    sectionId: "sec-2-1",
+    chapter: "第2章 インターネットでの被害",
+    jp: "個人情報",
+    reading: "こじんじょうほう",
+    zh: "个人信息",
+    en: "personal information",
+    hint: "氏名、住所、IDなど"
+  },
+  {
+    id: "term-2-information-leakage",
+    sectionId: "sec-2-1",
+    chapter: "第2章 インターネットでの被害",
+    jp: "情報流出",
+    reading: "じょうほうりゅうしゅつ",
+    zh: "信息泄露",
+    en: "information leakage",
+    hint: "情報が外に出る"
+  },
+  {
+    id: "term-2-impersonation",
+    sectionId: "sec-2-1",
+    chapter: "第2章 インターネットでの被害",
+    jp: "なりすまし",
+    reading: "なりすまし",
+    zh: "冒充",
+    en: "impersonation",
+    hint: "他人の名前で行動"
+  },
+  {
+    id: "term-2-defamation",
+    sectionId: "sec-2-1",
+    chapter: "第2章 インターネットでの被害",
+    jp: "誹謗中傷",
+    reading: "ひぼうちゅうしょう",
+    zh: "诽谤中伤",
+    en: "defamation or abuse",
+    hint: "SNSで悪口を書かれる"
+  },
+  {
+    id: "term-2-phishing",
     sectionId: "sec-2-2",
     chapter: "第2章 インターネットでの被害",
     jp: "フィッシング詐欺",
@@ -175,7 +287,17 @@ const terms = [
     hint: "偽サイト、ID、パスワード"
   },
   {
-    id: "term-one-click",
+    id: "term-2-fake-site",
+    sectionId: "sec-2-2",
+    chapter: "第2章 インターネットでの被害",
+    jp: "偽サイト",
+    reading: "にせサイト",
+    zh: "假网站",
+    en: "fake website",
+    hint: "本物に似せたサイト"
+  },
+  {
+    id: "term-2-one-click",
     sectionId: "sec-2-3",
     chapter: "第2章 インターネットでの被害",
     jp: "ワンクリック詐欺",
@@ -185,7 +307,17 @@ const terms = [
     hint: "クリック後に料金請求"
   },
   {
-    id: "term-support-scam",
+    id: "term-2-fictitious-billing",
+    sectionId: "sec-2-3",
+    chapter: "第2章 インターネットでの被害",
+    jp: "架空請求",
+    reading: "かくうせいきゅう",
+    zh: "虚假账单",
+    en: "fictitious billing",
+    hint: "使っていないのに請求"
+  },
+  {
+    id: "term-2-support-scam",
     sectionId: "sec-2-5",
     chapter: "第2章 インターネットでの被害",
     jp: "サポート詐欺",
@@ -195,14 +327,184 @@ const terms = [
     hint: "偽警告と電話"
   },
   {
-    id: "term-fictitious-billing",
-    sectionId: "sec-2-3",
+    id: "term-2-fake-warning",
+    sectionId: "sec-2-5",
     chapter: "第2章 インターネットでの被害",
-    jp: "架空請求",
-    reading: "かくうせいきゅう",
-    zh: "虚假账单",
-    en: "fictitious billing",
-    hint: "使っていないのに請求"
+    jp: "偽警告",
+    reading: "にせけいこく",
+    zh: "假警告",
+    en: "fake warning",
+    hint: "ウイルス感染と表示"
+  },
+  {
+    id: "term-2-remote-access-software",
+    sectionId: "sec-2-5",
+    chapter: "第2章 インターネットでの被害",
+    jp: "遠隔操作ソフト",
+    reading: "えんかくそうさソフト",
+    zh: "远程控制软件",
+    en: "remote access software",
+    hint: "外から操作される"
+  },
+  {
+    id: "term-2-fake-shopping-site",
+    sectionId: "sec-2-5",
+    chapter: "第2章 インターネットでの被害",
+    jp: "偽通販サイト",
+    reading: "にせつうはんサイト",
+    zh: "假网购网站",
+    en: "fake shopping site",
+    hint: "商品が届かない"
+  },
+  {
+    id: "term-2-investment-scam",
+    sectionId: "sec-2-5",
+    chapter: "第2章 インターネットでの被害",
+    jp: "投資詐欺",
+    reading: "とうしさぎ",
+    zh: "投资诈骗",
+    en: "investment scam",
+    hint: "必ず儲かると言う"
+  },
+  {
+    id: "term-2-romance-scam",
+    sectionId: "sec-2-5",
+    chapter: "第2章 インターネットでの被害",
+    jp: "ロマンス詐欺",
+    reading: "ロマンスさぎ",
+    zh: "情感诈骗",
+    en: "romance scam",
+    hint: "恋愛感情と送金"
+  },
+  {
+    id: "term-2-qr-code-scam",
+    sectionId: "sec-2-5",
+    chapter: "第2章 インターネットでの被害",
+    jp: "QRコード詐欺",
+    reading: "キューアールコードさぎ",
+    zh: "二维码诈骗",
+    en: "QR code scam",
+    hint: "QRコードから偽サイト"
+  },
+  {
+    id: "term-2-spam-mail",
+    sectionId: "sec-2-6",
+    chapter: "第2章 インターネットでの被害",
+    jp: "迷惑メール",
+    reading: "めいわくメール",
+    zh: "垃圾邮件",
+    en: "spam mail",
+    hint: "広告・詐欺・ウイルス"
+  },
+  {
+    id: "term-2-chain-mail",
+    sectionId: "sec-2-6",
+    chapter: "第2章 インターネットでの被害",
+    jp: "チェーンメール",
+    reading: "チェーンメール",
+    zh: "连锁转发邮件",
+    en: "chain mail",
+    hint: "○人に送って"
+  },
+  {
+    id: "term-2-forward",
+    sectionId: "sec-2-6",
+    chapter: "第2章 インターネットでの被害",
+    jp: "転送する",
+    reading: "てんそうする",
+    zh: "转发",
+    en: "forward",
+    hint: "他人へ送る"
+  },
+  {
+    id: "term-2-delete",
+    sectionId: "sec-2-6",
+    chapter: "第2章 インターネットでの被害",
+    jp: "削除する",
+    reading: "さくじょする",
+    zh: "删除",
+    en: "delete",
+    hint: "怪しいメールを消す"
+  },
+  {
+    id: "term-2-internet-addiction",
+    sectionId: "sec-2-7",
+    chapter: "第2章 インターネットでの被害",
+    jp: "ネット依存",
+    reading: "ネットいぞん",
+    zh: "网络依赖",
+    en: "internet addiction",
+    hint: "やめたいのにやめられない"
+  },
+  {
+    id: "term-2-lack-of-sleep",
+    sectionId: "sec-2-7",
+    chapter: "第2章 インターネットでの被害",
+    jp: "睡眠不足",
+    reading: "すいみんぶそく",
+    zh: "睡眠不足",
+    en: "lack of sleep",
+    hint: "夜遅くまでスマホ"
+  },
+  {
+    id: "term-2-eye-strain",
+    sectionId: "sec-2-7",
+    chapter: "第2章 インターネットでの被害",
+    jp: "目の疲れ",
+    reading: "めのつかれ",
+    zh: "眼疲劳",
+    en: "eye strain",
+    hint: "画面を長時間見る"
+  },
+  {
+    id: "term-2-stiff-shoulders",
+    sectionId: "sec-2-7",
+    chapter: "第2章 インターネットでの被害",
+    jp: "肩こり",
+    reading: "かたこり",
+    zh: "肩颈酸痛",
+    en: "stiff shoulders",
+    hint: "同じ姿勢が続く"
+  },
+  {
+    id: "term-2-stress",
+    sectionId: "sec-2-7",
+    chapter: "第2章 インターネットでの被害",
+    jp: "ストレス",
+    reading: "ストレス",
+    zh: "压力",
+    en: "stress",
+    hint: "SNSで不安になる"
+  },
+  {
+    id: "term-2-consult",
+    sectionId: "sec-2-4",
+    chapter: "第2章 インターネットでの被害",
+    jp: "相談する",
+    reading: "そうだんする",
+    zh: "咨询",
+    en: "consult",
+    hint: "一人で判断しない"
+  },
+  {
+    id: "term-2-do-not-pay",
+    sectionId: "sec-2-4",
+    chapter: "第2章 インターネットでの被害",
+    jp: "支払わない",
+    reading: "しはらわない",
+    zh: "不付款",
+    en: "do not pay",
+    hint: "請求されても払わない"
+  },
+  {
+    id: "term-2-do-not-contact",
+    sectionId: "sec-2-4",
+    chapter: "第2章 インターネットでの被害",
+    jp: "連絡しない",
+    reading: "れんらくしない",
+    zh: "不联系",
+    en: "do not contact",
+    hint: "相手に連絡しない"
   },
   {
     id: "term-copyright",
@@ -480,25 +782,144 @@ const examHints = [
     note: "提供信息或服务的一方是服务器。"
   },
   {
-    id: "hint-004",
+    id: "hint-2-01",
+    chapter: "第2章 インターネットでの被害",
+    keyword: "お金をだまし取られる",
+    answer: "金銭的被害",
+    note: "网络诈骗造成的钱财损失。"
+  },
+  {
+    id: "hint-2-02",
+    chapter: "第2章 インターネットでの被害",
+    keyword: "ID・パスワードが盗まれる",
+    answer: "個人情報流出 / フィッシング",
+    note: "账号密码被盗常与钓鱼诈骗有关。"
+  },
+  {
+    id: "hint-2-03",
+    chapter: "第2章 インターネットでの被害",
+    keyword: "他人の名前で投稿される",
+    answer: "なりすまし",
+    note: "冒充他人进行投稿或操作。"
+  },
+  {
+    id: "hint-2-04",
+    chapter: "第2章 インターネットでの被害",
+    keyword: "SNSで悪口を書かれる",
+    answer: "誹謗中傷",
+    note: "在网络上攻击他人可能造成名誉损害。"
+  },
+  {
+    id: "hint-2-05",
+    chapter: "第2章 インターネットでの被害",
+    keyword: "添付ファイルを開いて感染",
+    answer: "ウイルス感染",
+    note: "可疑附件可能带有恶意软件。"
+  },
+  {
+    id: "hint-2-06",
     chapter: "第2章 インターネットでの被害",
     keyword: "偽サイト、ID、パスワード",
     answer: "フィッシング詐欺",
     note: "假网站诱导输入账号、密码、信用卡信息。"
   },
   {
-    id: "hint-005",
+    id: "hint-2-07",
     chapter: "第2章 インターネットでの被害",
     keyword: "クリック、登録完了、料金請求",
     answer: "ワンクリック詐欺",
     note: "点击后突然要求付款。"
   },
   {
-    id: "hint-006",
+    id: "hint-2-08",
+    chapter: "第2章 インターネットでの被害",
+    keyword: "使用していないのに請求",
+    answer: "架空請求詐欺",
+    note: "没有使用服务却收到费用请求。"
+  },
+  {
+    id: "hint-2-09",
     chapter: "第2章 インターネットでの被害",
     keyword: "ウイルス感染、電話してください",
     answer: "サポート詐欺",
     note: "假警告让用户联系假客服。"
+  },
+  {
+    id: "hint-2-10",
+    chapter: "第2章 インターネットでの被害",
+    keyword: "遠隔操作ソフトを入れさせる",
+    answer: "サポート詐欺",
+    note: "诱导安装远程控制软件是典型题眼。"
+  },
+  {
+    id: "hint-2-11",
+    chapter: "第2章 インターネットでの被害",
+    keyword: "商品が届かない、極端に安い",
+    answer: "偽通販サイト",
+    note: "价格异常便宜且商品不到账，要怀疑假网购网站。"
+  },
+  {
+    id: "hint-2-12",
+    chapter: "第2章 インターネットでの被害",
+    keyword: "必ず儲かる、暗号資産、投資",
+    answer: "投資詐欺",
+    note: "保证赚钱的投资话术很危险。"
+  },
+  {
+    id: "hint-2-13",
+    chapter: "第2章 インターネットでの被害",
+    keyword: "恋愛感情、送金",
+    answer: "ロマンス詐欺",
+    note: "利用感情关系诱导汇款。"
+  },
+  {
+    id: "hint-2-14",
+    chapter: "第2章 インターネットでの被害",
+    keyword: "QRコード、偽サイト",
+    answer: "QRコード詐欺",
+    note: "二维码可能把人带到假网站。"
+  },
+  {
+    id: "hint-2-15",
+    chapter: "第2章 インターネットでの被害",
+    keyword: "家族・友人・官公庁を装う",
+    answer: "なりすまし詐欺",
+    note: "冒充可信身份来骗取钱或信息。"
+  },
+  {
+    id: "hint-2-16",
+    chapter: "第2章 インターネットでの被害",
+    keyword: "このメールを○人に送って",
+    answer: "チェーンメール",
+    note: "要求继续转发的邮件。"
+  },
+  {
+    id: "hint-2-17",
+    chapter: "第2章 インターネットでの被害",
+    keyword: "広告・詐欺・ウイルス付きメール",
+    answer: "迷惑メール",
+    note: "垃圾邮件可能包含广告、诈骗或病毒。"
+  },
+  {
+    id: "hint-2-18",
+    chapter: "第2章 インターネットでの被害",
+    keyword: "夜遅くまでスマホを使い睡眠不足",
+    answer: "健康面への影響",
+    note: "长时间使用会影响睡眠。"
+  },
+  {
+    id: "hint-2-19",
+    chapter: "第2章 インターネットでの被害",
+    keyword: "やめたいのにやめられない",
+    answer: "ネット依存",
+    note: "想停止却停不下来是依赖的题眼。"
+  },
+  {
+    id: "hint-2-20",
+    chapter: "第2章 インターネットでの被害",
+    keyword: "SNSで比較して不安になる",
+    answer: "精神的ストレス",
+    note: "网络使用也可能影响心理状态。"
   },
   {
     id: "hint-007",
@@ -639,28 +1060,100 @@ const quizzes = [
     hint: "情報やサービスを提供"
   },
   {
-    id: "quiz-002",
+    id: "quiz-2-01",
     chapter: "第2章 インターネットでの被害",
-    question: "銀行を装ったメールから偽サイトへ誘導し、IDとパスワードを入力させる手口は何か。",
+    question: "銀行を装ったメールから偽サイトへ誘導し、IDとパスワードを入力させる詐欺は何か。",
     answer: "フィッシング詐欺",
-    explanation: "题眼是偽サイト、ID、パスワード。",
+    explanation: "关键词是偽サイト、ID、パスワード。",
     hint: "偽サイト、ID、パスワード"
   },
   {
-    id: "quiz-003",
+    id: "quiz-2-02",
     chapter: "第2章 インターネットでの被害",
     question: "リンクをクリックしただけで登録完了と料金請求が表示された。これは何か。",
     answer: "ワンクリック詐欺",
-    explanation: "题眼是クリック、登録完了、料金請求。",
+    explanation: "关键词是クリック、登録完了、料金請求。",
     hint: "クリック、登録完了、料金請求"
   },
   {
-    id: "quiz-004",
+    id: "quiz-2-03",
+    chapter: "第2章 インターネットでの被害",
+    question: "使っていないサービスの料金を請求された。これは何か。",
+    answer: "架空請求詐欺",
+    explanation: "使用していないのに請求される点が题眼。",
+    hint: "使用していないのに請求"
+  },
+  {
+    id: "quiz-2-04",
     chapter: "第2章 インターネットでの被害",
     question: "画面にウイルス感染と表示され、電話を求められた。これは何か。",
     answer: "サポート詐欺",
-    explanation: "题眼是ウイルス感染、電話してください。",
+    explanation: "偽警告と電話番号の表示が典型。",
     hint: "ウイルス感染、電話"
+  },
+  {
+    id: "quiz-2-05",
+    chapter: "第2章 インターネットでの被害",
+    question: "必ず儲かると言われ、暗号資産への投資を勧められた。これは何か。",
+    answer: "投資詐欺",
+    explanation: "必ず儲かるという言葉は投資詐欺の题眼。",
+    hint: "必ず儲かる、投資"
+  },
+  {
+    id: "quiz-2-06",
+    chapter: "第2章 インターネットでの被害",
+    question: "恋愛感情を利用され、送金を求められた。これは何か。",
+    answer: "ロマンス詐欺",
+    explanation: "恋愛感情と送金がセットで出たらロマンス詐欺。",
+    hint: "恋愛感情、送金"
+  },
+  {
+    id: "quiz-2-07",
+    chapter: "第2章 インターネットでの被害",
+    question: "広告や詐欺、ウイルス付きの可能性がある不要なメールを何というか。",
+    answer: "迷惑メール",
+    explanation: "広告・詐欺・ウイルス付きメールが题眼。",
+    hint: "広告・詐欺・ウイルス"
+  },
+  {
+    id: "quiz-2-08",
+    chapter: "第2章 インターネットでの被害",
+    question: "このメールを10人に送ってくださいと書かれたメールは何か。",
+    answer: "チェーンメール",
+    explanation: "転送を求めるメールはチェーンメール。",
+    hint: "このメールを○人に送って"
+  },
+  {
+    id: "quiz-2-09",
+    chapter: "第2章 インターネットでの被害",
+    question: "IDやパスワードが外部に漏れる被害を何というか。",
+    answer: "個人情報流出",
+    explanation: "IDやパスワードは個人情報に関係する。",
+    hint: "ID・パスワードが盗まれる"
+  },
+  {
+    id: "quiz-2-10",
+    chapter: "第2章 インターネットでの被害",
+    question: "やめたいのにネット利用をやめられない状態を何というか。",
+    answer: "ネット依存",
+    explanation: "やめたいのにやめられない点が题眼。",
+    hint: "やめたいのにやめられない"
+  },
+  {
+    id: "quiz-2-11",
+    chapter: "第2章 インターネットでの被害",
+    question: "夜遅くまでスマホを使い、睡眠不足になることは何にあたるか。",
+    answer: "健康面への影響",
+    explanation: "睡眠不足や目の疲れは健康面への影響。",
+    hint: "夜遅くまでスマホ"
+  },
+  {
+    id: "quiz-2-12",
+    chapter: "第2章 インターネットでの被害",
+    question: "怪しい料金請求を受けたときの正しい対応は何か。",
+    answer: "支払わず、連絡せず、相談する",
+    explanation: "一人で判断せず、信頼できる人や窓口に相談する。",
+    hint: "支払わない、連絡しない、相談する"
   },
   {
     id: "quiz-005",
