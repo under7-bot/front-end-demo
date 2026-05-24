@@ -152,8 +152,13 @@ input {
   margin-top: 24px;
 }
 
+/* 桌面端 Sidebar 滚动：目录固定在左侧，内容过长时自己滚动 */
 .chapter-sidebar {
   flex: 0 0 260px;
+  max-height: calc(100vh - 180px);
+  overflow-y: auto;
+  position: sticky;
+  top: 16px;
 }
 
 .main-content {
@@ -199,6 +204,8 @@ input {
   margin: 0;
   padding: 0;
   list-style: none;
+  /* 目录列表滚动：保留给较长章节目录使用 */
+  overflow-y: auto;
 }
 
 .chapter-list-item {
@@ -405,6 +412,13 @@ input {
   .chapter-sidebar,
   .main-content {
     flex: 1 1 auto;
+  }
+
+  /* 手机端 Sidebar 样式：目录放在正文上方，并限制高度独立滚动 */
+  .chapter-sidebar {
+    max-height: 320px;
+    overflow-y: auto;
+    position: static;
   }
 
   .lesson-card,
