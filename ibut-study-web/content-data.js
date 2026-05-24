@@ -613,27 +613,95 @@ const studySections = [
     "summary": "更新・バックアップ・確認の三点"
   },
   {
-    "id": "sec-7-11",
+    "id": "sec-7-1",
     "chapter": "第7章 インターネットセキュリティ",
-    "title": "多要素認証",
+    "title": "ユーザー認証とパスワード管理",
     "category": "セキュリティ",
-    "goal": "理解知识、所持、生体中两种以上组合的认证方式。",
-    "jpKeywords": [
-      "知識情報",
-      "所持情報",
-      "生体情報",
-      "ワンタイムパスワード"
-    ],
-    "explanation": "多要素认证把密码、手机、指纹等不同种类的认证组合起来。",
-    "scenario": "登录时输入密码后，还需要手机验证码或指纹确认。",
-    "examHints": [
-      "知識",
-      "所持",
-      "生体",
-      "2種類以上"
-    ],
-    "confusion": "两个密码仍是同一种知识信息，不一定是多要素。",
+    "goal": "理解用户认证的基本概念和强密码的重要性。",
+    "jpKeywords": ["ユーザー認証", "パスワード", "ID", "ログインパスワード"],
+    "explanation": "用户认证是确认用户身份的过程。密码是常见的认证方式，但弱密码容易被破解。",
+    "scenario": "设置密码时使用「123456」容易被猜到。",
+    "examHints": ["パスワード管理", "強度", "変更"],
+    "confusion": "简单密码和重复使用的密码都很危险。",
+    "summary": "パスワードは強く管理する"
+  },
+  {
+    "id": "sec-7-2",
+    "chapter": "第7章 インターネットセキュリティ",
+    "title": "パスワードを狙った攻撃",
+    "category": "セキュリティ",
+    "goal": "理解総当たり攻撃、辞書攻撃、パスワードリスト攻撃的区别。",
+    "jpKeywords": ["総当たり攻撃", "辞書攻撃", "パスワードリスト攻撃", "ブルートフォース"],
+    "explanation": "総当たり攻撃是尝试所有可能的组合；辞書攻撃使用常见单词和密码列表；パスワードリスト攻撃利用其他网站泄露的密码。",
+    "scenario": "攻击者使用程序自动尝试 0000 到 9999 的所有数字组合。",
+    "examHints": ["総当たり", "辞書", "リスト", "自動化"],
+    "confusion": "三种攻击的共同点是自动化，但使用的数据源不同。",
+    "summary": "攻撃は自動化、防御は複雑さ"
+  },
+  {
+    "id": "sec-7-3",
+    "chapter": "第7章 インターネットセキュリティ",
+    "title": "生体認証と多要素認証",
+    "category": "セキュリティ",
+    "goal": "理解生体认证和多要素认证的概念和优势。",
+    "jpKeywords": ["生体認証", "指紋認証", "顔認証", "多要素認証", "知識情報", "所持情報"],
+    "explanation": "生体认证使用指纹、面部、虹膜等身体特征。多要素认证组合两种以上不同类型的认证（知識、所指、生体）。",
+    "scenario": "登录网银时需要密码（知識）+ 手机验证码（所持）。",
+    "examHints": ["指紋", "顔", "知識", "所持", "生体"],
+    "confusion": "两个密码仍是同一种知識情報，不算多要素认证。",
     "summary": "2種類以上の認証 → 多要素認証"
+  },
+  {
+    "id": "sec-7-4",
+    "chapter": "第7章 インターネットセキュリティ",
+    "title": "暗号化と電子証明書",
+    "category": "セキュリティ",
+    "goal": "理解加密通信和电子证书的作用。",
+    "jpKeywords": ["暗号化", "SSL", "TLS", "電子証明書", "HTTPS", "ディジタル署名"],
+    "explanation": "加密把数据变成只有正确对象才能解读的形式。电子证书证明网站的真实性。",
+    "scenario": "浏览器地址栏显示锁图标表示 HTTPS 加密连接。",
+    "examHints": ["鍵アイコン", "暗号化", "証明書", "HTTPS"],
+    "confusion": "加密保护内容，证书验证身份。",
+    "summary": "暗号化で内容を保護、証明書で身元を確認"
+  },
+  {
+    "id": "sec-7-5",
+    "chapter": "第7章 インターネットセキュリティ",
+    "title": "フィルタリングとソーシャルエンジニアリング",
+    "category": "セキュリティ",
+    "goal": "理解网页过滤和社会工程学攻击的防范。",
+    "jpKeywords": ["フィルタリング", "URLフィルタリング", "ソーシャルエンジニアリング", "フィッシング"],
+    "explanation": "过滤可以阻止访问危险网站。ソーシャルエンジニアリング利用心理弱点绕过技术防护。",
+    "scenario": "收到「IT部门」的电话要求提供密码。",
+    "examHints": ["電話", "メール", "骗す", "フィルタ"],
+    "confusion": "技术措施可能被心理操纵绕过。",
+    "summary": "技術も心理も両方防御"
+  },
+  {
+    "id": "sec-7-6",
+    "chapter": "第7章 インターネットセキュリティ",
+    "title": "スキミングとスマートフォンのセキュリティ",
+    "category": "セキュリティ",
+    "goal": "理解スキミング和手机安全的基本知识。",
+    "jpKeywords": ["スキミング", "カード情報", "スマートフォン", "OS更新", "アプリ"],
+    "explanation": "スキミング是不法读取卡片磁条信息。智能手机需要及时更新系统和应用。",
+    "scenario": "在陌生设备上登录账号后没有登出。",
+    "examHints": ["カード", "OS更新", "アプリ", "公共设备"],
+    "confusion": "手机安全不仅是防病毒，还包括使用习惯。",
+    "summary": "カードは守る、端末は更新する"
+  },
+  {
+    "id": "sec-7-7",
+    "chapter": "第7章 インターネットセキュリティ",
+    "title": "バックアップと復元",
+    "category": "セキュリティ",
+    "goal": "理解备份的重要性以及如何应对数据丢失。",
+    "jpKeywords": ["バックアップ", "復元", "クラウドバックアップ", "外部記憶装置"],
+    "explanation": "定期备份可以在数据丢失或被勒索软件加密时恢复重要文件。",
+    "scenario": "电脑被勒索软件加密后，从外部硬盘备份恢复文件。",
+    "examHints": ["バックアップ", "復元", "定期的に"],
+    "confusion": "只备份一次不够，需要定期更新备份。",
+    "summary": "备份は定期的に、 хранилищеは分けた場所に"
   }
 ];
 
@@ -1666,16 +1734,33 @@ const terms = [
     "en": "digital certificate",
     "hint": "本物のサイトを証明"
   },
-  {
-    "id": "term-mfa",
-    "sectionId": "sec-7-11",
-    "chapter": "第7章 インターネットセキュリティ",
-    "jp": "多要素認証",
-    "reading": "たようそにんしょう",
-    "zh": "多因素认证",
-    "en": "multi-factor authentication",
-    "hint": "知識、所持、生体"
-  }
+  { "id": "term-7-user-auth", "sectionId": "sec-7-1", "chapter": "第7章 インターネットセキュリティ", "jp": "ユーザー認証", "reading": "ユーザーにんしょう", "zh": "用户认证", "en": "user authentication", "hint": "本人確認" },
+  { "id": "term-7-password", "sectionId": "sec-7-1", "chapter": "第7章 インターネットセキュリティ", "jp": "パスワード", "reading": "パスワード", "zh": "密码", "en": "password", "hint": "認証に使われる秘密の文字" },
+  { "id": "term-7-login-id", "sectionId": "sec-7-1", "chapter": "第7章 インターネットセキュリティ", "jp": "ログインID", "reading": "ログインアイディー", "zh": "登录ID", "en": "login ID", "hint": "アカウント識別子" },
+  { "id": "term-7-password-strength", "sectionId": "sec-7-1", "chapter": "第7章 インターネットセキュリティ", "jp": "パスワード強度", "reading": "パスワードきょうど", "zh": "密码强度", "en": "password strength", "hint": "長く複雑な密码" },
+  { "id": "term-7-brute-force", "sectionId": "sec-7-2", "chapter": "第7章 インターネットセキュリティ", "jp": "総当たり攻撃", "reading": "そうあたりこうげき", "zh": "暴力攻击/穷举攻击", "en": "brute force attack", "hint": "すべての組み合わせを試す" },
+  { "id": "term-7-dictionary-attack", "sectionId": "sec-7-2", "chapter": "第7章 インターネットセキュリティ", "jp": "辞書攻撃", "reading": "じしょこうげき", "zh": "字典攻击", "en": "dictionary attack", "hint": "よく使うパスワードを試す" },
+  { "id": "term-7-password-list-attack", "sectionId": "sec-7-2", "chapter": "第7章 インターネットセキュリティ", "jp": "パスワードリスト攻撃", "reading": "パスワードリストこうげき", "zh": "密码列表攻击", "en": "password list attack", "hint": "漏洩したパスワード再利用" },
+  { "id": "term-7-automation", "sectionId": "sec-7-2", "chapter": "第7章 インターネットセキュリティ", "jp": "自動化", "reading": "じどうか", "zh": "自动化", "en": "automation", "hint": "プログラムで自動試行" },
+  { "id": "term-7-biometric", "sectionId": "sec-7-3", "chapter": "第7章 インターネットセキュリティ", "jp": "生体認証", "reading": "せいたいにんしょう", "zh": "生物认证", "en": "biometric authentication", "hint": "指紋、顔、虹彩" },
+  { "id": "term-7-fingerprint", "sectionId": "sec-7-3", "chapter": "第7章 インターネットセキュリティ", "jp": "指紋認証", "reading": "しもんにんしょう", "zh": "指纹认证", "en": "fingerprint authentication", "hint": "指の紋で認証" },
+  { "id": "term-7-face-auth", "sectionId": "sec-7-3", "chapter": "第7章 インターネットセキュリティ", "jp": "顔認証", "reading": "かおにんしょう", "zh": "面部认证", "en": "face authentication", "hint": "顔の特徴で認証" },
+  { "id": "term-7-mfa", "sectionId": "sec-7-3", "chapter": "第7章 インターネットセキュリティ", "jp": "多要素認証", "reading": "たようそにんしょう", "zh": "多因素认证", "en": "multi-factor authentication", "hint": "知識、所持、生体から2つ以上" },
+  { "id": "term-7-knowledge-factor", "sectionId": "sec-7-3", "chapter": "第7章 インターネットセキュリティ", "jp": "知識情報", "reading": "ちしきじょうほう", "zh": "知识因素", "en": "knowledge factor", "hint": "パスワード、暗証番号" },
+  { "id": "term-7-possession-factor", "sectionId": "sec-7-3", "chapter": "第7章 インターネットセキュリティ", "jp": "所持情報", "reading": "しょじじょうほう", "zh": "持有因素", "en": "possession factor", "hint": "スマホ、ICカード" },
+  { "id": "term-7-encryption", "sectionId": "sec-7-4", "chapter": "第7章 インターネットセキュリティ", "jp": "暗号化", "reading": "あんごうか", "zh": "加密", "en": "encryption", "hint": "内容を読み取れない形にする" },
+  { "id": "term-7-ssl", "sectionId": "sec-7-4", "chapter": "第7章 インターネットセキュリティ", "jp": "SSL", "reading": "エスエルエル", "zh": "安全套接层", "en": "Secure Sockets Layer", "hint": "通信暗号化プロトコル" },
+  { "id": "term-7-tls", "sectionId": "sec-7-4", "chapter": "第7章 インターネットセキュリティ", "jp": "TLS", "reading": "ティーエルエス", "zh": "传输层安全", "en": "Transport Layer Security", "hint": "SSLの後継" },
+  { "id": "term-7-digital-cert", "sectionId": "sec-7-4", "chapter": "第7章 インターネットセキュリティ", "jp": "電子証明書", "reading": "でんししょうめいしょ", "zh": "数字证书", "en": "digital certificate", "hint": "本物のサイトを証明" },
+  { "id": "term-7-filtering", "sectionId": "sec-7-5", "chapter": "第7章 インターネットセキュリティ", "jp": "フィルタリング", "reading": "フィルタリング", "zh": "过滤", "en": "filtering", "hint": "有害サイトの遮断" },
+  { "id": "term-7-url-filtering", "sectionId": "sec-7-5", "chapter": "第7章 インターネットセキュリティ", "jp": "URLフィルタリング", "reading": "ユーアーエルフィルタリング", "zh": "URL过滤", "en": "URL filtering", "hint": "危険网站的URLをブロック" },
+  { "id": "term-7-social-engineering", "sectionId": "sec-7-5", "chapter": "第7章 インターネットセキュリティ", "jp": "ソーシャルエンジニアリング", "reading": "ソーシャルエンジニアリング", "zh": "社会工程学", "en": "social engineering", "hint": "心理を突いて情報を骗す" },
+  { "id": "term-7-phishing", "sectionId": "sec-7-5", "chapter": "第7章 インターネットセキュリティ", "jp": "フィッシング", "reading": "フィッシング", "zh": "网络钓鱼", "en": "phishing", "hint": "偽メールで騙す" },
+  { "id": "term-7-skimming", "sectionId": "sec-7-6", "chapter": "第7章 インターネットセキュリティ", "jp": "スキミング", "reading": "スキミング", "zh": "磁条信息读取", "en": "skimming", "hint": "カードの磁気情報を不正読み取り" },
+  { "id": "term-7-smartphone-sec", "sectionId": "sec-7-6", "chapter": "第7章 インターネットセキュリティ", "jp": "スマートフォンのセキュリティ", "reading": "スマートフォンのセキュリティ", "zh": "智能手机安全", "en": "smartphone security", "hint": "OS更新、アプリ管理" },
+  { "id": "term-7-backup", "sectionId": "sec-7-7", "chapter": "第7章 インターネットセキュリティ", "jp": "バックアップ", "reading": "バックアップ", "zh": "备份", "en": "backup", "hint": "データのコピー保存" },
+  { "id": "term-7-restore", "sectionId": "sec-7-7", "chapter": "第7章 インターネットセキュリティ", "jp": "復元", "reading": "ふくげん", "zh": "恢复", "en": "restore", "hint": "バックアップからデータを戻す" },
+  { "id": "term-7-cloud-backup", "sectionId": "sec-7-7", "chapter": "第7章 インターネットセキュリティ", "jp": "クラウドバックアップ", "reading": "クラウドバックアップ", "zh": "云备份", "en": "cloud backup", "hint": "网络存储服务备份" }
 ];
 
 // ???????????????????????????
@@ -2311,7 +2396,30 @@ const examHints = [
   { "id": "hint-6-014", "chapter": "第6章 コンピュータウイルス", "keyword": "OSやアプリを最新に更新", "answer": "OS更新", "note": "更新可以修补已知漏洞。" },
   { "id": "hint-6-015", "chapter": "第6章 コンピュータウイルス", "keyword": "病毒を检测・除去する", "answer": "アンチウイルスソフト", "note": "杀毒软件用于检测和清除病毒。" },
   { "id": "hint-6-016", "chapter": "第6章 コンピュータウイルス", "keyword": "データのコピー保存", "answer": "バックアップ", "note": "备份可以恢复被加密的文件。" },
-  { "id": "hint-6-017", "chapter": "第6章 コンピュータウイルス", "keyword": "同じ密码用于多个账号", "answer": "パスワード使い回し防止", "note": "密码重复使用会增加风险。" }
+  { "id": "hint-6-017", "chapter": "第6章 コンピュータウイルス", "keyword": "同じ密码用于多个账号", "answer": "パスワード使い回し防止", "note": "密码重复使用会增加风险。" },
+  { "id": "hint-7-001", "chapter": "第7章 インターネットセキュリティ", "keyword": "本人確認", "answer": "ユーザー認証", "note": "确认正在使用的人是不是本人。" },
+  { "id": "hint-7-002", "chapter": "第7章 インターネットセキュリティ", "keyword": "長く複雑な文字", "answer": "パスワード強度", "note": "强密码需要长度和复杂性。" },
+  { "id": "hint-7-003", "chapter": "第7章 インターネットセキュリティ", "keyword": "すべての組み合わせを試す", "answer": "総当たり攻撃", "note": "暴力攻击尝试所有可能的组合。" },
+  { "id": "hint-7-004", "chapter": "第7章 インターネットセキュリティ", "keyword": "よく使う単語やパスワード", "answer": "辞書攻撃", "note": "字典攻击使用常见密码列表。" },
+  { "id": "hint-7-005", "chapter": "第7章 インターネットセキュリティ", "keyword": "漏洩したパスワード、他サービス", "answer": "パスワードリスト攻撃", "note": "密码列表攻击利用泄露的密码。" },
+  { "id": "hint-7-006", "chapter": "第7章 インターネットセキュリティ", "keyword": "指紋、顔、虹彩", "answer": "生体認証", "note": "使用身体特征进行认证。" },
+  { "id": "hint-7-007", "chapter": "第7章 インターネットセキュリティ", "keyword": "指で触れる認証", "answer": "指紋認証", "note": "指纹是常见的生体认证方式。" },
+  { "id": "hint-7-008", "chapter": "第7章 インターネットセキュリティ", "keyword": "パスワード＋スマホ確認", "answer": "多要素認証", "note": "组合两种以上不同类型的认证。" },
+  { "id": "hint-7-009", "chapter": "第7章 インターネットセキュリティ", "keyword": "パスワード、暗証番号", "answer": "知識情報", "note": "只有自己知道的信息。" },
+  { "id": "hint-7-010", "chapter": "第7章 インターネットセキュリティ", "keyword": "スマホ、ICカード", "answer": "所持情報", "note": "持有某个设备或物品。" },
+  { "id": "hint-7-011", "chapter": "第7章 インターネットセキュリティ", "keyword": "指紋、顔、虹彩", "answer": "生体情報", "note": "身体的生物特征。" },
+  { "id": "hint-7-012", "chapter": "第7章 インターネットセキュリティ", "keyword": "読み取れない形にする", "answer": "暗号化", "note": "把数据变成无法直接读取的形式。" },
+  { "id": "hint-7-013", "chapter": "第7章 インターネットセキュリティ", "keyword": "鍵アイコン、HTTPS", "answer": "SSL / TLS", "note": "使用加密协议保护通信。" },
+  { "id": "hint-7-014", "chapter": "第7章 インターネットセキュリティ", "keyword": "本物のサイトと証明", "answer": "電子証明書", "note": "证明网站的身份真实性。" },
+  { "id": "hint-7-015", "chapter": "第7章 インターネットセキュリティ", "keyword": "有害サイトの遮断", "answer": "フィルタリング", "note": "阻止访问危险或有害网站。" },
+  { "id": "hint-7-016", "chapter": "第7章 インターネットセキュリティ", "keyword": "心理を突いて騙す", "answer": "ソーシャルエンジニアリング", "note": "利用心理弱点获取信息。" },
+  { "id": "hint-7-017", "chapter": "第7章 インターネットセキュリティ", "keyword": "偽メールでID・パスワード", "answer": "フィッシング", "note": "伪装成可信来源的钓鱼攻击。" },
+  { "id": "hint-7-018", "chapter": "第7章 インターネットセキュリティ", "keyword": "カードの磁気情報読み取り", "answer": "スキミング", "note": "非法读取卡片磁条信息。" },
+  { "id": "hint-7-019", "chapter": "第7章 インターネットセキュリティ", "keyword": "OSやアプリの最新版", "answer": "OS更新", "note": "保持系统和应用更新以修补漏洞。" },
+  { "id": "hint-7-020", "chapter": "第7章 インターネットセキュリティ", "keyword": "データをコピー保存", "answer": "バックアップ", "note": "定期备份防止数据丢失。" },
+  { "id": "hint-7-021", "chapter": "第7章 インターネットセキュリティ", "keyword": "バックアップから元に戻す", "answer": "復元", "note": "从备份恢复数据或系统。" },
+  { "id": "hint-7-022", "chapter": "第7章 インターネットセキュリティ", "keyword": "2つのパスワード", "answer": "多要素認証ではない", "note": "两个密码都是知识因素，不算多要素。" },
+  { "id": "hint-7-023", "chapter": "第7章 インターネットセキュリティ", "keyword": "電話や訪問で密码を求める", "answer": "ソーシャルエンジニアリング", "note": "通过人际交往骗取密码。" }
 ];
 
 // ???????????????????????
@@ -2673,5 +2781,20 @@ const quizzes = [
   { "id": "quiz-6-007", "chapter": "第6章 コンピュータウイルス", "question": "OSや及应用软件のセキュリティ欠陥を突いて侵入する行為を何と呼ぶか。", "answer": "脆弱性を突く攻撃", "explanation": "利用漏洞是攻击者入侵的常用方法。", "hint": "ソフトウェアのセキュリティ欠陥" },
   { "id": "quiz-6-008", "chapter": "第6章 コンピュータウイルス", "question": "ランサムウェア被害で暗号化されたファイルを復元する最も確実な方法は何か。", "answer": "バックアップからの復元", "explanation": "定期备份是应对勒索软件的最有效方法。", "hint": "データのコピー保存" },
   { "id": "quiz-6-009", "chapter": "第6章 コンピュータウイルス", "question": "病毒的感染経路として、不正网站上访问>Requiredファイルダウンロードと同じくらい重要な防范は何か。", "answer": "OSや应用软件的更新", "explanation": "保持系统和软件更新可以修补漏洞，防止感染。", "hint": "OSやアプリを最新に更新" },
-  { "id": "quiz-6-010", "chapter": "第6章 コンピュータウイルス", "question": "複数のウェブサイトで同じ账号、パスワードを使い回すことのリスクは何か。", "answer": "パスワードリスト攻撃", "explanation": "一个网站泄露后，攻击者用相同密码尝试其他网站。", "hint": "同じ密码用于多个账号" }
+  { "id": "quiz-6-010", "chapter": "第6章 コンピュータウイルス", "question": "複数のウェブサイトで同じ账号、パスワードを使い回すことのリスクは何か。", "answer": "パスワードリスト攻撃", "explanation": "一个网站泄露后，攻击者用相同密码尝试其他网站。", "hint": "同じ密码用于多个账号" },
+  { "id": "quiz-7-001", "chapter": "第7章 インターネットセキュリティ", "question": "パスワードの管理において、短くて単純なパスワードの何が問題か。", "answer": "簡単に推測・破解される", "explanation": "弱密码容易被総当たり攻撃或辞書攻撃破解。", "hint": "パスワード強度" },
+  { "id": "quiz-7-002", "chapter": "第7章 インターネットセキュリティ", "question": "すべての可能な組み合わせを試すパスワード攻撃は何か。", "answer": "総当たり攻撃（ブルートフォース攻撃）", "explanation": "暴力攻击尝试所有可能的字符组合。", "hint": "すべての組み合わせを試す" },
+  { "id": "quiz-7-003", "chapter": "第7章 インターネットセキュリティ", "question": "よく使われる単語やパスワードのリストを使って行う攻撃は何か。", "answer": "辞書攻撃", "explanation": "字典攻击使用常见密码和单词列表。", "hint": "よく使うパスワードを試す" },
+  { "id": "quiz-7-004", "chapter": "第7章 インターネットセキュリティ", "question": "他のウェブサイトで漏洩したパスワードを使い回す攻撃は何か。", "answer": "パスワードリスト攻撃", "explanation": "攻击者利用泄露的密码尝试其他网站。", "hint": "漏洩したパスワード再利用" },
+  { "id": "quiz-7-005", "chapter": "第7章 インターネットセキュリティ", "question": "指紋や顔の特徴を使って本人確認を行う方式は何か。", "answer": "生体認証", "explanation": "生体認証使用身体的生物特征进行身份确认。", "hint": "指紋、顔、虹彩" },
+  { "id": "quiz-7-006", "chapter": "第7章 インターネットセキュリティ", "question": "パスワードと手机の验证码など、異なる種類の認証を組み合わせる方式是何か。", "answer": "多要素認証", "explanation": "多要素認証组合知識、所指、生体中的两种以上。", "hint": "知識、所持、生体から2つ以上" },
+  { "id": "quiz-7-007", "chapter": "第7章 インターネットセキュリティ", "question": " два пароля（两个密码）を組み合わせることは多要素認証と言えるか。", "answer": "いいえ、多要素認証ではない", "explanation": "两个密码都是知識情報，只有一种认证类型。", "hint": "知識だけ2つでも多要素ではない" },
+  { "id": "quiz-7-008", "chapter": "第7章 インターネットセキュリティ", "question": "通信の内容を暗号化によって保護する协议はどれか。", "answer": "SSL / TLS（HTTPS）", "explanation": "SSL/TLS 用于加密网络通信，保护数据隐私。", "hint": "通信暗号化プロトコル" },
+  { "id": "quiz-7-009", "chapter": "第7章 インターネットセキュリティ", "question": "Webサイトの真正性を证明するものは何か。", "answer": "電子証明書", "explanation": "电子证书由 CA 颁发，证明网站的真实身份。", "hint": "本物のサイトを証明" },
+  { "id": "quiz-7-010", "chapter": "第7章 インターネットセキュリティ", "question": "危险なウェブサイトへのアクセスを遮断する方式是何か。", "answer": "フィルタリング（URLフィルタリング）", "explanation": "过滤可以阻止访问危险或有害的网站。", "hint": "有害サイトの遮断" },
+  { "id": "quiz-7-011", "chapter": "第7章 インターネットセキュリティ", "question": "人間の心理弱点，利用して情報を骗し取る攻击手法は何か。", "answer": "ソーシャルエンジニアリング", "explanation": "社会工程学利用心理弱点绕过技术防护。", "hint": "心理を突いて情報を骗す" },
+  { "id": "quiz-7-012", "chapter": "第7章 インターネットセキュリティ", "question": "银行卡の磁気情報を不正に读取取る行为は何か。", "answer": "スキミング", "explanation": "スキミング是读取卡片磁条信息的犯罪行为。", "hint": "カードの磁気情報を不正読み取り" },
+  { "id": "quiz-7-013", "chapter": "第7章 インターネットセキュリティ", "question": "スマートフォン安全のため、重要な対策は何ですか。", "answer": "OSや应用软件的更新", "explanation": "保持系统和应用更新可以修补安全漏洞。", "hint": "OS更新" },
+  { "id": "quiz-7-014", "chapter": "第7章 インターネットセキュリティ", "question": "勒索软件被害でファイルを恢复する方法として、最も確実なものは何か。", "answer": "バックアップからの復元", "explanation": "定期备份是应对数据丢失和勒索软件的最有效方法。", "hint": "バックアップからの復元" },
+  { "id": "quiz-7-015", "chapter": "第7章 インターネットセキュリティ", "question": "フィッシングメールを見分けるためのポイントとして、最も重要なものは何か。", "answer": "送信元の確認とリンク先の検証", "explanation": "不要点击可疑链接，验证网站的真实性。", "hint": "送信元の確認とリンク先の検証" }
 ];
