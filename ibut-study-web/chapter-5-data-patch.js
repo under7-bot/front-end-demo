@@ -1,0 +1,165 @@
+// 第5章「インターネットのしくみ」数据补丁文件。
+// 本文件只用于人工检查，确认后再合并到 content-data.js。
+
+const chapter5StudySections = [
+  {
+    id: "sec-5-1",
+    chapter: "第5章 インターネットのしくみ",
+    title: "Web・URL・ブラウザ",
+    category: "しくみ",
+    goal: "理解 Web、URL、浏览器的概念和基本工作原理。",
+    jpKeywords: ["Web", "WWW", "ブラウザ", "URL", "プロトコル"],
+    explanation: "Web 是互联网上发布和浏览信息的系统。URL 是资源的地址，浏览器是访问 Web 的工具。",
+    scenario: "在浏览器地址栏输入 URL 访问网站。",
+    examHints: ["ブラウザ", "URL", "Webページ"],
+    confusion: "Web 和 HTTP 不同，Web 是浏览系统，HTTP 是传输协议。",
+    summary: "URLでブラウザがページを取得"
+  },
+  {
+    id: "sec-5-2",
+    chapter: "第5章 インターネットのしくみ",
+    title: "DNS・IPアドレス",
+    category: "しくみ",
+    goal: "理解 DNS 域名系统和 IP 地址的作用。",
+    jpKeywords: ["DNS", "IPアドレス", "ドメイン名", "名前解決", "サーバ"],
+    explanation: "DNS 将域名转换为 IP 地址，方便用户访问网站而不需要记忆数字。",
+    scenario: "输入 www.example.com 访问网站，实际访问的是 IP 地址。",
+    examHints: ["ドメイン", "名前解決", "DNSサーバ"],
+    confusion: "DNS 不是存储网站的地方，而是翻译域名的地方。",
+    summary: "ドメインをIP地址に変換"
+  },
+  {
+    id: "sec-5-3",
+    chapter: "第5章 インターネットのしくみ",
+    title: "HTTP・HTTPS",
+    category: "しくみ",
+    goal: "理解 HTTP 和 HTTPS 的区别，以及加密通信的重要性。",
+    jpKeywords: ["HTTP", "HTTPS", "暗号化", "SSL", "TLS", "通信暗号化"],
+    explanation: "HTTP 是明文传输协议，HTTPS 在 HTTP 基础上加入 SSL/TLS 加密，保护隐私和通信安全。",
+    scenario: "输入密码登录时，看到锁图标表示 HTTPS 加密。",
+    examHints: ["鍵アイコン", "暗号化", "SSL", "プライバシー保護"],
+    confusion: "HTTPS 不是绝对安全，但比 HTTP 安全得多。",
+    summary: "重要な通信はHTTPSで確認"
+  },
+  {
+    id: "sec-5-4",
+    chapter: "第5章 インターネットのしくみ",
+    title: "電子メールのしくみ",
+    category: "しくみ",
+    goal: "理解邮件发送协议（SMTP）和接收协议（POP3/IMAP）的区别。",
+    jpKeywords: ["SMTP", "POP3", "IMAP", "メールクライアント", "メールサーバ"],
+    explanation: "SMTP 用于发送邮件，POP3 用于下载邮件到本地，IMAP 用于在服务器上管理邮件。",
+    scenario: "手机和电脑同时查邮件，用 IMAP 保持同步。",
+    examHints: ["送信", "受信", "同期", "POP3", "IMAP"],
+    confusion: "POP3 下载后服务器可能删除邮件，IMAP 则在服务器保留。",
+    summary: "送信用SMTP、受信用POP3かIMAP"
+  },
+  {
+    id: "sec-5-5",
+    chapter: "第5章 インターネットのしくみ",
+    title: "SNS・CGM",
+    category: "しくみ",
+    goal: "理解 SNS 和 CGM 的特征，以及网络上的信息发布责任。",
+    jpKeywords: ["SNS", "CGM", "ソーシャルメディア", "投稿", "炎上"],
+    explanation: "SNS 是社交网络服务，CGM 是用户生成内容的媒体。任何人都可以发布信息，需要注意礼仪和责任。",
+    scenario: "在 SNS 上发帖，可能被大量转发或引发炎上。",
+    examHints: ["ソーシャルメディア", "投稿", "広がり", "炎上"],
+    confusion: "SNS 是平台，CGM 是内容的性质，两者不同但常一起讨论。",
+    summary: "SNSでの投稿は自己責任"
+  },
+  {
+    id: "sec-5-6",
+    chapter: "第5章 インターネットのしくみ",
+    title: "Wi-Fi・クラウドサービス",
+    category: "しくみ",
+    goal: "理解 Wi-Fi 的安全设置和云服务的使用注意事项。",
+    jpKeywords: ["Wi-Fi", "SSID", "WPA2", "WPA3", "クラウドサービス", "データ保存"],
+    explanation: "Wi-Fi 使用 SSID 识别网络，WPA2/WPA3 是加密标准。公共 Wi-Fi 需要谨慎使用。云服务将数据保存在网络服务器上。",
+    scenario: "在咖啡店使用公共 Wi-Fi 访问网银账号。",
+    examHints: ["公共Wi-Fi", "暗号化なし", "SSID", "WPA", "クラウド的风险"],
+    confusion: "WPA3 比 WPA2 更安全，但都需要设置强密码。",
+    summary: "公共Wi-Fi利用は暗号化確認"
+  },
+  {
+    id: "sec-5-7",
+    chapter: "第5章 インターネットのしくみ",
+    title: "生成AIとプロンプト",
+    category: "しくみ",
+    goal: "理解生成 AI 的输入（プロンプト）和输出的关系，以及需要注意的事项。",
+    jpKeywords: ["生成AI", "プロンプト", "ChatGPT", "画像生成", "文章生成"],
+    explanation: "生成 AI 根据输入的プロンプト生成文本或图像。输入越具体，输出越符合需求。输出需要人工确认，不能直接当作事实。",
+    scenario: "输入「帮我写一封邮件」，AI 生成后需要检查内容是否合适。",
+    examHints: ["プロンプト", "具体性", "確認が必要", "AIの限界"],
+    confusion: "生成 AI 不理解真实世界，只是根据训练数据生成看似合理的内容。",
+    summary: "AIの答えは人が確認"
+  }
+];
+
+const chapter5Terms = [
+  { id: "term-5-web", sectionId: "sec-5-1", chapter: "第5章 インターネットのしくみ", jp: "Web", reading: "ウェブ", zh: "万维网", en: "World Wide Web", hint: "インターネット上の情報閲覧システム" },
+  { id: "term-5-www", sectionId: "sec-5-1", chapter: "第5章 インターネットのしくみ", jp: "WWW", reading: "ダブリューダブリューダブリュー", zh: "万维网", en: "World Wide Web", hint: "Webの正式名称" },
+  { id: "term-5-browser", sectionId: "sec-5-1", chapter: "第5章 インターネットのしくみ", jp: "ブラウザ", reading: "ブラウザ", zh: "浏览器", en: "browser", hint: "Webページを閲覧するソフト" },
+  { id: "term-5-url", sectionId: "sec-5-1", chapter: "第5章 インターネットのしくみ", jp: "URL", reading: "ユーアーエル", zh: "统一资源定位符", en: "Uniform Resource Locator", hint: "Web資源の住所" },
+  { id: "term-5-protocol", sectionId: "sec-5-1", chapter: "第5章 インターネットのしくみ", jp: "プロトコル", reading: "プロトコル", zh: "协议", en: "protocol", hint: "通信の約束事" },
+  { id: "term-5-dns", sectionId: "sec-5-2", chapter: "第5章 インターネットのしくみ", jp: "DNS", reading: "ディーエヌエス", zh: "域名系统", en: "Domain Name System", hint: "ドメインをIP地址に変換" },
+  { id: "term-5-ip-address", sectionId: "sec-5-2", chapter: "第5章 インターネットのしくみ", jp: "IPアドレス", reading: "アイピーアドレス", zh: "IP 地址", en: "IP address", hint: "计算机の住所" },
+  { id: "term-5-domain", sectionId: "sec-5-2", chapter: "第5章 インターネットのしくみ", jp: "ドメイン名", reading: "ドメインめい", zh: "域名", en: "domain name", hint: "例：example.com" },
+  { id: "term-5-name-resolution", sectionId: "sec-5-2", chapter: "第5章 インターネットのしくみ", jp: "名前解決", reading: "なまえかいけつ", zh: "名称解析", en: "name resolution", hint: "ドメインをIPに変換" },
+  { id: "term-5-http", sectionId: "sec-5-3", chapter: "第5章 インターネットのしくみ", jp: "HTTP", reading: "エイチティーティーピー", zh: "超文本传输协议", en: "Hypertext Transfer Protocol", hint: "Web通信のプロトコル" },
+  { id: "term-5-https", sectionId: "sec-5-3", chapter: "第5章 インターネットのしくみ", jp: "HTTPS", reading: "エイチティーティーピーエス", zh: "安全超文本传输协议", en: "Hypertext Transfer Protocol Secure", hint: "暗号化されたHTTP" },
+  { id: "term-5-ssl", sectionId: "sec-5-3", chapter: "第5章 インターネットのしくみ", jp: "SSL", reading: "エスエルエル", zh: "安全套接层", en: "Secure Sockets Layer", hint: "通信暗号化技術" },
+  { id: "term-5-tls", sectionId: "sec-5-3", chapter: "第5章 インターネットのしくみ", jp: "TLS", reading: "ティーエルエス", zh: "传输层安全", en: "Transport Layer Security", hint: "SSLの後継暗号化プロトコル" },
+  { id: "term-5-smtp", sectionId: "sec-5-4", chapter: "第5章 インターネットのしくみ", jp: "SMTP", reading: "エスメールティーピー", zh: "简单邮件传输协议", en: "Simple Mail Transfer Protocol", hint: "メール送信の protocolo" },
+  { id: "term-5-pop3", sectionId: "sec-5-4", chapter: "第5章 インターネットのしくみ", jp: "POP3", reading: "ポップスリー", zh: "邮局协议第三版", en: "Post Office Protocol 3", hint: "メール受信、ダウンロード" },
+  { id: "term-5-imap", sectionId: "sec-5-4", chapter: "第5章 インターネットのしくみ", jp: "IMAP", reading: "アイマップ", zh: "互联网消息访问协议", en: "Internet Message Access Protocol", hint: "メール同期、サーバ管理" },
+  { id: "term-5-mail-client", sectionId: "sec-5-4", chapter: "第5章 インターネットのしくみ", jp: "メールクライアント", reading: "メールクライアント", zh: "邮件客户端", en: "mail client", hint: "メールを送るソフト" },
+  { id: "term-5-sns", sectionId: "sec-5-5", chapter: "第5章 インターネットのしくみ", jp: "SNS", reading: "エスエヌエス", zh: "社交网络服务", en: "Social Networking Service", hint: "交流・共有のプラットフォーム" },
+  { id: "term-5-cgm", sectionId: "sec-5-5", chapter: "第5章 インターネットのしくみ", jp: "CGM", reading: "シージーエム", zh: "消费者生成媒体", en: "Consumer Generated Media", hint: "利用者が内容を生成" },
+  { id: "term-5-social-media", sectionId: "sec-5-5", chapter: "第5章 インターネットのしくみ", jp: "ソーシャルメディア", reading: "ソーシャルメディア", zh: "社交媒体", en: "social media", hint: "SNS的总称" },
+  { id: "term-5-wifi", sectionId: "sec-5-6", chapter: "第5章 インターネットのしくみ", jp: "Wi-Fi", reading: "ワイファイ", zh: "无线网络", en: "Wi-Fi", hint: "无线LAN" },
+  { id: "term-5-ssid", sectionId: "sec-5-6", chapter: "第5章 インターネットのしくみ", jp: "SSID", reading: "エスエスアイディー", zh: "服务集标识符", en: "Service Set Identifier", hint: "Wi-Fi网络的名称" },
+  { id: "term-5-wpa2", sectionId: "sec-5-6", chapter: "第5章 インターネットのしくみ", jp: "WPA2", reading: "ダブリューーピー・エー・ツー", zh: "Wi-Fi 保护访问 2", en: "Wi-Fi Protected Access 2", hint: "Wi-Fi暗号化方式" },
+  { id: "term-5-wpa3", sectionId: "sec-5-6", chapter: "第5章 インターネットのしくみ", jp: "WPA3", reading: "ダブリューーピー・エー・スリーダブリュUED", zh: "Wi-Fi 保护访问 3", en: "Wi-Fi Protected Access 3", hint: "WPA2の改良版、より安全" },
+  { id: "term-5-cloud", sectionId: "sec-5-6", chapter: "第5章 インターネットのしくみ", jp: "クラウドサービス", reading: "クラウドサービス", zh: "云服务", en: "cloud service", hint: "网络上のデータ保存" },
+  { id: "term-5-generative-ai", sectionId: "sec-5-7", chapter: "第5章 インターネットのしくみ", jp: "生成AI", reading: "せいせいエーアイ", zh: "生成式 AI", en: "generative AI", hint: "文章や画像を生成" },
+  { id: "term-5-prompt", sectionId: "sec-5-7", chapter: "第5章 インターネットのしくみ", jp: "プロンプト", reading: "プロンプト", zh: "提示词、输入指令", en: "prompt", hint: "AIへの入力指示" },
+  { id: "term-5-chatgpt", sectionId: "sec-5-7", chapter: "第5章 インターネットのしくみ", jp: "ChatGPT", reading: "チャットジーティーピー", zh: "ChatGPT", en: "ChatGPT", hint: "OpenAIの生成AIサービス" }
+];
+
+const chapter5ExamHints = [
+  { id: "hint-5-001", chapter: "第5章 インターネットのしくみ", keyword: "Webページを表示するソフト", answer: "ブラウザ", note: "浏览器用于显示网页内容。" },
+  { id: "hint-5-002", chapter: "第5章 インターネットのしくみ", keyword: "Web資源の住所", answer: "URL", note: "URL 是资源的网络地址。" },
+  { id: "hint-5-003", chapter: "第5章 インターネットのしくみ", keyword: "通信の約束事", answer: "プロトコル", note: "协议是通信的规则。" },
+  { id: "hint-5-004", chapter: "第5章 インターネットのしくみ", keyword: "ドメインをIPに変換", answer: "DNS", note: "DNS 将域名解析为 IP 地址。" },
+  { id: "hint-5-005", chapter: "第5章 インターネットのしくみ", keyword: "计算机の住所", answer: "IPアドレス", note: "IP 地址是计算机在网络上的标识。" },
+  { id: "hint-5-006", chapter: "第5章 インターネットのしくみ", keyword: "example.com", answer: "ドメイン名", note: "域名是网站的名称标识。" },
+  { id: "hint-5-007", chapter: "第5章 インターネットのしくみ", keyword: "鍵アイコン、暗号化", answer: "HTTPS", note: "HTTPS 使用加密保护通信。" },
+  { id: "hint-5-008", chapter: "第5章 インターネットのしくみ", keyword: "通信暗号化技術", answer: "SSL / TLS", note: "SSL/TLS 用于加密网络通信。" },
+  { id: "hint-5-009", chapter: "第5章 インターネットのしくみ", keyword: "メール送信", answer: "SMTP", note: "SMTP 是邮件发送协议。" },
+  { id: "hint-5-010", chapter: "第5章 インターネットのしくみ", keyword: "メールダウンロード", answer: "POP3", note: "POP3 用于下载邮件到本地。" },
+  { id: "hint-5-011", chapter: "第5章 インターネットのしくみ", keyword: "メール同期", answer: "IMAP", note: "IMAP 用于在多个设备同步邮件。" },
+  { id: "hint-5-012", chapter: "第5章 インターネットのしくみ", keyword: "交流・共有のプラットフォーム", answer: "SNS", note: "SNS 是社交网络服务。" },
+  { id: "hint-5-013", chapter: "第5章 インターネットのしくみ", keyword: "利用者が内容を生成", answer: "CGM", note: "CGM 是用户生成的内容媒体。" },
+  { id: "hint-5-014", chapter: "第5章 インターネットのしくみ", keyword: "无线LAN", answer: "Wi-Fi", note: "Wi-Fi 是无线网络技术。" },
+  { id: "hint-5-015", chapter: "第5章 インターネットのしくみ", keyword: "Wi-Fi网络的名称", answer: "SSID", note: "SSID 用于识别无线网络。" },
+  { id: "hint-5-016", chapter: "第5章 インターネットのしくみ", keyword: "Wi-Fi暗号化方式", answer: "WPA2 / WPA3", note: "WPA2/WPA3 是 Wi-Fi 安全协议。" },
+  { id: "hint-5-017", chapter: "第5章 インターネットのしくみ", keyword: "网络上のデータ保存", answer: "クラウドサービス", note: "云服务将数据存储在网络上。" },
+  { id: "hint-5-018", chapter: "第5章 インターネットのしくみ", keyword: "文章や画像を生成", answer: "生成AI", note: "生成 AI 可以创建文本和图像。" },
+  { id: "hint-5-019", chapter: "第5章 インターネットのしくみ", keyword: "AIへの入力指示", answer: "プロンプト", note: "プロンプト 是给 AI 的输入指令。" },
+  { id: "hint-5-020", chapter: "第5章 インターネットのしくみ", keyword: "公共Wi-Fi、暗号化なし", answer: "Wi-Fi利用の注意", note: "公共 Wi-Fi 需要注意加密和 VPN。" }
+];
+
+const chapter5Quizzes = [
+  { id: "quiz-5-001", chapter: "第5章 インターネットのしくみ", question: "Webページを閲覧するために使用するソフトは何か。", answer: "ブラウザ", explanation: "浏览器是用于显示网页内容的软件。", hint: "Webページを表示するソフト" },
+  { id: "quiz-5-002", chapter: "第5章 インターネットのしくみ", question: "ドメイン名をIPアドレスに変換するシステムは何か。", answer: "DNS", explanation: "DNS 将易记的域名转换为数字的 IP 地址。", hint: "ドメインをIPに変換" },
+  { id: "quiz-5-003", chapter: "第5章 インターネットのしくみ", question: "HTTPに暗号化機能を追加したプロトコルは何か。", answer: "HTTPS", explanation: "HTTPS 在 HTTP 基础上添加了 SSL/TLS 加密。", hint: "鍵アイコン、暗号化" },
+  { id: "quiz-5-004", chapter: "第5章 インターネットのしくみ", question: "メールを送信する際に使用されるプロトコルは何か。", answer: "SMTP", explanation: "SMTP 是用于发送邮件的协议。", hint: "メール送信" },
+  { id: "quiz-5-005", chapter: "第5章 インターネットのしくみ", question: "メールをサーバからダウンロードし、複数の端末で同期したい場合に適切なプロトコルは何か。", answer: "IMAP", explanation: "IMAP 可以在多个设备同步管理邮件。", hint: "メール同期" },
+  { id: "quiz-5-006", chapter: "第5章 インターネットのしくみ", question: "利用者が自らの手でコンテンツを作成し、SNSなどで共有するメディア形態を何というか。", answer: "CGM", explanation: "CGM 是由消费者（用户）生成内容的媒体。", hint: "利用者が内容を生成" },
+  { id: "quiz-5-007", chapter: "第5章 インターネットのしくみ", question: "公衆Wi-Fi接続時にデータを暗号化して通信するために 사용할수 있는 방법은何か。", answer: "VPN", explanation: "公共 Wi-Fi 使用 VPN 可以加密通信内容。", hint: "公共Wi-Fi、暗号化" },
+  { id: "quiz-5-008", chapter: "第5章 インターネットのしくみ", question: "Wi-Fiネットワークのセキュリティ方式で、WPA2より新しいものは何か。", answer: "WPA3", explanation: "WPA3 是 WPA2 的升级版，提供更强的安全性。", hint: "WPA2より新しい暗号化" },
+  { id: "quiz-5-009", chapter: "第5章 インターネットのしくみ", question: "生成AIに対して具体的な指示や情報を与えることを何と呼ぶか。", answer: "プロンプト", explanation: "プロンプト 是用户给 AI 的输入指令，决定输出内容。", hint: "AIへの入力指示" },
+  { id: "quiz-5-010", chapter: "第5章 インターネットのしくみ", question: "クラウドサービスの利用目的として、家庭のコンピュータに保存せず通过网络でデータを保存・アクセスすることは何か。", answer: "クラウドサービス", explanation: "云服务通过网络提供数据存储和访问。", hint: "网络上のデータ保存" },
+  { id: "quiz-5-011", chapter: "第5章 インターネットのしくみ", question: "URLの中で、WebブラウザとWebサーバ間の通信プロトコルを指定する部分はどこか。", answer: "プロトコル部分（http://またはhttps://）", explanation: "URL 开头的 http:// 或 https:// 表示通信协议。", hint: "プロトコル部分" },
+  { id: "quiz-5-012", chapter: "第5章 インターネットのしくみ", question: "生成AIの出力結果をそのまま事实として使用する前に、何を行う必要があるか。", answer: "内容确认（事実確認）", explanation: "AI 输出可能包含错误，需要人工确认。", hint: "確認が必要" }
+];
